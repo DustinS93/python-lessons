@@ -26,6 +26,17 @@
 - I reference my own previous puzzles if I need help
 - Each completed puzzle gets saved as its own MD file in /puzzles/
 - Read the puzzles folder to know what we've done — never repeat a puzzle
+## Puzzle Rules (addition)
+- Before using a new method or function in a puzzle, 
+  check the puzzles folder to see if it's been covered
+- If it hasn't been covered, do a quick shell drill first 
+- If it has been covered in a prior puzzle, it's fair game — 
+  reference the puzzle file and build on it
+  ## Puzzle Rules (addition)
+- Before introducing any method or function in a puzzle, 
+  confirm it has been drilled in the REPL first
+- If a puzzle requires something not yet drilled, 
+  stop and do the drill before continuing
 
 ### Debugging
 - I read the error message first
@@ -54,6 +65,10 @@
 - Build vocabulary alongside code — I should know what arguments, 
   parameters, methods, functions, returns etc. all mean, not just how to use them
 
+## File Access
+- Always read files directly — never ask me to paste code
+- When I mention a file, read it yourself from the project folder
+- If you need to see my code, look for it in puzzles/ or the root folder
 
 ## Progress Tracking
 - PROGRESS.md is your teacher notes — update it at the end of every session
