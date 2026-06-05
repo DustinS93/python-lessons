@@ -1,32 +1,29 @@
-## Session 1 — 2026-06-04
+## Session 2 — 2026-06-04
 
 ### What We Covered
-- `print` vs `return` — print displays to screen, return hands a value back to the caller
-- Parameters vs arguments — parameters are placeholders in the definition, arguments are values passed at call time
-- Default parameters — must come after parameters without defaults; used as fallback when no argument is passed
-- Passing multiple arguments to a function
-- String concatenation inside return statements (spacing matters)
+- Storing return values in variables
+- Return value vs repr vs print output (quotes vs no quotes)
+- Passing return values directly into print() without storing
+- Functions calling functions — return value of one as argument to another
+- `str()` — converting a float to a string for concatenation (came up mid-puzzle, not pre-drilled)
 
 ### Puzzles Completed
-- `puzzles/describe_pet.py` — function that takes `name` and optional `animal` (default: "dog"), returns a sentence
+- `puzzles/bill_splitter.py` — two functions: `bill_splitter(total, people)` returns share, `format_share(amount)` returns formatted string; called together in one line
 
 ### Vocabulary Introduced
-- parameter
-- argument
-- default parameter
-- return value
+- repr (representation — how Python displays a value in the REPL, includes quotes for strings)
+- `str()` conversion
 
 ### What He Struggled With
-- Passing string arguments (passed bare words instead of quoted strings — "not defined" error)
-- Default parameter syntax — initially set the default as a variable outside the function instead of inside the `def` line
-- String spacing in concatenation
+- Treating a variable like a function (used parentheses after `amount` — "float object not callable")
+- `str()` was needed mid-puzzle but hadn't been drilled — flagged this gap himself
 
 ### What Felt Solid
-- `print` vs `return` distinction clicked quickly
-- Understood why default parameters must come after non-default ones unprompted
-- Read and interpreted error messages himself before asking
+- Functions calling functions pattern clicked from drills
+- Read the error message and identified the problem area himself
+- Self-aware about concepts introduced without drilling
 
 ### Notes for Next Session
-- Cover passing multiple arguments explicitly in drills before the puzzle — Dustin flagged this was missing this session
-- He's self-aware about gaps, good instinct for debugging
-- Pick up with: more function practice or introduce scope (local vs global variables)
+- Drill `str()`, `int()`, `float()` type conversion before next puzzle — came up organically this session
+- Consider drilling: what happens when you use parentheses after a non-function variable
+- Pick up with: type conversion drills, then either another function puzzle or introduce scope

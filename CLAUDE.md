@@ -54,14 +54,21 @@
 - Build vocabulary alongside code — I should know what arguments, 
   parameters, methods, functions, returns etc. all mean, not just how to use them
 
+
 ## Progress Tracking
 - PROGRESS.md is your teacher notes — update it at the end of every session
-- When I say "update progress", write to PROGRESS.md with:
-  - Date
-  - What we covered
-  - Puzzles completed (with filenames)
-  - Vocabulary introduced
-  - What I struggled with
-  - What felt solid
-  - Where to start next session
-- Keep a running log — don't overwrite, always append
+- PROGRESS.md = current session only (overwrite each time)
+- PROGRESS_LOG.md = full history (append before overwriting PROGRESS.md)
+
+When I say "update progress":
+1. Append current PROGRESS.md to PROGRESS_LOG.md
+2. Overwrite PROGRESS.md with this session only:
+   - Date
+   - What we covered (brief bullets)
+   - Puzzles completed (filenames only)
+   - Vocabulary introduced (terms only, no definitions)
+   - What I struggled with (one line each)
+   - What felt solid (one line each)
+   - Where to start next session
+
+Keep it under 30 lines. No paragraphs, bullets only.
