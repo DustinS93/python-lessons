@@ -1,28 +1,27 @@
-## Session 3 — next session
+## Session 3 — 2026-06-04
 
 ### What We Covered
-- Type conversion drills: `str()`, `int()`, `float()`
-- `int("7.5")` raises ValueError — must go `float()` first, then `int()`
-- `int()` truncates, does not round
-- Why `"string" + 42` fails — can't concatenate str and int
-- REPL behavior explained — the P in REPL, not Python's `print()`
-- Functions calling functions with type conversion in return string
+- Conditionals: `if`, `elif`, `else`
+- `>` vs `>=` — strictly greater than vs greater than or equal
+- Python checks conditions top to bottom and stops at first true match
+- No output when condition is false and no `else` — not an error
+- Applied `str()` in a puzzle without being prompted
 
 ### Puzzles Completed
-- `puzzles/temp_converter.py`
+- `puzzles/grade_checker.py`
 
 ### Vocabulary Introduced
-- truncation
-- REPL (Read, Evaluate, Print, Loop)
+- conditional
+- `elif`
 
 ### What He Struggled With
-- Minor: typo and missing " F" in format string — caught on review
+- Nothing significant — thought through the two-function design himself before writing
 
 ### What Felt Solid
-- Type conversion drills — got `int(float("7.5"))` unprompted
-- Recognized why `str()` was needed without being told
-- Connected REPL behavior to the acronym himself
+- `if`/`elif`/`else` structure clicked immediately
+- Reasoned through passing a return value as an argument unprompted
+- Used `str()` correctly without a reminder
 
 ### Where to Start Next Session
-- Type conversion is solid
-- Pick up with: scope (local vs global variables) OR conditional logic (`if`/`else`)
+- Conditionals are solid
+- Next: scope (local vs global variables) OR introduce `input()` to make programs interactive
