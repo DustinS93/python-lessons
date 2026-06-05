@@ -1,27 +1,26 @@
-## Session 3 — 2026-06-04
+## Session 4 — 2026-06-05
 
 ### What We Covered
-- Conditionals: `if`, `elif`, `else`
-- `>` vs `>=` — strictly greater than vs greater than or equal
-- Python checks conditions top to bottom and stops at first true match
-- No output when condition is false and no `else` — not an error
-- Applied `str()` in a puzzle without being prompted
+- `input()` — prompts user, pauses program, returns a string
+- `input()` always returns a string even if user types a number
+- `int(input())` — wrapping input to convert at the source
+- Redundant conditions in `elif` — if first `if` fails, later conditions are already implied
+- Converting once vs converting repeatedly inside conditionals
 
 ### Puzzles Completed
-- `puzzles/grade_checker.py`
+- `puzzles/ticket_price.py`
 
 ### Vocabulary Introduced
-- conditional
-- `elif`
+- (none new)
 
 ### What He Struggled With
-- Nothing significant — thought through the two-function design himself before writing
+- Tried to convert in the parameter definition — good instinct, wrong place
 
 ### What Felt Solid
-- `if`/`elif`/`else` structure clicked immediately
-- Reasoned through passing a return value as an argument unprompted
-- Used `str()` correctly without a reminder
+- Knew immediately that `input()` returns a string
+- Recognized the redundant `>= 13` check himself
+- Figured out `int(input())` pattern on his own
 
 ### Where to Start Next Session
-- Conditionals are solid
-- Next: scope (local vs global variables) OR introduce `input()` to make programs interactive
+- `input()` is solid
+- Next: scope (local vs global variables)
