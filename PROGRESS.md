@@ -1,26 +1,29 @@
-## Session 4 — 2026-06-05
+## Session 5 — 2026-06-05
 
 ### What We Covered
-- `input()` — prompts user, pauses program, returns a string
-- `input()` always returns a string even if user types a number
-- `int(input())` — wrapping input to convert at the source
-- Redundant conditions in `elif` — if first `if` fails, later conditions are already implied
-- Converting once vs converting repeatedly inside conditionals
+- Scope: local vs global variables
+- Local variables only exist inside the function where they're defined
+- Global variables are visible everywhere, including inside functions
+- Same variable name in two scopes — function uses its own local copy
+- Function definition order doesn't matter, only call order does
+- `return` vs `print` inside functions — return hands a value back, print just displays
 
 ### Puzzles Completed
-- `puzzles/ticket_price.py`
+- `puzzles/the_vault.py`
 
 ### Vocabulary Introduced
-- (none new)
+- scope
+- local scope
+- global scope
 
 ### What He Struggled With
-- Tried to convert in the parameter definition — good instinct, wrong place
+- Initially used `print` inside function + `print(lock())` outside — got `None`, reasoned through it himself
 
 ### What Felt Solid
-- Knew immediately that `input()` returns a string
-- Recognized the redundant `>= 13` check himself
-- Figured out `int(input())` pattern on his own
+- Immediately understood why `NameError` appeared when accessing local variable outside function
+- Correctly predicted global variable accessible inside function
+- Understood `return` vs `print` distinction quickly once he saw the `None`
 
 ### Where to Start Next Session
-- `input()` is solid
-- Next: scope (local vs global variables)
+- Scope is solid
+- Next: `global` keyword OR lists/loops revisit OR introduce more complex function patterns
