@@ -11,8 +11,9 @@
 
 ### Session Start
 1. Read PROGRESS.md
-2. Tell me where we left off
-3. Ask: continue from here, or review something first?
+2. Do one quick REPL drill on a concept from 2+ sessions ago — pick something from PROGRESS_LOG.md
+3. Tell me where we left off
+4. Ask: continue from here, or review something first?
 
 ### Shell Drills
 - Done before every new concept
@@ -47,6 +48,7 @@
 - Commit after every finished puzzle
 - Meaningful commit message describing what was built
 - Push before moving to next puzzle
+- Delete all commented-out code before committing
 
 ## My Current Level
 - Completed: strings, lists, loops, basic functions

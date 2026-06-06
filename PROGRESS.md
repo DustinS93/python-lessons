@@ -1,29 +1,32 @@
-## Session 5 — 2026-06-05
+## Session 6 — 2026-06-05
 
 ### What We Covered
-- Scope: local vs global variables
-- Local variables only exist inside the function where they're defined
-- Global variables are visible everywhere, including inside functions
-- Same variable name in two scopes — function uses its own local copy
-- Function definition order doesn't matter, only call order does
-- `return` vs `print` inside functions — return hands a value back, print just displays
+- Lists: creating, indexing with `[0]`, `[-1]`, `len()`
+- Negative indexing — `-1` is always the last item
+- `for item in list` loop — loop variable is a temporary name, can be anything
+- Loop counter pattern — variable before loop, increment inside loop
+- `return` inside a loop exits the entire function immediately
+- Parameter names are arbitrary — what matters is consistency inside the function
 
 ### Puzzles Completed
-- `puzzles/the_vault.py`
+- `puzzles/the_shopping_list.py`
+- `puzzles/the_countdown.py`
+- `puzzles/the_grade_book.py`
 
 ### Vocabulary Introduced
-- scope
-- local scope
-- global scope
+- index
+- negative index
 
 ### What He Struggled With
-- Initially used `print` inside function + `print(lock())` outside — got `None`, reasoned through it himself
+- `number = +1` vs `number = number + 1` — subtle distinction, caught himself
+- Hardcoded counter instead of `len()` — corrected when prompted
+- Initially used `return` inside loop — understood why it was wrong once reminded what `return` does
 
 ### What Felt Solid
-- Immediately understood why `NameError` appeared when accessing local variable outside function
-- Correctly predicted global variable accessible inside function
-- Understood `return` vs `print` distinction quickly once he saw the `None`
+- Loop variable naming clicked immediately — tested it himself
+- Combining loops with conditionals in `the_grade_book.py` — wrote it cleanly
+- Knew when to drop `print()` wrapper vs when to use `return`
 
 ### Where to Start Next Session
-- Scope is solid
-- Next: `global` keyword OR lists/loops revisit OR introduce more complex function patterns
+- Lists and loops are solid
+- Next: list methods (`append`, `remove`, etc.) OR introduce `while` loops OR step up puzzle complexity
