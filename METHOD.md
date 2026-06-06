@@ -28,7 +28,7 @@ Shell drills for familiarity, puzzles for building.
 - Meaningful commit messages describing what you built
 
 ## Folder Structure
-python-learning/
+python-lessons/
   CLAUDE.md
   PROGRESS.md
   METHOD.md

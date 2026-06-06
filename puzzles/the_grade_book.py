@@ -14,4 +14,4 @@ def grade_book(grade_list):
 
 
 grades = [66, 77, 88, 99, 97, 75, 89]
-grade_book(grades)
+grade_book(grades)  

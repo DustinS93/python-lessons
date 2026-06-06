@@ -1,30 +1,35 @@
-## Session 3 — 2026-06-04
+## Session 1 — 2026-06-04
 
 ### What We Covered
-- Conditionals: `if`, `elif`, `else`
-- `>` vs `>=` — strictly greater than vs greater than or equal
-- Python checks conditions top to bottom and stops at first true match
-- No output when condition is false and no `else` — not an error
-- Applied `str()` in a puzzle without being prompted
+- `print` vs `return` — print displays to screen, return hands a value back to the caller
+- Parameters vs arguments — parameters are placeholders in the definition, arguments are values passed at call time
+- Default parameters — must come after parameters without defaults; used as fallback when no argument is passed
+- Passing multiple arguments to a function
+- String concatenation inside return statements (spacing matters)
 
 ### Puzzles Completed
-- `puzzles/grade_checker.py`
+- `puzzles/describe_pet.py` — function that takes `name` and optional `animal` (default: "dog"), returns a sentence
 
 ### Vocabulary Introduced
-- conditional
-- `elif`
+- parameter
+- argument
+- default parameter
+- return value
 
 ### What He Struggled With
-- Nothing significant — thought through the two-function design himself before writing
+- Passing string arguments (passed bare words instead of quoted strings — "not defined" error)
+- Default parameter syntax — initially set the default as a variable outside the function instead of inside the `def` line
+- String spacing in concatenation
 
 ### What Felt Solid
-- `if`/`elif`/`else` structure clicked immediately
-- Reasoned through passing a return value as an argument unprompted
-- Used `str()` correctly without a reminder
+- `print` vs `return` distinction clicked quickly
+- Understood why default parameters must come after non-default ones unprompted
+- Read and interpreted error messages himself before asking
 
 ### Notes for Next Session
-- Conditionals are solid
-- Next: scope (local vs global variables) OR introduce `input()` to make programs interactive
+- Cover passing multiple arguments explicitly in drills before the puzzle — Dustin flagged this was missing this session
+- He's self-aware about gaps, good instinct for debugging
+- Pick up with: more function practice or introduce scope (local vs global variables)
 
 ---
 
@@ -59,38 +64,33 @@
 
 ---
 
-## Session 1 — 2026-06-04
+## Session 3 — 2026-06-04
 
 ### What We Covered
-- `print` vs `return` — print displays to screen, return hands a value back to the caller
-- Parameters vs arguments — parameters are placeholders in the definition, arguments are values passed at call time
-- Default parameters — must come after parameters without defaults; used as fallback when no argument is passed
-- Passing multiple arguments to a function
-- String concatenation inside return statements (spacing matters)
+- Conditionals: `if`, `elif`, `else`
+- `>` vs `>=` — strictly greater than vs greater than or equal
+- Python checks conditions top to bottom and stops at first true match
+- No output when condition is false and no `else` — not an error
+- Applied `str()` in a puzzle without being prompted
 
 ### Puzzles Completed
-- `puzzles/describe_pet.py` — function that takes `name` and optional `animal` (default: "dog"), returns a sentence
+- `puzzles/grade_checker.py`
 
 ### Vocabulary Introduced
-- parameter
-- argument
-- default parameter
-- return value
+- conditional
+- `elif`
 
 ### What He Struggled With
-- Passing string arguments (passed bare words instead of quoted strings — "not defined" error)
-- Default parameter syntax — initially set the default as a variable outside the function instead of inside the `def` line
-- String spacing in concatenation
+- Nothing significant — thought through the two-function design himself before writing
 
 ### What Felt Solid
-- `print` vs `return` distinction clicked quickly
-- Understood why default parameters must come after non-default ones unprompted
-- Read and interpreted error messages himself before asking
+- `if`/`elif`/`else` structure clicked immediately
+- Reasoned through passing a return value as an argument unprompted
+- Used `str()` correctly without a reminder
 
 ### Notes for Next Session
-- Cover passing multiple arguments explicitly in drills before the puzzle — Dustin flagged this was missing this session
-- He's self-aware about gaps, good instinct for debugging
-- Pick up with: more function practice or introduce scope (local vs global variables)
+- Conditionals are solid
+- Next: scope (local vs global variables) OR introduce `input()` to make programs interactive
 
 ---
 

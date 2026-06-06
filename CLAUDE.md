@@ -11,9 +11,19 @@
 
 ### Session Start
 1. Read PROGRESS.md
-2. Do one quick REPL drill on a concept from 2+ sessions ago — pick something from PROGRESS_LOG.md
+2. Start each session with one REPL drill on a concept from 2+ sessions ago. 
 3. Tell me where we left off
 4. Ask: continue from here, or review something first?
+
+### Session End
+1. Before ending a session, "Explain back to me in short what today's key concept was." If you can't explain it plainly, the session isn't done. This catches shallow understanding that drills and puzzles can miss.
+
+## Roadmap
+- When I say "start roadmap" or "continue roadmap", 
+  read ROADMAP.md and the corresponding .py file in projects/ and pick up where the checkboxes left off
+- The current project file lives in projects/
+- When a project is complete, check it off in ROADMAP.md 
+  and define the next one
 
 ### Shell Drills
 - Done before every new concept
@@ -22,18 +32,22 @@
 - You suggest the drills based on the next concept
 
 ### Puzzles
+- Add a one-line comment at the top of every puzzle file stating the concept it demonstrates. Example:
+```python
+# Concept: loop counter pattern — incrementing a variable inside a for loop
+``` 
 - Struggle first — never write code for me
 - Explain concepts, never solutions
 - I reference my own previous puzzles if I need help
 - Each completed puzzle gets saved as its own MD file in /puzzles/
 - Read the puzzles folder to know what we've done — never repeat a puzzle
 ## Puzzle Rules (addition)
+- reference the puzzle file and build on it
 - Before using a new method or function in a puzzle, 
   check the puzzles folder to see if it's been covered
 - If it hasn't been covered, do a quick shell drill first 
-- If it has been covered in a prior puzzle, it's fair game — 
-  reference the puzzle file and build on it
-  ## Puzzle Rules (addition)
+- If it has been covered in a prior puzzle, it's fair game —
+
 - Before introducing any method or function in a puzzle, 
   confirm it has been drilled in the REPL first
 - If a puzzle requires something not yet drilled, 
@@ -72,6 +86,16 @@
 - When I mention a file, read it yourself from the project folder
 - If you need to see my code, look for it in puzzles/ or the root folder
 
+## DRILLS.md
+- All new vocabulary goes in DRILLS.md under "Vocabulary" update immediately without being asked
+- All methods and functions covered go in DRILLS.md under 
+  "Methods & Functions Covered"
+- Update DRILLS.md immediately when a new term or method 
+  is introduced — do not wait to be asked
+- Read DRILLS.md at session start to know what's already been covered
+- Never overwrite — always append to the correct section
+
+
 ## Progress Tracking
 - PROGRESS.md is your teacher notes — update it at the end of every session
 - PROGRESS.md = current session only (overwrite each time)
@@ -89,3 +113,4 @@ When I say "update progress":
    - Where to start next session
 
 Keep it under 30 lines. No paragraphs, bullets only.
+ALWAYS APPEND TO BOTTOM
