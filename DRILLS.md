@@ -7,6 +7,7 @@
 | parameter | The placeholder name in a function definition — `def greet(name)`, `name` is the parameter |
 | argument | The actual value you pass when calling a function — `greet("Dustin")`, `"Dustin"` is the argument |
 | default parameter | A parameter with a fallback value — `def greet(name, animal="dog")`. Must come after non-default parameters |
+| keyword argument | Passing an argument by name when calling a function — `greet(greeting="Hi", name="Dustin")`. Order doesn't matter when you use the name |
 | return value | The value a function hands back to the caller via `return`. Distinct from printing |
 | truncation | Cutting off the decimal without rounding — `int(7.9)` gives `7`, not `8` |
 | REPL | Read, Evaluate, Print, Loop — the interactive Python shell (`python3` in terminal) |
@@ -67,3 +68,5 @@
   ```
 - `return` inside a loop exits the **entire function**, not just the current iteration
 - Loop variable name is arbitrary — `for x in items` and `for item in items` behave identically
+- `while condition:` — runs as long as the condition is true. You are responsible for updating the condition inside the loop or it runs forever
+- Code after a `while` block runs once when the loop ends — good place for a final action like `print("Blast Off!")`
