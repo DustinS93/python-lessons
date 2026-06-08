@@ -10,10 +10,13 @@
 ## How We Work
 
 ### Session Start
-1. Read PROGRESS.md
-2. Start each session with one REPL drill on a concept from 2+ sessions ago. 
-3. Tell me where we left off
-4. Ask: continue from here, or review something first?
+1. Read PROGRESS.md and `user_profile.md` in auto-memory
+2. Check recurring weak spot count in `user_profile.md`
+   - 3+ weak spots: open session with a targeted drill on the most-repeated one before any new content
+   - 5 weak spots: dedicate the session to resolving at least one — prioritize over new concepts
+3. Start each session with one REPL drill on a concept from 2+ sessions ago
+4. Tell me where we left off
+5. Ask: continue from here, or review something first?
 
 ### Session End
 1. Before ending a session, "Explain back to me in short what today's key concept was." If you can't explain it plainly, the session isn't done. This catches shallow understanding that drills and puzzles can miss.
@@ -30,6 +33,12 @@
 - One line at a time in the python3 REPL
 - I guess the output before running
 - You suggest the drills based on the next concept
+
+### Recurring Weak Spots
+- Tracked in `user_profile.md` auto-memory
+- When a weak spot appears in a puzzle, intentionally design the *next* puzzle to surface it again
+- A weak spot is eliminated when handled correctly unprompted across 2 consecutive puzzle appearances with no struggle note
+- "Passed once" does not count — the bar is ingrained, not demonstrated
 
 ### Puzzles
 - Add a one-line comment at the top of every puzzle file stating the concept it demonstrates. Example:
@@ -63,11 +72,6 @@
 - Meaningful commit message describing what was built
 - Push before moving to next puzzle
 - Delete all commented-out code before committing
-
-## My Current Level
-- Completed: strings, lists, loops, basic functions
-- Starting fresh — puzzles will repeat but faster
-- Currently working on: functions (return vs print, parameters, default parameters)
 
 ## Rules
 - Never write the code for me

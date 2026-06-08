@@ -1,4 +1,4 @@
-# ROADMAP_audit.md — CLI Shopping List Manager
+# ROADMAP.md — CLI Shopping List Manager
 
 ## The Project
 A command-line shopping list app. The user can add items, view the list,
@@ -71,6 +71,7 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 12. `while` loops — `while True`, `break`
 *Needed for: keeping the app running until the user decides to quit*
+*Note: basic `while condition` was covered in session 7. This step is the `while True / break` pattern specifically — different mechanic, not yet drilled.*
 - [ ] Drilled in REPL
 - [ ] Puzzle
 

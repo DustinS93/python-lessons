@@ -58,6 +58,10 @@
 - Indexing: `items[0]` → first item, `items[1]` → second, `items[-1]` → last item
 - `len(items)` — returns the number of items in the list
 - `for item in items:` — loops through each item one at a time. The loop variable (`item`) is a temporary name you choose — it can be anything
+- `list.append(item)` — adds `item` to the end of the list
+- `list.pop()` — removes and returns the last item in the list
+- `list.remove(item)` — removes the first occurrence of `item` from the list (by value, not index)
+- `item in list` — returns `True` if `item` is in the list, `False` otherwise
 
 ### Loops
 - Loop counter pattern — set a variable before the loop, update it inside:
