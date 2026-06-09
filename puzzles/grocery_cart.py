@@ -8,7 +8,6 @@ def remove_last(cart):
     removed = cart.pop()
     print("Removed: " + removed)
     return cart
-    # return "Removed: " + removed
 
 def remove_item(cart, item):
     if item in cart:

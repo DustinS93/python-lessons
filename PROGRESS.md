@@ -1,28 +1,34 @@
-## Session 7 — 2026-06-06
+## Session 8 — 2026-06-07
 
 ### What We Covered
-- Keyword arguments — passing arguments by name, order doesn't matter
-- `while` loops — run based on a condition, not a fixed list
-- Infinite loops — what causes them and how to avoid (must update the condition inside the loop)
-- Code after a `while` block runs once when the loop ends
-- Converting `int()` once at the call site instead of repeatedly inside the function
+- List methods: `append`, `pop`, `remove`, `in`
+- `pop()` removes and returns the last item — return value can be caught in a variable
+- `remove(item)` removes by value, not by index
+- `in` returns a boolean — no need for `== True`
+- `return` inside a loop exits the entire function — "not found" return goes outside the loop
+- `for...else` is valid Python but not the intended pattern — cleaner without `else`
+- `input()` inside a `def` line runs at definition time, not call time (recurring)
+- Hardcode starter data when a puzzle needs a populated list — don't rely on `input()` for setup
 
 ### Puzzles Completed
-- `puzzles/while_countdown.py`
+- `puzzles/grocery_cart.py`
 
 ### Vocabulary Introduced
-- keyword argument
+- (none new)
 
 ### What He Struggled With
-- `return` inside a loop again — caught it with a nudge back to prior puzzles
-- Tried putting `int()` in the `def` line — clarified that parameter names must be plain names
-- Placed `print("Blast Off!")` outside the function initially — understood indentation fix quickly
+- `input()` placed inside `def` line again — same pattern as `int()` in sessions 4 and 7
+- `if item in cart == True` — removed `== True` once reminded what `in` returns
+- `item in i` vs `i == item` in find_item — flipped twice before correcting
+- Cart population: "starts as empty list" without clear setup instructions caused confusion
 
 ### What Felt Solid
-- Guessed infinite loop correctly without running it
-- Understood why condition is checked before the loop body runs
-- Converted `int()` once at call site once pointed in the right direction
+- Caught that `remove_last` was emptying the cart before `remove_item` ran
+- Understood `pop()` returns the removed item after one nudge
+- `return` outside the loop in `find_item` — got it right after the session-opening drill
+- Explained all four methods accurately at session end
 
 ### Where to Start Next Session
-- `while` loops solid
-- Next: list methods (`append`, `remove`, `pop`, `in`) OR a harder puzzle combining while + lists
+- List methods solid
+- Next: `while` loop + `append` to build a multi-item cart (natural follow-on from today)
+- Surface `return` inside loop again — not yet eliminated (needs 2 consecutive clean appearances)
