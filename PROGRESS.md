@@ -1,34 +1,28 @@
-## Session 8 — 2026-06-07
+## Session 9 — 2026-06-08
 
 ### What We Covered
-- List methods: `append`, `pop`, `remove`, `in`
-- `pop()` removes and returns the last item — return value can be caught in a variable
-- `remove(item)` removes by value, not by index
-- `in` returns a boolean — no need for `== True`
-- `return` inside a loop exits the entire function — "not found" return goes outside the loop
-- `for...else` is valid Python but not the intended pattern — cleaner without `else`
-- `input()` inside a `def` line runs at definition time, not call time (recurring)
-- Hardcode starter data when a puzzle needs a populated list — don't rely on `input()` for setup
+- `return` inside a loop — targeted drill, clarified it's not an `else` branch, just the next line in sequence after the loop finishes
+- `while` loop + `append` + `input()` — wired together in a self-contained function
+- Self-contained function: no parameters, creates its own data (`cart = []`, `item = input()`) internally
+- Redundant `break` — while condition handles exit on its own
 
 ### Puzzles Completed
-- `puzzles/grocery_cart.py`
+- `puzzles/grocery_cart_v2.py`
 
 ### Vocabulary Introduced
 - (none new)
 
 ### What He Struggled With
-- `input()` placed inside `def` line again — same pattern as `int()` in sessions 4 and 7
-- `if item in cart == True` — removed `== True` once reminded what `in` returns
-- `item in i` vs `i == item` in find_item — flipped twice before correcting
-- Cart population: "starts as empty list" without clear setup instructions caused confusion
+- `return` inside the loop again — placed it inside the while block before catching it when prompted with the drill connection
+- Didn't know how to make a function self-contained — tried passing `cart` and `item` as parameters from outside
+- `NameError` when removing parameters but not updating the function call
 
 ### What Felt Solid
-- Caught that `remove_last` was emptying the cart before `remove_item` ran
-- Understood `pop()` returns the removed item after one nudge
-- `return` outside the loop in `find_item` — got it right after the session-opening drill
-- Explained all four methods accurately at session end
+- Connected `return` placement to the session-opening drill after being nudged
+- Understood while loop exits naturally — no `break` needed
+- Self-contained function concept explained clearly at session end
 
 ### Where to Start Next Session
-- List methods solid
-- Next: `while` loop + `append` to build a multi-item cart (natural follow-on from today)
-- Surface `return` inside loop again — not yet eliminated (needs 2 consecutive clean appearances)
+- `return` inside loop: surfaced again (session 9) — still not eliminated, needs 2 consecutive clean unprompted appearances
+- Next puzzle should surface `return` inside a loop again naturally
+- Consider: dictionary basics OR `for` + `while` combination
