@@ -5,6 +5,6 @@ def check_password():
     for item in valid_passwords:
         if item == user_input:
             return "Access Granted"
-        return "Access Denied"
+    return "Access Denied"
 
 print(check_password())
