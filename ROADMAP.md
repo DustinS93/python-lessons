@@ -66,8 +66,8 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 11. List methods — `.append()`, `.remove()`, `.pop()`
 *Needed for: adding and removing items from the shopping list*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle: `grocery_cart.py`
 
 ### 12. `while` loops — `while True`, `break`
 *Needed for: keeping the app running until the user decides to quit*

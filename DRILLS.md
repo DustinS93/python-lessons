@@ -21,6 +21,8 @@
 | key | The label used to access a value in a dictionary — `person["name"]`, `"name"` is the key |
 | value | The data stored at a key in a dictionary — `person["name"]` returns `"Dustin"`, the value |
 | key-value pair | One entry in a dictionary — a key and its associated value, e.g. `"age": 30` |
+| `None` | Python's built-in value for "nothing" — capital N. Returned by functions that don't explicitly return a value. `none` (lowercase) doesn't exist and raises a `NameError` |
+| case-sensitive | Python distinguishes uppercase from lowercase — `None` and `none` are completely different. Same for variable names, keywords, everything |
 
 ---
 
@@ -77,6 +79,9 @@
 - Loop variable name is arbitrary — `for x in items` and `for item in items` behave identically
 - `while condition:` — runs as long as the condition is true. You are responsible for updating the condition inside the loop or it runs forever
 - Code after a `while` block runs once when the loop ends — good place for a final action like `print("Blast Off!")`
+- `while True:` — loops forever intentionally. Use `break` to escape from inside when a condition is met
+- `break` — exits the current loop entirely. Different from `return` (exits the function) and `continue` (skips to next iteration)
+- Use `while True` when you don't have a value to check yet at the start of the loop — define the value inside, then check it with `if` + `break`
 
 ### Dictionaries
 - Creating a dictionary: `person = {"name": "Dustin", "age": 30}`
