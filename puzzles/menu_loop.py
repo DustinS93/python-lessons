@@ -13,4 +13,4 @@ def menu_select():
             print("Invalid choice")
     print('Program closed')
 
-(menu_select())
+menu_select()

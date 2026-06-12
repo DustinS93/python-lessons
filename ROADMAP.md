@@ -72,8 +72,8 @@ Each step is either a **Learn** step or a **Build** step.
 ### 12. `while` loops — `while True`, `break`
 *Needed for: keeping the app running until the user decides to quit*
 *Note: basic `while condition` was covered in session 7. This step is the `while True / break` pattern specifically — different mechanic, not yet drilled.*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle: `menu_loop.py`
 
 ---
 
