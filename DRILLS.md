@@ -18,6 +18,9 @@
 | global scope | Outside all functions — visible everywhere in the file, including inside functions |
 | index | The position of an item in a list. Starts at `0`. `list[0]` is the first item |
 | negative index | Counting from the end of a list. `list[-1]` is always the last item |
+| key | The label used to access a value in a dictionary — `person["name"]`, `"name"` is the key |
+| value | The data stored at a key in a dictionary — `person["name"]` returns `"Dustin"`, the value |
+| key-value pair | One entry in a dictionary — a key and its associated value, e.g. `"age": 30` |
 
 ---
 
@@ -74,3 +77,12 @@
 - Loop variable name is arbitrary — `for x in items` and `for item in items` behave identically
 - `while condition:` — runs as long as the condition is true. You are responsible for updating the condition inside the loop or it runs forever
 - Code after a `while` block runs once when the loop ends — good place for a final action like `print("Blast Off!")`
+
+### Dictionaries
+- Creating a dictionary: `person = {"name": "Dustin", "age": 30}`
+- Accessing a value: `person["name"]` → `"Dustin"`
+- Adding a key: `person["job"] = "developer"` — creates the key if it doesn't exist
+- Updating a key: `person["age"] = 99` — overwrites the existing value
+- `KeyError` — raised when you access a key that doesn't exist
+- `len(dict)` — returns the number of key-value pairs
+- `dict.keys()` — returns all keys in the dictionary
