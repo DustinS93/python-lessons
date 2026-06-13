@@ -79,11 +79,11 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### BUILD v0.1 — Working core (no file saving yet)
 *Prerequisites: steps 1–12 complete*
-- [ ] App runs and shows a menu: `[1] Add item  [2] View list  [3] Quit`
-- [ ] User can add items — stored in a list with `.append()`
-- [ ] User can view the full list — numbered with a for loop
-- [ ] Quit exits the program cleanly
-- [ ] Menu loops with `while True`, `break` on quit
+- [x] App runs and shows a menu: `[1] Add item  [2] View list  [3] Quit`
+- [x] User can add items — stored in a list with `.append()`
+- [x] User can view the full list — numbered with a for loop
+- [x] Quit exits the program cleanly
+- [x] Menu loops with `while True`, `break` on quit
 
 ---
 

@@ -1,4 +1,4 @@
-# Concept: dictionary basics - creating, accessing, and updating key-value pairs
+# Concept: dictionary basics - creating and returning
 def student_record():
     grade = 72
     passed = ''

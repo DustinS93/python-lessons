@@ -1,33 +1,32 @@
-## Session 11 — 2026-06-11
+## Session 12 — 2026-06-11
 
 ### What We Covered
-- `return` inside a loop — targeted opening drill (3+ weak spots threshold)
-- Dictionary basics: creating, accessing by key, adding keys, updating keys
-- `KeyError` — accessing a key that doesn't exist
-- `len()` on a dictionary
-- `.keys()` — returns all keys in a dictionary
-- Setting a variable before building a dictionary, then using it as a value
+- `return` inside a loop — opening drill, 2nd consecutive clean appearance (eliminated)
+- `None` — Python's "nothing" value, always capital N. REPL suppresses it; `print()` shows it
+- Case sensitivity — `None` vs `none`, Python distinguishes uppercase from lowercase everywhere
+- `while True / break` — loops forever until `break` fires; use when no value exists to check at loop start
+- `break` vs `return` — `break` exits the loop, `return` exits the entire function
+- BUILD v0.1 — first working version of the shopping list app
 
 ### Puzzles Completed
-- `puzzles/student_record.py`
+- `puzzles/menu_loop.py`
+- `projects/shopping_list.py` (BUILD v0.1)
 
 ### Vocabulary Introduced
-- key
-- value
-- key-value pair
+- `None`
+- case-sensitive
+- `break`
 
 ### What He Struggled With
-- `==` vs `=` — used comparison instead of assignment inside `if` block
-- Placement: put `return passed` inside the `if` block, exiting before the dictionary was built
-- Hardcoded dictionary value instead of using the variable (`45` instead of `grade`)
+- Used `return` instead of `break` in menu puzzle — needed reminder of the distinction
+- REPL showing nothing for `None` return — confused about whether function ran
 
 ### What Felt Solid
-- `return` inside a loop drill — clean, explained correctly with no guidance
-- Understood `passed` is just a variable — dictionary reads it, no return needed
-- Spotted `==` vs `=` issue himself once prompted to look at the line
-- Understood why lists use index and dictionaries use keys at session end
+- `while True` rationale — explained correctly that no condition exists yet at loop start
+- `shopping_list = []` outside the loop — caught the reset problem when asked
+- BUILD v0.1 structure clean — loop, list, append, numbered view, break on quit all correct
 
 ### Where to Start Next Session
-- `return` inside loop: clean in opening drill — 1 of 2 consecutive clean appearances needed to eliminate
-- Placement weak spot: surfaced again (return inside if block) — still recurring
-- Next: dictionary puzzle with input() and updating keys, or add a second dictionary concept (e.g. iterating over keys)
+- `return` inside loop: ELIMINATED — 2 consecutive clean appearances (sessions 11 and 12)
+- Placement weak spot: still active — surfaced in menu puzzle (return vs break)
+- Next: Step 13 — modifying list items `list[i] = value`, needed for marking items done (BUILD v0.2)
