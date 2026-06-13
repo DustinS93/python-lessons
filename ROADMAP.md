@@ -89,8 +89,8 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 13. Modifying list items — `list[i] = value`
 *Needed for: marking items as done*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle: `mark_done.py`
 
 ### 14. Storing a return value in a variable — `result = function()`
 *Needed for: clean, readable project code*

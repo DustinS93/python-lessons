@@ -1,32 +1,30 @@
-## Session 12 — 2026-06-11
+## Session 13 — 2026-06-12
 
 ### What We Covered
-- `return` inside a loop — opening drill, 2nd consecutive clean appearance (eliminated)
-- `None` — Python's "nothing" value, always capital N. REPL suppresses it; `print()` shows it
-- Case sensitivity — `None` vs `none`, Python distinguishes uppercase from lowercase everywhere
-- `while True / break` — loops forever until `break` fires; use when no value exists to check at loop start
-- `break` vs `return` — `break` exits the loop, `return` exits the entire function
-- BUILD v0.1 — first working version of the shopping list app
+- List indexing review — `items[0]`, `items[-1]`, `len(items)` (opening drill, 2+ sessions ago)
+- `list[i] = value` — modifying an item in place by index
+- `"[x] " + items[i]` — prepending a string to mark an item done
+- `int(input()) - 1` — converting 1-based user input to 0-based index
+- Input validation — checking `choice < 1 or choice > len(items)` before updating
+- `return` to exit early from a function on invalid input
 
 ### Puzzles Completed
-- `puzzles/menu_loop.py`
-- `projects/shopping_list.py` (BUILD v0.1)
+- `puzzles/mark_done.py`
 
 ### Vocabulary Introduced
-- `None`
-- case-sensitive
-- `break`
+- (none new)
 
 ### What He Struggled With
-- Used `return` instead of `break` in menu puzzle — needed reminder of the distinction
-- REPL showing nothing for `None` return — confused about whether function ran
+- Condition logic: used `and` instead of `or` for invalid range check
+- Update ran before the validation check — order was backwards initially
 
 ### What Felt Solid
-- `while True` rationale — explained correctly that no condition exists yet at loop start
-- `shopping_list = []` outside the loop — caught the reset problem when asked
-- BUILD v0.1 structure clean — loop, list, append, numbered view, break on quit all correct
+- Caught `input()` inside function was wrong (parameter should come from caller)
+- Caught `print(print_list(...))` printing `None` himself
+- Fixed `<= 1` to `< 1` after testing edge case himself
+- Order issue (check before update) — caught it when prompted, not fully unprompted yet
 
 ### Where to Start Next Session
-- `return` inside loop: ELIMINATED — 2 consecutive clean appearances (sessions 11 and 12)
-- Placement weak spot: still active — surfaced in menu puzzle (return vs break)
-- Next: Step 13 — modifying list items `list[i] = value`, needed for marking items done (BUILD v0.2)
+- Placement weak spot: still active — surfaced again (check after update), caught when prompted
+- Next: Step 14 — storing a return value in a variable (`result = function()`), needed for BUILD v0.2
+- After Step 14: BUILD v0.2 — mark items done in the shopping list app
