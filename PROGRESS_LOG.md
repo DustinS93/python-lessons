@@ -421,3 +421,34 @@
 - Next: Step 14 — storing a return value in a variable (`result = function()`), needed for BUILD v0.2
 - After Step 14: BUILD v0.2 — mark items done in the shopping list app
 - Next: dictionary puzzle with input() and updating keys, or add a second dictionary concept (e.g. iterating over keys)
+
+---
+
+## Session 14 — 2026-06-13
+
+### What We Covered
+- Opening REPL drill: `.pop()` removes and returns the last item — value can be caught in a variable
+- `result = function()` — storing a return value before using it
+- REPL drills: `double(result)`, `message = add_greeting()`, direct vs stored return value
+- Validation placement — check belongs in main code, not inside a helper function
+- Puzzle: two clean functions, store-then-validate-then-act pattern
+
+### Puzzles Completed
+- `puzzles/name_badge.py`
+
+### Vocabulary Introduced
+- (none new)
+
+### What He Struggled With
+- Placement (x3 in one puzzle): validation inside `get_name()`, then `make_badge()` called before empty check, then `badge` stored outside the `else` block — each caught when prompted, none unprompted
+- Recognized the tangling problem himself once asked about it (get_name returning "Name required", make_badge having to check for it)
+
+### What Felt Solid
+- REPL drills clicked fast — chained return values, doubled result, understood argument vs parameter unprompted
+- Understood why two tangled functions is a problem once he saw it
+- Final structure was clean: get → store → check → act
+
+### Where to Start Next Session
+- Placement weak spot: still very active — 3 separate placement mistakes in one puzzle (session 14), all caught when prompted
+- Step 14 complete — both checkboxes done
+- Next: BUILD v0.2 — mark items done in shopping list app

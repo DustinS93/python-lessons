@@ -94,8 +94,8 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 14. Storing a return value in a variable — `result = function()`
 *Needed for: clean, readable project code*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle: `name_badge.py`
 
 ---
 
