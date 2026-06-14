@@ -110,8 +110,8 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 15. File I/O — reading and writing files
 *Needed for: saving the list so it survives closing the app*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle: `goal_saver.py`
 
 ---
 

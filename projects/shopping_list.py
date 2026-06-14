@@ -1,5 +1,12 @@
-# Shopping list app BuildV0.2
+# Shopping list app BuildV0.3 - add, view, mark done, persist to file
+import os
 shopping_list = []
+if os.path.exists('shopping_list.txt'):
+    with open('shopping_list.txt', 'r') as f:
+        contents = f.readlines()
+        for line in contents:
+            shopping_list.append(line.strip())
+
 while True:
     print("[1] Add Item [2] View List [3] Mark Done [4] Quit")
     choice = int(input("Choose an option: "))
@@ -22,10 +29,13 @@ while True:
             number = number + 1
             print(str(number) + ". " + i)
     elif choice == 4:
+        with open('shopping_list.txt', 'w') as q:
+            for item in shopping_list:
+                q.write(item + '\n')
         print("Goodbye")
         break
     
         
     else: 
         print("Invalid Input")
-       
+

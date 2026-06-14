@@ -1,27 +1,29 @@
-## Session 14 — 2026-06-13
+## Session 15 — 2026-06-14
 
 ### What We Covered
-- Opening REPL drill: `.pop()` removes and returns the last item — value can be caught in a variable
-- `result = function()` — storing a return value before using it
-- REPL drills: `double(result)`, `message = add_greeting()`, direct vs stored return value
-- Validation placement — check belongs in main code, not inside a helper function
-- Puzzle: two clean functions, store-then-validate-then-act pattern
+- Opening REPL drill: `list[i] = value` — modifying list items in place
+- BUILD v0.2 confirmed complete — checked off in ROADMAP
+- File I/O: `open()` modes (`"r"`, `"w"`, `"a"`), `with open() as f:`, `f.write()`, `f.read()`, `f.readlines()`, `.strip()`
+- `\n` as escape sequence in code vs literal characters when typed as input
+- Puzzle: `goal_saver.py` — write goal to file, read it back, return clean value
 
 ### Puzzles Completed
-- `puzzles/name_badge.py`
+- `puzzles/goal_saver.py`
 
 ### Vocabulary Introduced
 - (none new)
 
 ### What He Struggled With
-- Placement (x3 in one puzzle): validation inside `get_name()`, then `make_badge()` called before empty check, then `badge` stored outside the `else` block — each caught when prompted, none unprompted
+- Placement: `input()` inside `save_goal()` instead of main code — caught when prompted
+- Placement: `print()` inside `load_goal()` instead of `return` — caught when prompted, self-corrected after explanation
 
 ### What Felt Solid
-- REPL drills clicked fast — chained return values, understood argument vs parameter unprompted
-- Recognized the tangling problem himself once asked about it
-- Final structure was clean: get → store → check → act
+- File I/O concepts clicked quickly — explained `"r"` vs `"w"` correctly at session end
+- `with open()` pattern — refactored both functions correctly without help
+- Understood why `"r"` and `"w"` are fixed strings, not conventions
+- Caught `\n` in code vs `\n` typed as input — understood after seeing the file
 
 ### Where to Start Next Session
-- Placement weak spot: still very active — 3 placement mistakes in one puzzle, all caught when prompted
-- Step 14 complete — both checkboxes done
-- Next: BUILD v0.2 — mark items done in shopping list app
+- Placement weak spot: still active — 2 placement errors in puzzle, both caught when prompted
+- Step 15 complete — both checkboxes done
+- Next: BUILD v0.3 — load list from file on startup, save on quit
