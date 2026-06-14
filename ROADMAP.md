@@ -101,10 +101,10 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### BUILD v0.2 — Mark items done
 *Prerequisites: steps 13–14 complete*
-- [ ] Menu gains option: `[4] Mark item done`
-- [ ] User picks an item by number
-- [ ] Done items display with a marker — e.g. `[x] eggs`
-- [ ] App still loops, all previous features work
+- [x] Menu gains option: `[4] Mark item done`
+- [x] User picks an item by number
+- [x] Done items display with a marker — e.g. `[x] eggs`
+- [x] App still loops, all previous features work
 
 ---
 

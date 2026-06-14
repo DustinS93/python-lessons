@@ -83,6 +83,14 @@
 - `break` — exits the current loop entirely. Different from `return` (exits the function) and `continue` (skips to next iteration)
 - Use `while True` when you don't have a value to check yet at the start of the loop — define the value inside, then check it with `if` + `break`
 
+### File I/O
+- `open(filename, mode)` — opens a file. Modes: `"r"` (read), `"w"` (write, overwrites), `"a"` (append)
+- `with open(filename, mode) as f:` — opens a file and closes it automatically when the block ends
+- `f.write(text)` — writes a string to the file. Returns the number of characters written
+- `f.read()` — reads the entire file as one string
+- `f.readlines()` — reads the file as a list, one item per line. Each item includes the `\n` character
+- `str.strip()` — removes whitespace and newline characters from both ends of a string. Use when reading lines from a file
+
 ### Dictionaries
 - Creating a dictionary: `person = {"name": "Dustin", "age": 30}`
 - Accessing a value: `person["name"]` → `"Dustin"`
