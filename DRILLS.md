@@ -21,67 +21,39 @@
 | key | The label used to access a value in a dictionary — `person["name"]`, `"name"` is the key |
 | value | The data stored at a key in a dictionary — `person["name"]` returns `"Dustin"`, the value |
 | key-value pair | One entry in a dictionary — a key and its associated value, e.g. `"age": 30` |
-| `None` | Python's built-in value for "nothing" — capital N. Returned by functions that don't explicitly return a value. `none` (lowercase) doesn't exist and raises a `NameError` |
-| case-sensitive | Python distinguishes uppercase from lowercase — `None` and `none` are completely different. Same for variable names, keywords, everything |
+| `None` | Python's built-in value for "nothing" — capital N. Returned by functions that don't explicitly return a value |
+| case-sensitive | Python distinguishes uppercase from lowercase — `None` and `none` are completely different |
 
 ---
 
-## Concepts, Methods & Functions
+## Puzzle Index
+Use this when Dustin is stuck on a concept — point him to the puzzle that covered it.
 
-### Functions
-- `def function_name(parameter):` — defines a function
-- `return` — hands a value back to the caller and exits the function immediately
-- `print()` — displays output to the screen, does not hand a value back (returns `None`)
-- Default parameters: `def greet(name, animal="dog")` — fallback used when no argument is passed
-- Functions calling functions: `print(format_share(bill_splitter(100, 4)))`
-- Passing a return value as an argument: the inner function runs first, its result is passed to the outer
+| Concept | Puzzle file(s) |
+|---|---|
+| print vs return, parameters, default params | `describe_pet.py` |
+| functions calling functions, return values as args | `bill_splitter.py`, `temp_converter.py` |
+| type conversion — str(), int(), float() | `temp_converter.py` |
+| conditionals — if/elif/else | `grade_checker.py` |
+| input(), int(input()) | `ticket_price.py` |
+| scope — local vs global | `the_vault.py` |
+| lists — creating, indexing, len(), for loops | `the_shopping_list.py`, `the_countdown.py` |
+| for loop — counter pattern + conditionals | `the_grade_book.py` |
+| list methods — .append(), .remove(), .pop(), in | `grocery_cart.py` |
+| for loop + while loop on a list with input | `inventory_check.py` |
+| while loop — while condition | `while_countdown.py` |
+| while True + break (looping a cart) | `grocery_cart_v2.py` |
+| while True + break (menu loop) | `menu_loop.py` |
+| return inside a for loop | `check_password.py` |
+| modifying list items — list[i] = value | `mark_done.py` |
+| storing return value — result = function() | `name_badge.py` |
+| file I/O — open, with, read, write, readlines, strip | `goal_saver.py` |
+| dictionary basics — creating, accessing, updating | `student_record.py` |
 
-### Type Conversion
-- `str(x)` — converts `x` to a string. Required when concatenating a number with a string
-- `int(x)` — converts `x` to an integer. Truncates decimals, does not round
-- `float(x)` — converts `x` to a float (decimal number)
-- `int(float("7.5"))` — chain conversions when needed. `int("7.5")` alone raises a `ValueError`
-- `int(input())` — wrap `input()` to convert user input at the source
+---
 
-### Input
-- `input("prompt")` — displays a prompt, pauses the program, returns whatever the user types **as a string**, always
-
-### Conditionals
-- `if` / `elif` / `else` — Python checks top to bottom and stops at the first true condition
-- `>` strictly greater than, `>=` greater than or equal to (same logic for `<` and `<=`)
-- If no condition is true and there's no `else`, nothing happens — not an error
-- Redundant `elif` conditions: if `score >= 90` already failed, `score >= 80` doesn't need to re-check the upper bound
-
-### Scope
-- Local variable: defined inside a function, only exists there. Accessing it outside raises `NameError`
-- Global variable: defined outside functions, readable inside functions
-- Same name in two scopes: the function uses its own local copy — the global is unchanged
-- `return` vs `print` inside a function: `print()` shows output but returns `None`. `return` hands the value back
-
-### Lists
-- Creating a list: `items = ["apple", "banana", "cherry"]`
-- Indexing: `items[0]` → first item, `items[1]` → second, `items[-1]` → last item
-- `len(items)` — returns the number of items in the list
-- `for item in items:` — loops through each item one at a time. The loop variable (`item`) is a temporary name you choose — it can be anything
-- `list.append(item)` — adds `item` to the end of the list
-- `list.pop()` — removes and returns the last item in the list
-- `list.remove(item)` — removes the first occurrence of `item` from the list (by value, not index)
-- `item in list` — returns `True` if `item` is in the list, `False` otherwise
-
-### Loops
-- Loop counter pattern — set a variable before the loop, update it inside:
-  ```python
-  number = 0
-  for i in items:
-      number = number + 1
-  ```
-- `return` inside a loop exits the **entire function**, not just the current iteration
-- Loop variable name is arbitrary — `for x in items` and `for item in items` behave identically
-- `while condition:` — runs as long as the condition is true. You are responsible for updating the condition inside the loop or it runs forever
-- Code after a `while` block runs once when the loop ends — good place for a final action like `print("Blast Off!")`
-- `while True:` — loops forever intentionally. Use `break` to escape from inside when a condition is met
-- `break` — exits the current loop entirely. Different from `return` (exits the function) and `continue` (skips to next iteration)
-- Use `while True` when you don't have a value to check yet at the start of the loop — define the value inside, then check it with `if` + `break`
+## Active Concepts
+Verbose detail for concepts not yet fully ingrained. Update as new concepts are introduced.
 
 ### File I/O
 - `open(filename, mode)` — opens a file. Modes: `"r"` (read), `"w"` (write, overwrites), `"a"` (append)
@@ -91,6 +63,10 @@
 - `f.readlines()` — reads the file as a list, one item per line. Each item includes the `\n` character
 - `str.strip()` — removes whitespace and newline characters from both ends of a string. Use when reading lines from a file
 
+### Modules
+- `import os` — loads the `os` module (tools for interacting with the operating system)
+- `os.path.exists(filename)` — returns `True` if the file exists, `False` if not
+
 ### Dictionaries
 - Creating a dictionary: `person = {"name": "Dustin", "age": 30}`
 - Accessing a value: `person["name"]` → `"Dustin"`
@@ -99,3 +75,31 @@
 - `KeyError` — raised when you access a key that doesn't exist
 - `len(dict)` — returns the number of key-value pairs
 - `dict.keys()` — returns all keys in the dictionary
+
+### List of Dictionaries
+- A list can hold dicts as items: `items = [{"name": "eggs", "done": False}, {"name": "milk", "done": True}]`
+- Access a field: `items[0]["name"]` → `"eggs"`
+- Loop over and pull fields: `for item in items: print(item["name"], item["done"])`
+- `.pop(index)` removes and returns the item at that position — the list holds dicts, so you get a dict back
+- `str.split(",")` — splits a string on a delimiter, returns a list: `"eggs,False".split(",")` → `["eggs", "False"]`
+- Reconstruct bool from file string: `parts[1] == "True"` — compares strings, result is a real boolean
+
+### Error Handling
+- `try/except` — wrap risky code in `try:`, catch the error in `except ErrorType:`
+- `ValueError` — raised when a type conversion fails, e.g. `int("hello")`
+- Code inside `except` only runs if that error occurs — otherwise skipped
+- Code after the failing line inside `try` is also skipped when an error is raised
+
+---
+
+## Ingrained Concepts
+Collapsed — covered and solid. No need to re-read at session start.
+
+- **Functions:** def, parameters, arguments, default params, return, print vs return, functions calling functions, passing return values as arguments
+- **Type conversion:** str(), int(), float(), int(float()), int(input())
+- **Input:** input("prompt") — always returns a string
+- **Conditionals:** if/elif/else — top to bottom, stops at first true condition
+- **Scope:** local (inside function) vs global (outside). Same name in both scopes = local copy used inside the function
+- **Lists:** create, index [0]/[-1], len(), for item in list, .append(), .remove(), .pop() (no args — removes last), item in list, list[i] = value
+- **Loops:** for loop counter pattern, while condition, while True/break, break vs return vs continue
+- **Storing return values:** result = function()

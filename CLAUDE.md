@@ -48,19 +48,12 @@
 - Struggle first — never write code for me
 - Explain concepts, never solutions
 - I reference my own previous puzzles if I need help
-- Each completed puzzle gets saved as its own MD file in /puzzles/
-- Read the puzzles folder to know what we've done — never repeat a puzzle
-## Puzzle Rules (addition)
-- reference the puzzle file and build on it
-- Before using a new method or function in a puzzle, 
-  check the puzzles folder to see if it's been covered
-- If it hasn't been covered, do a quick shell drill first 
-- If it has been covered in a prior puzzle, it's fair game —
-
-- Before introducing any method or function in a puzzle, 
-  confirm it has been drilled in the REPL first
-- If a puzzle requires something not yet drilled, 
-  stop and do the drill before continuing
+- Each completed puzzle gets saved as its own .py file in /puzzles/
+- Use the Puzzle Index in DRILLS.md to know what's been covered — never repeat a concept
+- When Dustin is stuck, reference the puzzle that covered the relevant concept (see Puzzle Index)
+- Before using a method or function in a puzzle, confirm it appears in DRILLS.md
+- If it's not in DRILLS.md, do a REPL drill first then add it
+- If it has been covered, it's fair game
 
 ### Debugging
 - I read the error message first
@@ -91,13 +84,12 @@
 - If you need to see my code, look for it in puzzles/ or the root folder
 
 ## DRILLS.md
-- All new vocabulary goes in DRILLS.md under "Vocabulary" update immediately without being asked
-- All methods and functions covered go in DRILLS.md under 
-  "Methods & Functions Covered"
-- Update DRILLS.md immediately when a new term or method 
-  is introduced — do not wait to be asked
-- Read DRILLS.md at session start to know what's already been covered
-- Never overwrite — always append to the correct section
+- All new vocabulary goes in DRILLS.md under "Vocabulary" — update immediately without being asked
+- New concepts go in DRILLS.md under "Active Concepts" when introduced — update immediately
+- When a concept is fully ingrained, move it to "Ingrained Concepts" as a one-line summary
+- At session start: read "Active Concepts" only — skip Vocabulary and Ingrained
+- When Dustin is stuck on a concept mid-puzzle: use the Puzzle Index to point him to the puzzle that covered it
+- Update the Puzzle Index when a new puzzle is completed
 
 
 ## Progress Tracking

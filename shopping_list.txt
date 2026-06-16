@@ -1,5 +1,3 @@
-yes
-no
-[x] chicken
-[x] asdf
-asdf
+eggs,True
+ham,False
+bread,False

@@ -117,15 +117,14 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### BUILD v0.3 — Complete project
 *Prerequisites: step 15 complete*
-- [ ] On startup, load existing list from `shopping_list.txt` if it exists
-- [ ] On quit, save current list to `shopping_list.txt`
-- [ ] App is fully functional: add, view, mark done, persist across runs
-- [ ] Committed to GitHub as first real project
+- [x] On startup, load existing list from `shopping_list.txt` if it exists
+- [x] On quit, save current list to `shopping_list.txt`
+- [x] App is fully functional: add, view, mark done, persist across runs
+- [x] Committed to GitHub as first real project
 
 ---
 
 ## Stretch (after v0.3)
-These are not required for the project but are natural next steps:
-- Dictionaries — store items as `{"name": "eggs", "done": False}` instead of two lists
-- Refactor v0.3 using dictionaries
-- Error handling — what if the user types a letter instead of a number?
+- [x] Dictionaries — store items as `{"name": "eggs", "done": False}` instead of two lists
+- [x] Refactor using dictionaries + add delete item (BUILD v0.4)
+- [ ] Error handling — what if the user types a letter instead of a number?

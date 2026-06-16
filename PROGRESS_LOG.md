@@ -452,3 +452,73 @@
 - Placement weak spot: still very active — 3 separate placement mistakes in one puzzle (session 14), all caught when prompted
 - Step 14 complete — both checkboxes done
 - Next: BUILD v0.2 — mark items done in shopping list app
+
+---
+
+## Session 15 — 2026-06-14
+
+### What We Covered
+- Opening REPL drill: `list[i] = value` — modifying list items in place
+- BUILD v0.2 confirmed complete — checked off in ROADMAP
+- File I/O: `open()` modes (`"r"`, `"w"`, `"a"`), `with open() as f:`, `f.write()`, `f.read()`, `f.readlines()`, `.strip()`
+- `\n` as escape sequence in code vs literal characters when typed as input
+- Puzzle: `goal_saver.py` — write goal to file, read it back, return clean value
+- `import os`, `os.path.exists()` — modules intro, what import does
+- BUILD v0.3 complete — load from file on startup, save on quit
+
+### Puzzles Completed
+- `puzzles/goal_saver.py`
+- `projects/shopping_list.py` (BUILD v0.3 — complete project)
+
+### Vocabulary Introduced
+- (none new)
+
+### What He Struggled With
+- Placement: `input()` inside `save_goal()`, `print()` inside `load_goal()` — caught when prompted
+- Placement: multiple iterations to get read block correct in BUILD v0.3 — loop direction backwards (looping over shopping_list instead of contents), and method confusion
+- Asked sharp questions unprompted about modules vs file object methods — good instinct
+
+### What Felt Solid
+- File I/O concepts clicked in drills — explained `"r"` vs `"w"` correctly at session end
+- `import` and module vs file object distinction — understood after one explanation
+- App works end to end: add, view, mark done, persist across runs
+- Recognised `\n` vs typed `\n` after seeing the file contents
+
+### Where to Start Next Session
+- Placement weak spot: persistent — multiple errors across goal_saver and BUILD v0.3, all caught when prompted
+- Project complete — CLI Shopping List Manager done, committed to GitHub
+- ROADMAP stretch goals available: dictionaries refactor, error handling
+- Or define a new roadmap project
+
+---
+
+## Session 16 — 2026-06-14
+
+### What We Covered
+- System compression: DRILLS.md restructured (Puzzle Index, Active Concepts, Ingrained), CLAUDE.md updated
+- REPL drills: list of dicts, accessing dict fields in a loop, `.pop(index)`, `str.split(",")`, bool from string comparison (`parts[1] == "True"`)
+- Dictionaries refactor of shopping_list.py — items stored as `{"name": ..., "done": False}` instead of plain strings
+- Added delete item option using `.pop(index)`
+- File format: save as `name,done` per line, reconstruct on load with `.split(",")` and string comparison
+
+### Puzzles Completed
+- (none — project refactor session)
+
+### Vocabulary Introduced
+- (none new)
+
+### What He Struggled With
+- Load block indentation — new lines ended up outside the for loop, required multiple saves to fix
+- `.pop([remove_item - 1])` — extra square brackets around the argument (didn't clear on first fix)
+- Bracket placement in save line — `str(item["done": + "\n"]))` — closing bracket in wrong place
+
+### What Felt Solid
+- List of dicts pattern clicked fast in drills
+- Save format: wrote `item["name"] + "," + str(item["done"]) + "\n"` correctly on first try after guidance
+- Key insight at session end: storing data vs. display strings — articulated correctly unprompted
+
+### Where to Start Next Session
+- Active concepts needing more reps: list of dicts, `.pop(index)`, `str.split()`, file format for structured data
+- Placement weak spot: still active — indentation errors with load block this session
+- Consider a standalone puzzle using list-of-dicts and `.pop(index)` before moving to error handling
+- Or: error handling stretch goal (what if user types a letter instead of a number?)
