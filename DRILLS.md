@@ -49,6 +49,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | storing return value — result = function() | `name_badge.py` |
 | file I/O — open, with, read, write, readlines, strip | `goal_saver.py` |
 | dictionary basics — creating, accessing, updating | `student_record.py` |
+| try/except ValueError — error handling on user input | `number_picker.py` |
 
 ---
 
