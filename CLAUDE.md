@@ -22,11 +22,19 @@
 1. Before ending a session, "Explain back to me in short what today's key concept was." If you can't explain it plainly, the session isn't done. This catches shallow understanding that drills and puzzles can miss.
 
 ## Roadmap
-- When I say "start roadmap" or "continue roadmap", 
-  read ROADMAP.md and the corresponding .py file in projects/ and pick up where the checkboxes left off
+- `ROADMAP.md` is always the active roadmap
+- When I say "start roadmap" or "continue roadmap", read ROADMAP.md and the corresponding .py file in projects/ and pick up where the checkboxes left off
 - The current project file lives in projects/
-- When a project is complete, check it off in ROADMAP.md 
-  and define the next one
+
+### When a project is complete:
+1. Move `ROADMAP.md` to `roadmaps/ROADMAP_<project_name>.md`
+2. Create a new `ROADMAP.md` for the next project
+3. Define the new project: what it does, what it will teach, and the build steps
+
+### Starting a new roadmap:
+- Follow the same format as the existing one: Learn steps (REPL + puzzle) and Build milestones
+- Each Learn step should map to a concept Dustin needs for the project
+- Build steps should produce a running app
 
 ### Shell Drills
 - Done before every new concept

@@ -1,10 +1,9 @@
-# ROADMAP.md — CLI Shopping List Manager
+# ROADMAP.md — CLI Expense Tracker
 
 ## The Project
-A command-line shopping list app. The user can add items, view the list,
-mark items done, and save to a file so the list persists between runs.
+A command-line expense tracker. The user can log expenses with a description, category, and amount. They can view all expenses, see totals by category, and quit — with expenses saved to a file so they persist between runs.
 
-**Project file:** `projects/shopping_list.py`
+**Project file:** `projects/expense_tracker.py`
 
 ---
 
@@ -22,109 +21,66 @@ Each step is either a **Learn** step or a **Build** step.
 
 ## Steps
 
-### 1. `print` vs `return`
+### 1. `float` — decimal numbers for money
+*Needed for: storing amounts like 4.99 instead of just 4*
 - [x] Drilled in REPL
-- [x] Puzzle: `describe_pet.py`
+- [x] Puzzle
 
-### 2. Parameters and arguments
-- [x] Drilled in REPL
-- [x] Puzzle: `describe_pet.py`
+### 2. f-strings — clean string formatting
+*Needed for: displaying amounts like `Food: $34.50` cleanly*
+- [ ] Drilled in REPL
+- [ ] Puzzle
 
-### 3. Default parameters
-- [x] Drilled in REPL
-- [x] Puzzle: `describe_pet.py`
+### 3. List of dicts — storing structured data (extra drilling)
+*Needed for: each expense is `{"desc": "coffee", "category": "Food", "amount": 4.99}`*
+*Note: covered in session 16, but needs more reps before building on it*
+- [ ] Drilled in REPL (revisit — extra session)
+- [ ] Puzzle
 
-### 4. Functions calling functions / passing return values as arguments
-- [x] Drilled in REPL
-- [x] Puzzle: `bill_splitter.py`, `temp_converter.py`
+### 4. Summing values from a list of dicts
+*Needed for: calculating totals per category*
+- [ ] Drilled in REPL
+- [ ] Puzzle
 
-### 5. Type conversion — `str()`, `int()`, `float()`
-- [x] Drilled in REPL
-- [x] Puzzle: `temp_converter.py`
-
-### 6. Conditionals — `if` / `elif` / `else`
-- [x] Drilled in REPL
-- [x] Puzzle: `grade_checker.py`
-
-### 7. `input()` and `int(input())`
-- [x] Drilled in REPL
-- [x] Puzzle: `ticket_price.py`
-
-### 8. Scope — local vs global variables
-- [x] Drilled in REPL
-- [x] Puzzle: `the_vault.py`
-
-### 9. Lists — creating, indexing `[0]` `[-1]`, `len()`
-- [x] Drilled in REPL
-- [x] Puzzle: `the_shopping_list.py`, `the_countdown.py`
-
-### 10. `for` loops — counter pattern, combining with conditionals
-- [x] Drilled in REPL
-- [x] Puzzle: `the_shopping_list.py`, `the_countdown.py`, `the_grade_book.py`
-
----
-
-### 11. List methods — `.append()`, `.remove()`, `.pop()`
-*Needed for: adding and removing items from the shopping list*
-- [x] Drilled in REPL
-- [x] Puzzle: `grocery_cart.py`
-
-### 12. `while` loops — `while True`, `break`
-*Needed for: keeping the app running until the user decides to quit*
-*Note: basic `while condition` was covered in session 7. This step is the `while True / break` pattern specifically — different mechanic, not yet drilled.*
-- [x] Drilled in REPL
-- [x] Puzzle: `menu_loop.py`
+### 5. Grouping and accumulating — looping to build category totals
+*Needed for: "Food: $34.50, Transport: $12.00" from a flat list of expenses*
+- [ ] Drilled in REPL (extra drilling — this is the core new pattern)
+- [ ] Drilled in REPL (second pass)
+- [ ] Puzzle
 
 ---
 
 ### BUILD v0.1 — Working core (no file saving yet)
-*Prerequisites: steps 1–12 complete*
-- [x] App runs and shows a menu: `[1] Add item  [2] View list  [3] Quit`
-- [x] User can add items — stored in a list with `.append()`
-- [x] User can view the full list — numbered with a for loop
-- [x] Quit exits the program cleanly
-- [x] Menu loops with `while True`, `break` on quit
+*Prerequisites: steps 1–5 complete*
+- [ ] App runs and shows a menu: `[1] Add Expense  [2] View All  [3] View Totals  [4] Quit`
+- [ ] User can add an expense — description, category, amount stored as a dict in a list
+- [ ] User can view all expenses — numbered, with category and amount
+- [ ] View Totals shows a total per category
+- [ ] Quit exits cleanly
+- [ ] Menu loops with `while True`, `break` on quit
 
 ---
 
-### 13. Modifying list items — `list[i] = value`
-*Needed for: marking items as done*
-- [x] Drilled in REPL
-- [x] Puzzle: `mark_done.py`
-
-### 14. Storing a return value in a variable — `result = function()`
-*Needed for: clean, readable project code*
-- [x] Drilled in REPL
-- [x] Puzzle: `name_badge.py`
+### 6. Saving and loading a list of dicts to/from a file
+*Needed for: persisting expenses between runs*
+*Note: file I/O was covered in session 15 but this is more complex — dicts with three fields*
+- [ ] Drilled in REPL (extra drilling — focus here)
+- [ ] Drilled in REPL (second pass)
+- [ ] Puzzle
 
 ---
 
-### BUILD v0.2 — Mark items done
-*Prerequisites: steps 13–14 complete*
-- [x] Menu gains option: `[4] Mark item done`
-- [x] User picks an item by number
-- [x] Done items display with a marker — e.g. `[x] eggs`
-- [x] App still loops, all previous features work
+### BUILD v0.2 — Complete project
+*Prerequisites: step 6 complete*
+- [ ] On startup, load existing expenses from `expenses.txt` if it exists
+- [ ] On quit, save current expenses to `expenses.txt`
+- [ ] App is fully functional: add, view all, view totals, persist across runs
+- [ ] Error handling on amount input (`try/except ValueError`)
+- [ ] Committed to GitHub
 
 ---
 
-### 15. File I/O — reading and writing files
-*Needed for: saving the list so it survives closing the app*
-- [x] Drilled in REPL
-- [x] Puzzle: `goal_saver.py`
-
----
-
-### BUILD v0.3 — Complete project
-*Prerequisites: step 15 complete*
-- [x] On startup, load existing list from `shopping_list.txt` if it exists
-- [x] On quit, save current list to `shopping_list.txt`
-- [x] App is fully functional: add, view, mark done, persist across runs
-- [x] Committed to GitHub as first real project
-
----
-
-## Stretch (after v0.3)
-- [x] Dictionaries — store items as `{"name": "eggs", "done": False}` instead of two lists
-- [x] Refactor using dictionaries + add delete item (BUILD v0.4)
-- [ ] Error handling — what if the user types a letter instead of a number?
+## Stretch (after v0.2)
+- [ ] Delete an expense by number
+- [ ] Filter view by category
+- [ ] Sort expenses by amount

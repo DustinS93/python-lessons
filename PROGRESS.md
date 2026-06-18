@@ -1,28 +1,32 @@
-## Session 17 — 2026-06-15
+## Session 18 — 2026-06-16
 
 ### What We Covered
-- Opening REPL drill: dictionary basics — accessing, updating, adding keys, `.keys()`, `len()`
-- `try/except ValueError` — catching errors from bad user input instead of crashing
-- `not in range(len(list))` — checking for out-of-range input
-- Why logic inside `try` block matters — anything after a failed line is skipped, variables never assigned
+- Opening REPL drill: chaining return values — `result = function()`, passing return values as arguments
+- `input_validator.py` — second `try/except ValueError` puzzle, range checking 1–10
+- `IndexError` — raised when accessing a list index out of range
+- Nested `try/except` — inner `except IndexError` inside outer `except ValueError`
+- Applied error handling to `shopping_list.py` — both `ValueError` (bad menu input) and `IndexError` (out-of-range item selection)
 
 ### Puzzles Completed
-- `puzzles/number_picker.py`
+- `puzzles/input_validator.py`
 
 ### Vocabulary Introduced
-- (none new)
+- `IndexError`
 
 ### What He Struggled With
-- `if choice != 0 or 1 or 2` — thought this checked all three values; learned `or 1` is always truthy
-- Placement: `choice = choice - 1` and conditionals initially outside `try` block — caught it himself mid-puzzle after NameError
-- `try/except` explanation at session end slightly incomplete — named the what but not the why on placement
+- Placed `if choice == 5:` inside `except IndexError` block — caught it after being pointed to the line numbers, not fully unprompted
 
 ### What Felt Solid
-- Diagnosed NameError himself: "choice only gets assigned if the try block succeeds" — correct, unprompted
-- Used `range(len(grocery_list))` independently — cleaner than a hardcoded list
-- Simplified `if/elif` chain to `grocery_list[choice]` unprompted
+- Correct `except IndexError` syntax guessed unprompted from `ValueError` pattern
+- Range check fix (`<= 10`) caught and applied himself
+- Structural reasoning: knew choice 5 needed to be outside the inner try/except once spotted
+
+### Additional — 2026-06-16 (same session, Q&A only)
+- Discussed: standard library vs third-party libraries, modules vs packages, JSON overview
+- Discussed: pip install workflow, TensorFlow/Pygame/Tkinter overview
+- Interest noted: Pygame or Tkinter as a future roadmap after expense tracker
 
 ### Where to Start Next Session
-- Placement weak spot: surfaced again — but Dustin caught it himself this time (NameError → diagnosis → fix). Progress.
-- Next: apply try/except to shopping_list.py, or a second try/except puzzle before moving on
-- `try/except` is new — worth one more rep before moving on
+- Placement weak spot: surfaced again in shopping_list.py — caught after a hint, not unprompted. Still tracking.
+- Start expense tracker roadmap: step 1 is `float`, nothing checked off yet
+- After expense tracker, plan a Pygame or Tkinter roadmap (Dustin expressed interest)

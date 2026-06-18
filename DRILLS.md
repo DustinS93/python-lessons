@@ -22,6 +22,7 @@
 | value | The data stored at a key in a dictionary — `person["name"]` returns `"Dustin"`, the value |
 | key-value pair | One entry in a dictionary — a key and its associated value, e.g. `"age": 30` |
 | `None` | Python's built-in value for "nothing" — capital N. Returned by functions that don't explicitly return a value |
+| `IndexError` | Raised when you access a list index that doesn't exist — e.g. `my_list[10]` on a 3-item list |
 | case-sensitive | Python distinguishes uppercase from lowercase — `None` and `none` are completely different |
 
 ---
@@ -50,6 +51,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | file I/O — open, with, read, write, readlines, strip | `goal_saver.py` |
 | dictionary basics — creating, accessing, updating | `student_record.py` |
 | try/except ValueError — error handling on user input | `number_picker.py` |
+| float — decimal numbers for money, storing return value | `tip_calculator.py` |
 
 ---
 
