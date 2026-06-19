@@ -39,14 +39,14 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 4. Summing values from a list of dicts
 *Needed for: calculating totals per category*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle
 
 ### 5. Grouping and accumulating — looping to build category totals
 *Needed for: "Food: $34.50, Transport: $12.00" from a flat list of expenses*
-- [ ] Drilled in REPL (extra drilling — this is the core new pattern)
-- [ ] Drilled in REPL (second pass)
-- [ ] Puzzle
+- [x] Drilled in REPL (extra drilling — this is the core new pattern)
+- [x] Drilled in REPL (second pass)
+- [x] Puzzle
 
 ---
 

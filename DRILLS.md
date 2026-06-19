@@ -54,6 +54,8 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | float — decimal numbers for money, storing return value | `tip_calculator.py` |
 | f-strings — formatting variables and floats inside strings | `receipt_printer.py` |
 | list of dicts — accessing fields, passing to functions, `.capitalize()` | `menu_board.py` |
+| accumulator pattern — summing a value across a list of dicts | `score_total.py` |
+| grouping and accumulating — dict of totals, looping to print with `.keys()` | `category_totals.py` |
 
 ---
 
@@ -88,6 +90,17 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `.pop(index)` removes and returns the item at that position — the list holds dicts, so you get a dict back
 - `str.split(",")` — splits a string on a delimiter, returns a list: `"eggs,False".split(",")` → `["eggs", "False"]`
 - Reconstruct bool from file string: `parts[1] == "True"` — compares strings, result is a real boolean
+
+### Accumulator Pattern
+- Start a variable at `0` before the loop: `total = 0`
+- Add to it each iteration: `total = total + item["field"]`
+- After the loop, `total` holds the sum of all values
+
+### Grouping and Accumulating
+- Use a dict to hold a running total per category: `totals = {"Food": 0, "Transport": 0}`
+- Inside the loop, use the category value as a key: `totals[e["category"]] = totals[e["category"]] + e["amount"]`
+- `e["category"]` returns a string — that string is used as the key to look up in `totals`
+- Loop over the dict to print results: `for key in totals.keys(): print(f"{key}: ${totals[key]:.2f}")`
 
 ### String Methods
 - `str.capitalize()` — returns the string with the first letter uppercased, rest lowercased: `"burger".capitalize()` → `"Burger"`

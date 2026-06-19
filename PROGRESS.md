@@ -1,32 +1,29 @@
-## Session 19 — 2026-06-18
+## Session 20 — 2026-06-18
 
 ### What We Covered
-- Opening REPL drill: list of dicts — looping, accessing fields (session 16 concept)
-- f-strings — `f"{variable}"`, `f"{value:.2f}"` for fixed-point decimals
-- `:.2f` format spec — always show 2 decimal places, dependent on f-string prefix
-- `.capitalize()` — string method, first letter uppercase
-- Passing dict values as separate arguments to a function
-- Key insight: dict keys and function parameter names are separate things that can share the same spelling
+- Opening REPL drill: list of dicts field access (session 16/17 concept)
+- Accumulator pattern — `total = 0`, loop, `total = total + item["field"]`
+- Grouping and accumulating — dict of totals, `totals[e["category"]] = totals[e["category"]] + e["amount"]`
+- Looping over `dict.keys()` to print formatted output with `:.2f` and `.capitalize()`
 
 ### Puzzles Completed
-- `puzzles/receipt_printer.py`
-- `puzzles/menu_board.py`
+- `puzzles/score_total.py`
+- `puzzles/category_totals.py`
 
 ### Vocabulary Introduced
-- `.capitalize()`
+- accumulator pattern
 
 ### What He Struggled With
-- `receipt_printer.py`: used `e["desc"]` inside function instead of parameters — function was ignoring its own arguments, reading global `e`
-- Confusion between dict keys, parameter names, and loop access when all have similar names ("inception" effect)
-- Needed redirect to separate the loop from the function (loop inside function vs loop calling function)
+- `category_totals.py`: placed f-string as a dict key — `e[f"{amount:.2f}"]` — caught quickly when explained
+- Needed an extra REPL pass on the grouping pattern before the puzzle
 
 ### What Felt Solid
-- `:.2f` clicked after one explanation and drills
-- Correctly identified that `.capitalize()` can't be called on a float
-- `menu_board.py`: header placed outside the loop unprompted — first clean placement appearance this session
-- Articulated parameter passing correctly in plain English at end of session
+- Accumulator pattern clicked fast — drilled twice, wrote loop independently on second pass
+- Explained `totals[e["category"]]` lookup correctly unprompted
+- Applied `.capitalize()` and `:.2f` in `category_totals.py` without being prompted
+- Wrote grouping loop from scratch without reference to the drilled version
 
 ### Where to Start Next Session
-- Placement weak spot: first clean unprompted appearance (menu_board.py header). One more needed to eliminate.
-- Next: Step 4 — summing values from a list of dicts (REPL drill first)
-- Design next puzzle to surface placement weak spot again
+- Placement weak spot: no structural placement test this session — status unchanged (1/2 clean appearances needed to eliminate)
+- Steps 4 and 5 complete — next: BUILD v0.1 of expense tracker
+- Design the build step to surface placement weak spot (header, totals label, menu — all have placement decisions)
