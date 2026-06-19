@@ -1,32 +1,32 @@
-## Session 18 — 2026-06-16
+## Session 19 — 2026-06-18
 
 ### What We Covered
-- Opening REPL drill: chaining return values — `result = function()`, passing return values as arguments
-- `input_validator.py` — second `try/except ValueError` puzzle, range checking 1–10
-- `IndexError` — raised when accessing a list index out of range
-- Nested `try/except` — inner `except IndexError` inside outer `except ValueError`
-- Applied error handling to `shopping_list.py` — both `ValueError` (bad menu input) and `IndexError` (out-of-range item selection)
+- Opening REPL drill: list of dicts — looping, accessing fields (session 16 concept)
+- f-strings — `f"{variable}"`, `f"{value:.2f}"` for fixed-point decimals
+- `:.2f` format spec — always show 2 decimal places, dependent on f-string prefix
+- `.capitalize()` — string method, first letter uppercase
+- Passing dict values as separate arguments to a function
+- Key insight: dict keys and function parameter names are separate things that can share the same spelling
 
 ### Puzzles Completed
-- `puzzles/input_validator.py`
+- `puzzles/receipt_printer.py`
+- `puzzles/menu_board.py`
 
 ### Vocabulary Introduced
-- `IndexError`
+- `.capitalize()`
 
 ### What He Struggled With
-- Placed `if choice == 5:` inside `except IndexError` block — caught it after being pointed to the line numbers, not fully unprompted
+- `receipt_printer.py`: used `e["desc"]` inside function instead of parameters — function was ignoring its own arguments, reading global `e`
+- Confusion between dict keys, parameter names, and loop access when all have similar names ("inception" effect)
+- Needed redirect to separate the loop from the function (loop inside function vs loop calling function)
 
 ### What Felt Solid
-- Correct `except IndexError` syntax guessed unprompted from `ValueError` pattern
-- Range check fix (`<= 10`) caught and applied himself
-- Structural reasoning: knew choice 5 needed to be outside the inner try/except once spotted
-
-### Additional — 2026-06-16 (same session, Q&A only)
-- Discussed: standard library vs third-party libraries, modules vs packages, JSON overview
-- Discussed: pip install workflow, TensorFlow/Pygame/Tkinter overview
-- Interest noted: Pygame or Tkinter as a future roadmap after expense tracker
+- `:.2f` clicked after one explanation and drills
+- Correctly identified that `.capitalize()` can't be called on a float
+- `menu_board.py`: header placed outside the loop unprompted — first clean placement appearance this session
+- Articulated parameter passing correctly in plain English at end of session
 
 ### Where to Start Next Session
-- Placement weak spot: surfaced again in shopping_list.py — caught after a hint, not unprompted. Still tracking.
-- Start expense tracker roadmap: step 1 is `float`, nothing checked off yet
-- After expense tracker, plan a Pygame or Tkinter roadmap (Dustin expressed interest)
+- Placement weak spot: first clean unprompted appearance (menu_board.py header). One more needed to eliminate.
+- Next: Step 4 — summing values from a list of dicts (REPL drill first)
+- Design next puzzle to surface placement weak spot again

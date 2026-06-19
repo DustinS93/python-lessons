@@ -28,14 +28,14 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### 2. f-strings — clean string formatting
 *Needed for: displaying amounts like `Food: $34.50` cleanly*
-- [ ] Drilled in REPL
-- [ ] Puzzle
+- [x] Drilled in REPL
+- [x] Puzzle
 
 ### 3. List of dicts — storing structured data (extra drilling)
 *Needed for: each expense is `{"desc": "coffee", "category": "Food", "amount": 4.99}`*
 *Note: covered in session 16, but needs more reps before building on it*
-- [ ] Drilled in REPL (revisit — extra session)
-- [ ] Puzzle
+- [x] Drilled in REPL (revisit — extra session)
+- [x] Puzzle
 
 ### 4. Summing values from a list of dicts
 *Needed for: calculating totals per category*

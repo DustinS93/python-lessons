@@ -52,6 +52,8 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | dictionary basics — creating, accessing, updating | `student_record.py` |
 | try/except ValueError — error handling on user input | `number_picker.py` |
 | float — decimal numbers for money, storing return value | `tip_calculator.py` |
+| f-strings — formatting variables and floats inside strings | `receipt_printer.py` |
+| list of dicts — accessing fields, passing to functions, `.capitalize()` | `menu_board.py` |
 
 ---
 
@@ -86,6 +88,9 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `.pop(index)` removes and returns the item at that position — the list holds dicts, so you get a dict back
 - `str.split(",")` — splits a string on a delimiter, returns a list: `"eggs,False".split(",")` → `["eggs", "False"]`
 - Reconstruct bool from file string: `parts[1] == "True"` — compares strings, result is a real boolean
+
+### String Methods
+- `str.capitalize()` — returns the string with the first letter uppercased, rest lowercased: `"burger".capitalize()` → `"Burger"`
 
 ### f-strings
 - Prefix a string with `f` to make it an f-string: `f"Hello, {name}"`
