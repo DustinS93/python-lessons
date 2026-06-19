@@ -87,6 +87,12 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `str.split(",")` — splits a string on a delimiter, returns a list: `"eggs,False".split(",")` → `["eggs", "False"]`
 - Reconstruct bool from file string: `parts[1] == "True"` — compares strings, result is a real boolean
 
+### f-strings
+- Prefix a string with `f` to make it an f-string: `f"Hello, {name}"`
+- `{variable}` — inserts the variable's value directly into the string
+- `{value:.2f}` — formats a float to always show 2 decimal places: `f"{2.5:.2f}"` → `"2.50"`
+- The prefix `f` activates the f-string; the `f` in `:.2f` is a separate format spec for fixed-point decimals
+
 ### Error Handling
 - `try/except` — wrap risky code in `try:`, catch the error in `except ErrorType:`
 - `ValueError` — raised when a type conversion fails, e.g. `int("hello")`
