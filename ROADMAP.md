@@ -52,12 +52,12 @@ Each step is either a **Learn** step or a **Build** step.
 
 ### BUILD v0.1 — Working core (no file saving yet)
 *Prerequisites: steps 1–5 complete*
-- [ ] App runs and shows a menu: `[1] Add Expense  [2] View All  [3] View Totals  [4] Quit`
-- [ ] User can add an expense — description, category, amount stored as a dict in a list
-- [ ] User can view all expenses — numbered, with category and amount
-- [ ] View Totals shows a total per category
-- [ ] Quit exits cleanly
-- [ ] Menu loops with `while True`, `break` on quit
+- [x] App runs and shows a menu: `[1] Add Expense  [2] View All  [3] View Totals  [4] Quit`
+- [x] User can add an expense — description, category, amount stored as a dict in a list
+- [x] User can view all expenses — numbered, with category and amount
+- [x] View Totals shows a total per category
+- [x] Quit exits cleanly
+- [x] Menu loops with `while True`, `break` on quit
 
 ---
 

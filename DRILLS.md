@@ -82,6 +82,7 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `KeyError` — raised when you access a key that doesn't exist
 - `len(dict)` — returns the number of key-value pairs
 - `dict.keys()` — returns all keys in the dictionary
+- `key in dict` / `key not in dict` — checks if a key exists: `"food" not in totals` → `True` if "food" hasn't been added yet
 
 ### List of Dictionaries
 - A list can hold dicts as items: `items = [{"name": "eggs", "done": False}, {"name": "milk", "done": True}]`
