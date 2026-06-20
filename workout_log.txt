@@ -1,0 +1,4 @@
+pushup,10,10
+jumping jacks,100,10
+pusup,34,34
+pushup,3,3
