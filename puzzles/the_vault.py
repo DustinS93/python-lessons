@@ -1,3 +1,4 @@
+# Concept: scope — local vs global variables, same name in both scopes uses the local copy
 vault = "Crown jewels"
 
 def lock():

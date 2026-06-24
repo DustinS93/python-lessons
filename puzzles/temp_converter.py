@@ -1,3 +1,4 @@
+# Concept: type conversion — str(), int(), float(), functions calling functions
 def to_fahrenheit(celcius):
     return (celcius * 9/5) + 32
 def format_temp(temp):

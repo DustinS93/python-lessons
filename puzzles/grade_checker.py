@@ -1,3 +1,4 @@
+# Concept: conditionals — if/elif/else, passing a return value as an argument to another function
 def get_grade(score):
     if score >= 90:
         return "A"

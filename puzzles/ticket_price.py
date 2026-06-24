@@ -1,3 +1,4 @@
+# Concept: input(), int(input()) — converting user input to an integer for use in conditionals
 def ticket_price(age):
     if age <= 12:
         return "$5"

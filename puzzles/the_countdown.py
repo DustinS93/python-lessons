@@ -1,3 +1,4 @@
+# Concept: for loop counter pattern — decrementing a variable inside a for loop
 def countdown(metals):
     number = len(metals)
     for i in metals:

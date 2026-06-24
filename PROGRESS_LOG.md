@@ -580,34 +580,6 @@
 - Structural reasoning: knew choice 5 needed to be outside the inner try/except once spotted
 
 ### Where to Start Next Session
-- Placement weak spot: surfaced again in shopping_list.py (choice 5 inside except block) — caught after a hint. Not a clean unprompted appearance. Still tracking.
-- Error handling stretch goal in ROADMAP.md is complete — check off and decide next direction
-- Next concept TBD: new roadmap topic or consolidation
-
-## Session 18 — 2026-06-16
-
-### What We Covered
-- Opening REPL drill: chaining return values — `result = function()`, passing return values as arguments
-- `input_validator.py` — second `try/except ValueError` puzzle, range checking 1–10
-- `IndexError` — raised when accessing a list index out of range
-- Nested `try/except` — inner `except IndexError` inside outer `except ValueError`
-- Applied error handling to `shopping_list.py` — both `ValueError` (bad menu input) and `IndexError` (out-of-range item selection)
-
-### Puzzles Completed
-- `puzzles/input_validator.py`
-
-### Vocabulary Introduced
-- `IndexError`
-
-### What He Struggled With
-- Placed `if choice == 5:` inside `except IndexError` block — caught it after being pointed to the line numbers, not fully unprompted
-
-### What Felt Solid
-- Correct `except IndexError` syntax guessed unprompted from `ValueError` pattern
-- Range check fix (`<= 10`) caught and applied himself
-- Structural reasoning: knew choice 5 needed to be outside the inner try/except once spotted
-
-### Where to Start Next Session
 - Placement weak spot: surfaced again in shopping_list.py — caught after a hint, not unprompted. Still tracking.
 - Start expense tracker roadmap: step 1 is `float`, nothing checked off yet
 - After expense tracker, plan a Pygame or Tkinter roadmap (Dustin expressed interest)
@@ -674,32 +646,33 @@
 - Placement weak spot: no structural placement test this session — status unchanged (1/2 clean appearances needed to eliminate)
 - Steps 4 and 5 complete — next: BUILD v0.1 of expense tracker
 - Design the build step to surface placement weak spot (header, totals label, menu — all have placement decisions)
-## Session 20 — 2026-06-18
+
+---
+
+## Session 21 — 2026-06-19
 
 ### What We Covered
-- Opening REPL drill: list of dicts field access (session 16/17 concept)
-- Accumulator pattern — `total = 0`, loop, `total = total + item["field"]`
-- Grouping and accumulating — dict of totals, `totals[e["category"]] = totals[e["category"]] + e["amount"]`
-- Looping over `dict.keys()` to print formatted output with `:.2f` and `.capitalize()`
+- Opening REPL drill: f-strings with `:.2f` (session 17 concept)
+- `key not in dict` — checking before adding a new key to avoid KeyError
+- BUILD v0.1 of expense tracker — full working core, no file saving
 
 ### Puzzles Completed
-- `puzzles/score_total.py`
-- `puzzles/category_totals.py`
+- `projects/expense_tracker.py` (BUILD v0.1)
 
 ### Vocabulary Introduced
-- accumulator pattern
+- (none new)
 
 ### What He Struggled With
-- `category_totals.py`: placed f-string as a dict key — `e[f"{amount:.2f}"]` — caught quickly when explained
-- Needed an extra REPL pass on the grouping pattern before the puzzle
+- Placed `expenses = []` inside the `while True` loop — needed a prompt to catch it (placement streak reset to 0)
+- `!= in` — tried to combine operators instead of using `not in`
+- `total.append()` — used list method on a dict; needed redirect to DRILLS.md
 
 ### What Felt Solid
-- Accumulator pattern clicked fast — drilled twice, wrote loop independently on second pass
-- Explained `totals[e["category"]]` lookup correctly unprompted
-- Applied `.capitalize()` and `:.2f` in `category_totals.py` without being prompted
-- Wrote grouping loop from scratch without reference to the drilled version
+- Caught that `category_totals.py` was hardcoded — good observation
+- Understood `not in` quickly once the drill was done
+- Explained final concept back correctly: initializing the key to 0 so the add line always has something to work with
+- `float` fix identified immediately when asked
 
 ### Where to Start Next Session
-- Placement weak spot: no structural placement test this session — status unchanged (1/2 clean appearances needed to eliminate)
-- Steps 4 and 5 complete — next: BUILD v0.1 of expense tracker
-- Design the build step to surface placement weak spot (header, totals label, menu — all have placement decisions)
+- Placement weak spot: streak at 0 — placed `expenses = []` inside loop, needed a hint
+- Next: Step 6 — saving and loading a list of dicts to/from a file

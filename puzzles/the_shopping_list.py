@@ -1,3 +1,4 @@
+# Concept: lists — creating, indexing, len(), for loop counter pattern
 def check_list(shopping_list):
     number = 0
     for i in shopping_list:

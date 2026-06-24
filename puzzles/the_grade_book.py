@@ -1,3 +1,4 @@
+# Concept: for loop with conditionals — checking each score against a range of grade boundaries
 def grade_book(grade_list):
     for score in grade_list:
         if score < 60:

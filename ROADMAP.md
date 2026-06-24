@@ -84,3 +84,4 @@ Each step is either a **Learn** step or a **Build** step.
 - [ ] Delete an expense by number
 - [ ] Filter view by category
 - [ ] Sort expenses by amount
+- [ ] Harden the file format — a comma inside a description/category, or a blank line in `expenses.txt`, breaks the loader (`split(",")` gives the wrong number of parts). Known latent bug, masked by `"w"` overwrite on save.

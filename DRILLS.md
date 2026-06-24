@@ -56,6 +56,8 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | list of dicts — accessing fields, passing to functions, `.capitalize()` | `menu_board.py` |
 | accumulator pattern — summing a value across a list of dicts | `score_total.py` |
 | grouping and accumulating — dict of totals, looping to print with `.keys()` | `category_totals.py` |
+| saving and loading a list of dicts to/from a file — round-trip via comma-separated .txt | `movie_log.py`, `workout_log.py` |
+| try/except ValueError + range validation — checking input falls within 1 to 10 | `input_validator.py` |
 
 ---
 
