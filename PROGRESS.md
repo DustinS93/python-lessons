@@ -1,33 +1,34 @@
-## Session 22 — 2026-06-22
+## Session 23 — 2026-06-23
 
 ### What We Covered
-- Opening REPL drill: grouping/accumulating with `dict.keys()` and `:.2f` (session 19/20 concept)
-- File I/O REPL pass 1: saving a list of dicts to file — comma-separated values, `\n`, only values written
-- File I/O REPL pass 2: `os.path.exists()` wrapping the load block, `return []` fallback
-- Full round-trip: save → file → load → list of dicts with correct types
-- `result = load_movies()` — storing a function's return value
-- f-string single quotes inside double-quoted string
+- Warm-up REPL drill: `try/except` + the `int("50.99")` trap (strings don't truncate — `int(float("50.99"))` does)
+- BUILD v0.2 of expense tracker — completed: load on startup, save on quit, error handling on amount
+- Split the crammed one-line `.append()` into separate variables so only `amount` sits in `try`
+- `continue` to bounce bad input back to the menu (refresher REPL drill)
+- Diagnosed a "works the second time" ghost: bad line in `expenses.txt`, masked by `"w"` overwrite on save
+- Added `.gitignore` (pycache/.DS_Store/expenses.txt)
 
 ### Puzzles Completed
-- `puzzles/movie_log.py`
+- `projects/expense_tracker.py` (BUILD v0.2)
 
 ### Vocabulary Introduced
 - (none new)
 
 ### What He Struggled With
-- `f.write()` takes one string argument — passed comma-separated pieces instead of concatenating
-- `return load_movies` instead of `return loaded_movies` — returned the function, not the variable
-- `os.path.exists` block floating outside any function — structural placement error, caught on review
-- Two `with open` blocks inside `load_movies` — redundant, caught on review
-- `"title:"` — colon inside the string key instead of as dict separator
-- Rating as MPAA string ("R"/"G") instead of float
+- Placement: `return loaded_expenses` written INSIDE the for loop — return-inside-loop trap resurfaced (was eliminated S12)
+- Placement: `load_expenses()` called inside the while loop, return value discarded — should be once, at startup
+- Placement: `save_expenses()` called with no argument, and at first placed where `break` skipped it
+- `with ("expenses.txt", "w")` — dropped the `open`; `open(expenses.txt...)` — variable instead of string; `"w"` mode to read
 
 ### What Felt Solid
-- `lines = f.readlines()` explained correctly: "a list of strings, 1 for each line"
-- Round-trip concept articulated well at session end
-- `result` catches what `return` hands back — explained correctly unprompted
-- `key not in dict` pattern explained correctly when asked
+- Separated the three inputs and wrapped only `amount` in try/except — right instinct, did it first try
+- `continue` predicted correctly in drill and applied cleanly (last line of except, skips the append)
+- Explained load-before-loop / save-after-loop plainly, incl. what breaks if swapped
+- Flagged the "it works now for no reason" feeling instead of moving on — good debugging instinct
+- Read toward the traceback when pushed (though grabbed the wrong line first)
 
 ### Where to Start Next Session
-- Placement weak spot: streak still 0 — `os.path.exists` block outside function, caught on review
-- Next: BUILD v0.2 — add save on quit and load on startup to `expense_tracker.py`, plus `try/except` on amount input
+- Placement weak spot: streak still 0 — multiple placement misses again this session
+- Return-inside-loop RESURFACED — back on active list, watch it next build
+- Count now 3 of 5 → open next session with a targeted placement drill before new content
+- Next: Stretch items on expense tracker (delete by number / filter / sort), or start the next roadmap
