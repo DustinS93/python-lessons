@@ -31,7 +31,7 @@ while True:
         except ValueError:
             print("Not A MF Float!")
             print("Try Again:")
-            amount = float(input("How much did you spend?: "))
+            continue
         expenses.append({"description": description, "category": category, "amount": amount})
     elif choice == 2:
         number = 0
