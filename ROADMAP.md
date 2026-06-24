@@ -64,18 +64,18 @@ Each step is either a **Learn** step or a **Build** step.
 ### 6. Saving and loading a list of dicts to/from a file
 *Needed for: persisting expenses between runs*
 *Note: file I/O was covered in session 15 but this is more complex — dicts with three fields*
-- [ ] Drilled in REPL (extra drilling — focus here)
-- [ ] Drilled in REPL (second pass)
-- [ ] Puzzle
+- [x] Drilled in REPL (extra drilling — focus here)
+- [x] Drilled in REPL (second pass)
+- [x] Puzzle
 
 ---
 
 ### BUILD v0.2 — Complete project
 *Prerequisites: step 6 complete*
-- [ ] On startup, load existing expenses from `expenses.txt` if it exists
-- [ ] On quit, save current expenses to `expenses.txt`
-- [ ] App is fully functional: add, view all, view totals, persist across runs
-- [ ] Error handling on amount input (`try/except ValueError`)
+- [x] On startup, load existing expenses from `expenses.txt` if it exists
+- [x] On quit, save current expenses to `expenses.txt`
+- [x] App is fully functional: add, view all, view totals, persist across runs
+- [x] Error handling on amount input (`try/except ValueError`)
 - [ ] Committed to GitHub
 
 ---

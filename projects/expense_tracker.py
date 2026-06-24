@@ -1,11 +1,38 @@
 # Project two, Expense tracker Build V0.1
-expenses = []
+import os
+def load_expenses():
+    if os.path.exists("expenses.txt"):
+        with open("expenses.txt", "r") as f:
+            lines = f.readlines()
+        loaded_expenses = []
+        for line in lines:
+            parts = line.strip().split(",")
+            loaded_expenses.append({"description": parts[0], "category": parts[1], "amount": float(parts[2])})
+        return loaded_expenses
+    else:
+        return []
+def save_expenses(expenses):
+    with open("expenses.txt", "w") as f:
+        for e in expenses:
+            f.write(e["description"] + "," + e["category"] + "," + str(e["amount"]) + "\n")
+
+result = load_expenses()
+expenses = result
+
 while True:
     print("--- Menu ---")
     print("[1] Add Expense [2] View All [3] View Totals [4] Quit")
     choice = int(input("Choose an option: "))
     if choice == 1:
-        expenses.append({"description": input("What did you buy?: "), "category": input("What kind of purchase was this?: "), "amount": float(input("How much did you spend?: "))})
+        description = input("What did you buy?: ")
+        category = input("What kind of purchase was this?: ")
+        try:
+            amount = float(input("How much did you spend?: "))
+        except ValueError:
+            print("Not A MF Float!")
+            print("Try Again:")
+            amount = float(input("How much did you spend?: "))
+        expenses.append({"description": description, "category": category, "amount": amount})
     elif choice == 2:
         number = 0
         for e in expenses:
@@ -23,3 +50,5 @@ while True:
     elif choice == 4:
         print("Goodbye")
         break
+save_expenses(expenses)
+
