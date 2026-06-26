@@ -1,34 +1,31 @@
-## Session 23 — 2026-06-23
+## Session 24 — 2026-06-25
 
 ### What We Covered
-- Warm-up REPL drill: `try/except` + the `int("50.99")` trap (strings don't truncate — `int(float("50.99"))` does)
-- BUILD v0.2 of expense tracker — completed: load on startup, save on quit, error handling on amount
-- Split the crammed one-line `.append()` into separate variables so only `amount` sits in `try`
-- `continue` to bounce bad input back to the menu (refresher REPL drill)
-- Diagnosed a "works the second time" ghost: bad line in `expenses.txt`, masked by `"w"` overwrite on save
-- Added `.gitignore` (pycache/.DS_Store/expenses.txt)
+- Warm-up placement drill: `return` inside a for loop — predicted output of a summing function (caught the trap after one nudge)
+- REPL drill: `.pop(index)` — returns the *item* removed, not the index; deletes in place
+- Stretch feature: Delete an expense by number — new `elif`, `print_list()` reuse, `pop(n - 1)` bridge
+- Off-by-one bridge: user types `1` (1-based display) → `expenses.pop(n - 1)` (0-based list)
+- Diagnosed the real bug himself: deletes "not saving" because hard-close skipped `break`, so the after-loop `save_expenses` never ran
+- Fix: saving-on-write — call `save_expenses(expenses)` inside Add and Delete blocks
 
 ### Puzzles Completed
-- `projects/expense_tracker.py` (BUILD v0.2)
+- `projects/expense_tracker.py` (BUILD — Delete feature + save-on-write)
 
 ### Vocabulary Introduced
-- (none new)
+- DRY (Don't Repeat Yourself), saving-on-write
 
 ### What He Struggled With
-- Placement: `return loaded_expenses` written INSIDE the for loop — return-inside-loop trap resurfaced (was eliminated S12)
-- Placement: `load_expenses()` called inside the while loop, return value discarded — should be once, at startup
-- Placement: `save_expenses()` called with no argument, and at first placed where `break` skipped it
-- `with ("expenses.txt", "w")` — dropped the `open`; `open(expenses.txt...)` — variable instead of string; `"w"` mode to read
+- Guessed at the bug 3× ("not saving", "global doesn't work", "save the return") before running the app — theorized instead of observing
+- "Reaching for a global to read it doesn't work" — wrong; reading a global inside a function is fine, only reassigning is the trap
+- Confused pop's return (the item) with the index argument
+- Explain-back: knew the fix but struggled to articulate the placement/timing *concept* (needed scaffolding)
 
 ### What Felt Solid
-- Separated the three inputs and wrapped only `amount` in try/except — right instinct, did it first try
-- `continue` predicted correctly in drill and applied cleanly (last line of except, skips the append)
-- Explained load-before-loop / save-after-loop plainly, incl. what breaks if swapped
-- Flagged the "it works now for no reason" feeling instead of moving on — good debugging instinct
-- Read toward the traceback when pushed (though grabbed the wrong line first)
+- Placement CLEAN and unprompted: new `elif`, both `save_expenses` calls, `pop` not trapped in a loop
+- Reached for DRY unprompted — built `print_list()`, then cleaned View All to call it
+- Self-diagnosed the hard-close-skips-save bug and proposed save-on-write himself
 
 ### Where to Start Next Session
-- Placement weak spot: streak still 0 — multiple placement misses again this session
-- Return-inside-loop RESURFACED — back on active list, watch it next build
-- Count now 3 of 5 → open next session with a targeted placement drill before new content
-- Next: Stretch items on expense tracker (delete by number / filter / sort), or start the next roadmap
+- Placement: 1 clean build appearance this session (streak 0 → 1) — needs 1 more clean unprompted appearance to re-eliminate
+- Reinforce debugging discipline: RUN it before theorizing (recurring pattern this session)
+- Next: more stretch (filter by category / sort by amount), or start the next roadmap (Pygame/Tkinter)

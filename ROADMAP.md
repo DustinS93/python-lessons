@@ -76,12 +76,13 @@ Each step is either a **Learn** step or a **Build** step.
 - [x] On quit, save current expenses to `expenses.txt`
 - [x] App is fully functional: add, view all, view totals, persist across runs
 - [x] Error handling on amount input (`try/except ValueError`)
-- [ ] Committed to GitHub
+- [x] Committed to GitHub
 
 ---
 
 ## Stretch (after v0.2)
-- [ ] Delete an expense by number
+- [x] Delete an expense by number (session 24 — `pop(n - 1)` bridge + `print_list()` reuse)
+- [x] Saving-on-write — `save_expenses` inside Add/Delete so a hard close can't lose data (session 24)
 - [ ] Filter view by category
 - [ ] Sort expenses by amount
 - [ ] Harden the file format — a comma inside a description/category, or a blank line in `expenses.txt`, breaks the loader (`split(",")` gives the wrong number of parts). Known latent bug, masked by `"w"` overwrite on save.
