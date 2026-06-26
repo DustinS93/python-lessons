@@ -1,0 +1,88 @@
+# ROADMAP.md — CLI Expense Tracker
+
+## The Project
+A command-line expense tracker. The user can log expenses with a description, category, and amount. They can view all expenses, see totals by category, and quit — with expenses saved to a file so they persist between runs.
+
+**Project file:** `projects/expense_tracker.py`
+
+---
+
+## How to Read This
+
+Each step is either a **Learn** step or a **Build** step.
+
+- **Learn** steps have two checkboxes: drilled in REPL and puzzle completed.
+  Both must be checked before moving to the next step.
+- **Build** steps are milestones where you write a working version of the
+  project using what you've learned. The app should run after every build step.
+- Check off boxes as you go. At session start, scan for the first unchecked box — that's where we are.
+
+---
+
+## Steps
+
+### 1. `float` — decimal numbers for money
+*Needed for: storing amounts like 4.99 instead of just 4*
+- [x] Drilled in REPL
+- [x] Puzzle
+
+### 2. f-strings — clean string formatting
+*Needed for: displaying amounts like `Food: $34.50` cleanly*
+- [x] Drilled in REPL
+- [x] Puzzle
+
+### 3. List of dicts — storing structured data (extra drilling)
+*Needed for: each expense is `{"desc": "coffee", "category": "Food", "amount": 4.99}`*
+*Note: covered in session 16, but needs more reps before building on it*
+- [x] Drilled in REPL (revisit — extra session)
+- [x] Puzzle
+
+### 4. Summing values from a list of dicts
+*Needed for: calculating totals per category*
+- [x] Drilled in REPL
+- [x] Puzzle
+
+### 5. Grouping and accumulating — looping to build category totals
+*Needed for: "Food: $34.50, Transport: $12.00" from a flat list of expenses*
+- [x] Drilled in REPL (extra drilling — this is the core new pattern)
+- [x] Drilled in REPL (second pass)
+- [x] Puzzle
+
+---
+
+### BUILD v0.1 — Working core (no file saving yet)
+*Prerequisites: steps 1–5 complete*
+- [x] App runs and shows a menu: `[1] Add Expense  [2] View All  [3] View Totals  [4] Quit`
+- [x] User can add an expense — description, category, amount stored as a dict in a list
+- [x] User can view all expenses — numbered, with category and amount
+- [x] View Totals shows a total per category
+- [x] Quit exits cleanly
+- [x] Menu loops with `while True`, `break` on quit
+
+---
+
+### 6. Saving and loading a list of dicts to/from a file
+*Needed for: persisting expenses between runs*
+*Note: file I/O was covered in session 15 but this is more complex — dicts with three fields*
+- [x] Drilled in REPL (extra drilling — focus here)
+- [x] Drilled in REPL (second pass)
+- [x] Puzzle
+
+---
+
+### BUILD v0.2 — Complete project
+*Prerequisites: step 6 complete*
+- [x] On startup, load existing expenses from `expenses.txt` if it exists
+- [x] On quit, save current expenses to `expenses.txt`
+- [x] App is fully functional: add, view all, view totals, persist across runs
+- [x] Error handling on amount input (`try/except ValueError`)
+- [x] Committed to GitHub
+
+---
+
+## Stretch (after v0.2)
+- [x] Delete an expense by number (session 24 — `pop(n - 1)` bridge + `print_list()` reuse)
+- [x] Saving-on-write — `save_expenses` inside Add/Delete so a hard close can't lose data (session 24)
+- [ ] Filter view by category
+- [ ] Sort expenses by amount
+- [ ] Harden the file format — a comma inside a description/category, or a blank line in `expenses.txt`, breaks the loader (`split(",")` gives the wrong number of parts). Known latent bug, masked by `"w"` overwrite on save.
