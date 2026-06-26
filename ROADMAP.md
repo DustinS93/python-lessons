@@ -40,8 +40,8 @@ small snippet and predict what appears on screen before you look.*
 ### 1. Installing a third-party library + your first window
 *Needed for: getting CustomTkinter onto your machine, and opening a window at all*
 *Teaches: `pip install`, `import customtkinter`, the window object, `mainloop()`*
-- [ ] Tried in REPL/snippet (install it, open a blank window)
-- [ ] Puzzle — `first_window.py` (a titled, sized window that opens and waits)
+- [x] Tried in REPL/snippet (install it, open a blank window)
+- [x] Puzzle — `my_first_window.py` (a titled, sized window that opens and waits)
 
 ### 2. Widgets — labels and buttons
 *Needed for: putting things in the window*

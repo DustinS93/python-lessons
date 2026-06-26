@@ -24,6 +24,13 @@
 | `None` | Python's built-in value for "nothing" — capital N. Returned by functions that don't explicitly return a value |
 | `IndexError` | Raised when you access a list index that doesn't exist — e.g. `my_list[10]` on a 3-item list |
 | case-sensitive | Python distinguishes uppercase from lowercase — `None` and `none` are completely different |
+| library / package | Pre-written code you import and use. `tkinter` is a *standard library* (ships with Python); `customtkinter` is a *third-party package* (must be installed) |
+| pip | Python's package installer — downloads packages from PyPI and installs them. `python3 -m pip install <name>` installs into *that* Python |
+| dependency | A package your package needs to work — pip installs them automatically (e.g. customtkinter pulled in `darkdetect` and `packaging`) |
+| GUI | Graphical User Interface — a window with buttons/boxes, vs a text-only CLI (command-line interface) |
+| event-driven programming | Program starts, then sits idle and *reacts* to user actions, instead of running top-to-bottom and stopping |
+| event loop / `mainloop()` | The endless loop `mainloop()` starts: watch for events (clicks, keypresses) and run matching code. Program stays "busy waiting" until the window closes |
+| widget | A single building block of a GUI window — a label, button, entry box, etc. |
 
 ---
 
@@ -119,6 +126,14 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `ValueError` — raised when a type conversion fails, e.g. `int("hello")`
 - Code inside `except` only runs if that error occurs — otherwise skipped
 - Code after the failing line inside `try` is also skipped when an error is raised
+
+### GUI — CustomTkinter
+- `import customtkinter` — the third-party GUI library (modern skin over Tkinter)
+- `app = customtkinter.CTk()` — creates the main window object
+- `app.title("...")` — sets the window's title bar text
+- `app.geometry("400x300")` — sets the window size in pixels (width x height) as a string
+- `app.mainloop()` — starts the event loop; window stays open and waits until closed
+- The program does NOT end at the last line — `mainloop()` keeps it running until the window closes
 
 ---
 
