@@ -46,8 +46,8 @@ small snippet and predict what appears on screen before you look.*
 ### 2. Widgets — labels and buttons
 *Needed for: putting things in the window*
 *Teaches: `CTkLabel`, `CTkButton`, parent windows*
-- [ ] Tried in REPL/snippet
-- [ ] Puzzle — `hello_button.py` (a window with a label and a button in it)
+- [x] Tried in REPL/snippet
+- [x] Puzzle — done in `my_first_window.py` (label + button added; learned CTkLabel/CTkButton + `dir()`/`help()` for discovery)
 
 ### 3. Layout — positioning widgets
 *Needed for: arranging the form neatly instead of stacked in one column*

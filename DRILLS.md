@@ -65,6 +65,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | grouping and accumulating — dict of totals, looping to print with `.keys()` | `category_totals.py` |
 | saving and loading a list of dicts to/from a file — round-trip via comma-separated .txt | `movie_log.py`, `workout_log.py` |
 | try/except ValueError + range validation — checking input falls within 1 to 10 | `input_validator.py` |
+| GUI window + widgets — CustomTkinter CTk(), CTkLabel, CTkButton, .pack(), mainloop() | `my_first_window.py` |
 
 ---
 
@@ -134,6 +135,11 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `app.geometry("400x300")` — sets the window size in pixels (width x height) as a string
 - `app.mainloop()` — starts the event loop; window stays open and waits until closed
 - The program does NOT end at the last line — `mainloop()` keeps it running until the window closes
+- Widgets: `customtkinter.CTkLabel(parent, text="...")`, `customtkinter.CTkButton(parent, text="...")` — first argument is the PARENT window
+- Naming convention: all widgets are `CTk` + widget name — `CTkLabel`, `CTkButton`, `CTkEntry`
+- `widget.pack()` — places the widget into the window so it's visible. Creating a widget alone does NOT show it
+- All widgets must be created BEFORE `mainloop()`, and `mainloop()` must be empty and the last line
+- Discovering the API yourself: `dir(customtkinter)` lists what's available; `help(customtkinter.CTkButton)` shows its arguments (press `q` to exit)
 
 ---
 
