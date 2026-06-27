@@ -66,6 +66,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | saving and loading a list of dicts to/from a file — round-trip via comma-separated .txt | `movie_log.py`, `workout_log.py` |
 | try/except ValueError + range validation — checking input falls within 1 to 10 | `input_validator.py` |
 | GUI window + widgets — CustomTkinter CTk(), CTkLabel, CTkButton, .pack(), mainloop() | `my_first_window.py` |
+| GUI layout — .grid(row, column), row=down/column=right, no pack/grid mixing | `layout_practice.py` |
 
 ---
 
@@ -140,6 +141,8 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `widget.pack()` — places the widget into the window so it's visible. Creating a widget alone does NOT show it
 - All widgets must be created BEFORE `mainloop()`, and `mainloop()` must be empty and the last line
 - Discovering the API yourself: `dir(customtkinter)` lists what's available; `help(customtkinter.CTkButton)` shows its arguments (press `q` to exit)
+- Layout (geometry managers): `.pack()` stacks widgets (top-down; options `pady`, `padx`, `side`); `.grid(row=, column=)` places in a table — `row` moves down, `column` moves right
+- ⚠️ Never mix `.pack()` and `.grid()` in the same window/container — it freezes the program. Pick one per container
 
 ---
 

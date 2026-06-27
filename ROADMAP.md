@@ -52,8 +52,8 @@ small snippet and predict what appears on screen before you look.*
 ### 3. Layout — positioning widgets
 *Needed for: arranging the form neatly instead of stacked in one column*
 *Teaches: geometry managers — `.pack()` and `.grid()`*
-- [ ] Tried in REPL/snippet
-- [ ] Puzzle — `layout_practice.py` (arrange 3 widgets deliberately)
+- [x] Tried in REPL/snippet
+- [x] Puzzle — `layout_practice.py` (3 widgets via `.grid()`; learned row=down/column=right, no pack/grid mixing)
 
 ### 4. Callbacks — making a button DO something
 *Needed for: the whole app — every button runs a function. THE core concept.*
