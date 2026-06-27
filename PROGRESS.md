@@ -1,31 +1,32 @@
-## Session 24 — 2026-06-25
+## Session 25 — 2026-06-26
 
 ### What We Covered
-- Warm-up placement drill: `return` inside a for loop — predicted output of a summing function (caught the trap after one nudge)
-- REPL drill: `.pop(index)` — returns the *item* removed, not the index; deletes in place
-- Stretch feature: Delete an expense by number — new `elif`, `print_list()` reuse, `pop(n - 1)` bridge
-- Off-by-one bridge: user types `1` (1-based display) → `expenses.pop(n - 1)` (0-based list)
-- Diagnosed the real bug himself: deletes "not saving" because hard-close skipped `break`, so the after-loop `save_expenses` never ran
-- Fix: saving-on-write — call `save_expenses(expenses)` inside Add and Delete blocks
+- Opener placement drill: `return` inside a for loop — predicted `10` and named the fix correctly (drill, not build)
+- Decided next roadmap: rebuild Expense Tracker as a **GUI app** with **CustomTkinter** (modern look). Archived CLI roadmap → `roadmaps/ROADMAP_expense_tracker_cli.md`
+- Step 1: installed customtkinter via `python3 -m pip`; built first window (CTk, title, geometry, mainloop)
+- Discussed "multiple Pythons" (why `python3 -m pip`) and dependencies (darkdetect/packaging pulled in)
+- Step 2: widgets — `CTkLabel`, `CTkButton`, `.pack()`; naming convention `CTk` + widget
+- Taught self-discovery: `dir(customtkinter)`, `help()`, official docs
+- Step 3: layout — `.grid(row, column)`, row=down/column=right, no pack/grid mixing
 
 ### Puzzles Completed
-- `projects/expense_tracker.py` (BUILD — Delete feature + save-on-write)
+- `puzzles/my_first_window.py` (GUI Steps 1–2: window + label + button)
+- `puzzles/layout_practice.py` (GUI Step 3: grid layout)
 
 ### Vocabulary Introduced
-- DRY (Don't Repeat Yourself), saving-on-write
+- library/package, third-party package, pip, dependency, GUI, event-driven programming, event loop / mainloop, widget, geometry manager, callback (named, not yet used)
 
 ### What He Struggled With
-- Guessed at the bug 3× ("not saving", "global doesn't work", "save the return") before running the app — theorized instead of observing
-- "Reaching for a global to read it doesn't work" — wrong; reading a global inside a function is fine, only reassigning is the trap
-- Confused pop's return (the item) with the index argument
-- Explain-back: knew the fix but struggled to articulate the placement/timing *concept* (needed scaffolding)
+- Placement: stuffed widget lines INSIDE `mainloop()`'s parentheses — needed structural prompting to fix (not clean)
+- row vs column swapped twice — fixed after a drawn grid scaffold
+- Explain-back again needed scaffolding to get crisp (consistent pattern)
 
 ### What Felt Solid
-- Placement CLEAN and unprompted: new `elif`, both `save_expenses` calls, `pop` not trapped in a loop
-- Reached for DRY unprompted — built `print_list()`, then cleaned View All to call it
-- Self-diagnosed the hard-close-skips-save bug and proposed save-on-write himself
+- Strong analogical transfer: mapped grid/divs from CSS; intuited frames=divs before being taught
+- Asked "where do I learn what that means" → then used `CTkEntry` unprompted via discovery
+- Fixed the mainloop placement himself once pointed at the structure; described the event loop correctly
 
 ### Where to Start Next Session
-- Placement: 1 clean build appearance this session (streak 0 → 1) — needs 1 more clean unprompted appearance to re-eliminate
-- Reinforce debugging discipline: RUN it before theorizing (recurring pattern this session)
-- Next: more stretch (filter by category / sort by amount), or start the next roadmap (Pygame/Tkinter)
+- Step 4: callbacks (`command=`) — THE core event-driven concept; he already described it in explain-back
+- Placement weak spot: appeared in build (widgets in mainloop), needed prompting → streak reset to 0
+- Keep one puzzle per file (drifted into reusing my_first_window.py mid-session)
