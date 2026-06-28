@@ -58,8 +58,8 @@ small snippet and predict what appears on screen before you look.*
 ### 4. Callbacks — making a button DO something
 *Needed for: the whole app — every button runs a function. THE core concept.*
 *Teaches: `command=` wiring a button to a function, event-driven flow*
-- [ ] Tried in REPL/snippet
-- [ ] Puzzle — `click_counter.py` (button click increments a number on a label)
+- [x] Tried in REPL/snippet
+- [x] Puzzle — `click_counter.py` (button click increments a number on a label)
 
 ### 5. Entry widget — reading what the user typed
 *Needed for: capturing the description, category, and amount*

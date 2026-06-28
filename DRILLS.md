@@ -145,6 +145,11 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - Discovering the API yourself: `dir(customtkinter)` lists what's available; `help(customtkinter.CTkButton)` shows its arguments (press `q` to exit)
 - Layout (geometry managers): `.pack()` stacks widgets (top-down; options `pady`, `padx`, `side`); `.grid(row=, column=)` places in a table — `row` moves down, `column` moves right
 - ⚠️ Never mix `.pack()` and `.grid()` in the same window/container — it freezes the program. Pick one per container
+- Callbacks: `CTkButton(app, text="...", command=my_func)` — pass the function by **name, no parens**. Parens (`command=my_func()`) call it once immediately and hand the button the *result*, so the click does nothing
+- The callback function must be **defined before** the button that references it
+- `widget.configure(text="new text")` — changes a widget's property (e.g. its text) *after* creation. This is how a label updates on screen
+- A global counter changed inside a callback needs `global count` as the first line of the function (same scope rule as `the_vault.py`) — otherwise `UnboundLocalError`
+- ⚠️ When a callback crashes, the **window keeps running** (button looks dead) but the error prints to the **terminal** — always check the terminal when a click "does nothing"
 
 ---
 
