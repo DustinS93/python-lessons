@@ -1,86 +1,66 @@
-# ROADMAP.md — Flask Walkthrough (a taste of web apps)
+# ROADMAP.md — Core Python: Object-Oriented Programming (OOP)
 
 ## The Point
-A short, focused look at **how a web app actually works** — so Dustin can see
-the machinery, not just use it. This is a *walkthrough*, not a big project. When
-it's done we steer back to **getting good at core Python** (next frontier:
-writing your own classes / OOP).
+Get genuinely strong at **pure Python** — no libraries. The current focus is
+**writing your own classes** (OOP): the biggest concept-jump in Python and the
+thing that makes all the library code Dustin's been *using* (`CTk`, `Flask`)
+finally make sense from the inside.
 
-**Why Flask (not Django):** Flask is small — you see the *entire* request →
-function → response cycle in one short file, nothing hidden. Django hides the
-machinery, which is the opposite of what we want here.
+**No libraries.** Everything here runs in plain `python3` — REPL drills and
+`.py` files in `puzzles/` and `projects/`, exactly like the CLI work before the
+GUI/Flask detours.
 
-**Project file:** `projects/flask_app/` (Flask wants a folder, not one file)
-
----
-
-## The Big Idea (connects to what you know)
-A GUI button click runs a **callback**. A web app is the same shape, just over
-the internet:
-
-> Browser asks for a URL → **your Python function runs** → it hands back a page →
-> the browser shows it.
-
-The function tied to a URL is called a **route handler** (Flask calls it a
-**view function**). Same mental model as `command=on_click`, new venue.
-
-**No JavaScript needed.** Python (logic) + HTML (structure) + CSS (style) build a
-complete, real web app. Forms submit and the page reloads — that's legitimate
-server-side rendering. JS is optional polish for *later, by choice*.
+**Why OOP now:** Dustin asked "what *is* `customtkinter.CTk()`?" and bumped into
+classes everywhere. He's ready to build his own. Started Session 27 (class,
+`__init__`, `self`) — needs several more passes to feel automatic.
 
 ---
 
 ## How to Read This
 Same format as always:
-- **Learn** steps: tried in snippet + puzzle completed. Both before moving on.
-- **Build** step is the milestone — the app should run in a browser after it.
-- Drills here = "run this and predict what shows up in the browser."
+- **Learn** steps: REPL drill + puzzle. Both checked before moving on.
+- **Build** is the milestone — a running pure-Python program.
+- At session start, scan for the first unchecked box.
 
 ---
 
 ## Steps
 
-### 1. Install Flask + your first route
-*Needed for: running a web server at all, seeing URL → function → response*
-*Teaches: `pip install flask`, `Flask(__name__)`, `@app.route("/")`, `app.run()`, the dev server + localhost in the browser*
-- [x] Tried in snippet (run the server, visit the URL, see text)
-- [x] Puzzle — `hello_flask.py` (one route returns a line of text in the browser)
+### 1. Classes, objects, methods, `self` — the foundation
+*Teaches: `class`, instantiating with `()`, methods, `self` = "this object"*
+- [x] REPL drill — `Dog` class; `self` is the instance not the class (`d.who_am_i() == d`)
+- [x] Puzzle — `expense_class.py` (an `Expense` class with `__init__` + a `summary()` method)
+- [ ] **Reps (Session 28 opener):** write 1–2 small classes cold (e.g. `Dog` with a name + `describe()`), rebuilding `__init__`/`self` from scratch until it's automatic. *self.attr access inside methods is the watch point.*
 
-### 2. Returning HTML
-*Needed for: a real page, not just plain text*
-*Teaches: a view function can return an HTML string; the browser renders the tags*
-- [x] Tried in snippet
-- [x] Puzzle — add a second route that returns a small HTML page (heading + paragraph)
+### 2. Many objects + a list of objects
+*Needed for: the real payoff — collections of your own objects*
+*Teaches: making several instances, storing them in a list, looping to call a method on each*
+- [ ] REPL drill — make a list of 3 objects, loop and call a method on each
+- [ ] Puzzle — `team_roster.py` (a list of `Player`/`Pet` objects; loop prints each one's summary)
 
-### 3. Templates — HTML in its own file
-*Needed for: keeping HTML out of your Python; the proper way*
-*Teaches: `render_template`, the `templates/` folder, passing a variable into a page with `{{ }}`*
-- [x] Tried in snippet
-- [x] Puzzle — `templates/about.html` rendered by a route, with one Python value injected (`{{ name }}`); also linked CSS from `static/`
-
-### 4. Forms — reading what the user typed (the web `.get()`)
-*Needed for: input — the web version of `CTkEntry` + `.get()`*
-*Teaches: an HTML `<form>`, GET vs POST, reading submitted data with `request.form`*
-- [ ] Tried in snippet
-- [ ] Puzzle — a form where you type a name, submit, and the next page greets you (web version of `greeter_gui.py`)
+### 3. Methods that change the object
+*Needed for: objects that do more than describe themselves*
+*Teaches: a method that updates `self.something` (mutating state)*
+- [ ] REPL drill — a method that increments a counter attribute on `self`
+- [ ] Puzzle — `bank_account.py` (deposit/withdraw methods change `self.balance`)
 
 ---
 
-### BUILD — Tiny greeter web app
-*Prerequisites: steps 1–4*
-- [ ] A page with a form: type your name
-- [ ] Submitting runs your Python and shows a page that greets you by name
-- [ ] Runs in the browser at localhost
-- [ ] Committed to GitHub
+### BUILD — Expense Tracker, OOP edition (CLI, no libraries)
+*Prerequisites: steps 1–3. Reuses logic Dustin already knows, restructured around a class.*
+- [ ] An `Expense` class (desc, category, amount) with a `summary()` method
+- [ ] Add expenses as objects into a list
+- [ ] Loop the list to print all summaries
+- [ ] A total, and totals per category, computed from the objects
+- [ ] Runs in the terminal; committed to GitHub
 
 ---
 
-## After this walkthrough
-Back to **core Python depth** — first target: **writing your own classes (OOP)**,
-the natural next jump (you just hit classes via tkinter/Flask objects). Then
-comprehensions and cleaner idioms. Reassess web vs. desktop once OOP is solid.
+## After OOP
+- Comprehensions (list/dict) and cleaner idioms
+- Possibly: save/load the objects to a file (ties OOP back to file I/O he knows)
+- Reassess web vs. desktop later — only if/when he wants a project with a UI again
 
-## Parked
-- GUI Expense Tracker (CustomTkinter) — paused at Step 5 of 6, see
-  `roadmaps/ROADMAP_expense_gui_PAUSED.md`. Taught the event-loop model; resume
-  anytime if desktop becomes the goal again.
+## Parked (libraries — set aside on purpose)
+- GUI Expense Tracker (CustomTkinter) — `roadmaps/ROADMAP_expense_gui_PAUSED.md`
+- Flask web walkthrough (a tour, explored not learned) — `roadmaps/ROADMAP_flask_walkthrough.md`

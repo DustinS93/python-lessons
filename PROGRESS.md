@@ -1,34 +1,32 @@
-## Session 26 — 2026-06-27
+## Session 27 — 2026-06-28
 
 ### What We Covered
-- Opener: dict/list access from memory — wrote `totals[e["category"]] = totals[e["category"]] + e["amount"]` COLD, no peeking (the fluency gap is closing)
-- REPL drill: function name vs call — `say_hi` (object) vs `say_hi()` (runs) vs storing `x = say_hi` then `x()`
-- Step 4 — callbacks: `command=on_click` (no parens = pass the function as a value, called later on click)
-- `.configure(text=...)` to update a widget after creation; `global count` in a callback (scope trap → UnboundLocalError)
-- Debugging: a crashing callback leaves the window running but prints the error to the TERMINAL — caught `NameError` (counter vs count) by looking there
-- Step 5 — entry input: `CTkEntry`, `.get()` reads typed text as a string; greet via f-string in a label
+- Flask walkthrough (install → routes → HTML → templates → static CSS → `{{ }}` injection) — done as a TOUR to see how the web fits together, NOT learned as a skill (his framing). Marked "explored, not learned" in DRILLS
+- "What runs where" model: server vs browser; client-side JS can't be the source of truth, but Node runs JS server-side — so it's client-vs-server, not Python-vs-JS
+- When you need a backend (Flask) vs static HTML/CSS/JS: stored data, secrets, accounts, data-driven pages
+- **Pivot to pure Python — OOP:** writing your own class. `class`, `__init__`, `self`, attributes, a method using `self`
+- Drills: `Dog` class — `self` is the instance not the class (`d.who_am_i() == d` → True); two objects each keep their own data
 
 ### Puzzles Completed
-- `puzzles/click_counter.py` (GUI Step 4: callback increments a label)
-- `puzzles/greeter_gui.py` (GUI Step 5: entry → .get() → f-string greeting)
+- `puzzles/expense_class.py` (first hand-written class: `Expense` with `__init__` + `summary()`)
+- (Flask `flask_app/` built as a tour — reference only, not a tracked puzzle)
 
 ### Vocabulary Introduced
-- callback (now used, not just named)
+- class, object/instance, method, attribute, `__init__`, `self`, instantiate (+ Flask tour terms: route, view function, decorator, localhost — reference only)
 
 ### What He Struggled With
-- Confused creating a widget with reading one — callback made a NEW empty CTkEntry then `.get()` on it (always empty); also a duplicate stray entry
-- Widget-vs-value: tried `name = name.get()`, clobbering the widget + re-triggering the scope trap
-- Froze on writing the f-string into `.configure(text=...)` despite knowing f-strings
-- Explain-back: said callback "stores the entry" — meant the TEXT from `.get()`, not the widget
+- Inside `summary()` used bare names / global `e` instead of `self.desc` (the core OOP bug — flagged it himself after)
+- Added an unnecessary `for` loop inside `summary` (pattern-matched to old list-looping tracker; also a return-inside-loop echo)
+- Got frustrated ("im way off") while actually one fix from done — spirals when close
+- Flask tour debugging: called `render_template` on the import line, empty templates, HTML comma, CSS class typo
 
 ### What Felt Solid
-- Dict-access line written cold from memory — fluency gap nearly closed
-- Function name-vs-call drill: all three predictions right
-- Named the scope fix (`global count`) and the no-parens reason unprompted
-- Observed on his own that the GUI runs from the terminal and `print()` lands there
+- Class + `__init__` + storing attributes on `self` — correct first try (the hard part)
+- Realized the rule himself: "self.desc should be used the whole time" — the key OOP insight
+- Sharp conceptual questions (Node/server-vs-client, when-is-a-backend-needed)
 
 ### Where to Start Next Session
-- Step 6: updating the display dynamically (`.configure`, building output strings) — last step before BUILD v0.1
-- Placement: clean & unprompted both puzzles this session (widgets before mainloop, mainloop last) → streak 0 → 1
-- Reinforce widget (the box) vs value (the string from `.get()`) — surfaced twice today
-- Keep nudging: RUN and read the terminal before theorizing (paid off catching the NameError)
+- OOP reps from scratch, PURE PYTHON, NO libraries — open with a small class drill, rebuild `__init__`/`self` while fresh (he asked to go over it a few more times)
+- Watch: `self.attr` access inside methods (used global/bare name) — design next class to surface it
+- When he says "I'm way off," point at what's RIGHT first — he's usually closer than he thinks
+- See ROADMAP.md (new Core Python / OOP track). GUI + Flask both parked in roadmaps/
