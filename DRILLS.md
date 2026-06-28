@@ -41,6 +41,10 @@
 | view function / route handler | The function that runs when its route is requested — the web's version of a callback. Whatever it returns is what the browser shows |
 | decorator | A line starting with `@` placed on top of a function that registers/modifies it — `@app.route("/")` attaches the function below to a URL |
 | localhost | `127.0.0.1` — your own machine. The Flask dev server runs here; `:5000` is the port |
+| attribute | A piece of data attached to an object — `self.desc`. Set in `__init__`, read anywhere via `self.` |
+| `__init__` | The initializer/constructor method — runs *automatically* when you create an object. Sets up its attributes |
+| `self` | Inside a class, "this particular object." Auto-passed when you call a method; the object being built inside `__init__` |
+| instantiate | To create an object from a class — `Expense("Coffee", "Food", 3.33)` instantiates an Expense |
 
 ---
 
@@ -81,6 +85,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | GUI input — `CTkEntry`, `.get()` to read typed text, update a label with an f-string | `greeter_gui.py` |
 | Flask first route — `Flask(__name__)`, `@app.route("/")`, view function, `app.run()`, localhost in browser | `flask_app/hello_flask.py` |
 | Flask templates — `render_template`, `templates/` + `static/` folders, linking CSS, `{{ }}` value injection (Jinja2) | `flask_app/` (templates/about.html + static/style.css) |
+| Writing your own class — `class`, `__init__`, `self`, attributes, a method using `self` | `expense_class.py` |
 
 ---
 
@@ -168,10 +173,15 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - Name the widget and the value differently — `name_entry` (the box) vs `typed = name_entry.get()` (the string). Reusing one name clobbers the widget and re-triggers the scope trap
 - `print()` always goes to the **terminal**, never the window. To show text to the user, update a widget with `.configure(text=...)`
 
-### Classes & Objects (just using them, not writing yet)
-- A **class** is a blueprint (`CTk`, `CTkEntry`, `Flask`); calling it with `()` builds an **object/instance** (`app = Flask(__name__)`)
-- A **method** is a function that belongs to an object, called with a dot: `app.run()`, `entry.get()`, `label.configure()`
-- You've been *using* classes since the first GUI step — writing your own (OOP) is the planned next core-Python topic
+### Classes & Objects — writing your own (OOP) — IN PROGRESS, needs more reps
+- A **class** is a blueprint; calling it with `()` builds an **object/instance**. `class Dog:` defines the blueprint
+- A **method** is a function defined inside the class. Its first parameter is always **`self`** — but you don't pass it; Python auto-passes the object you called it on (`d.bark()` → `self` is `d`)
+- **`self` = "this particular object."** Proven: `d.who_am_i() == d` is `True` — self is the instance, NOT the class
+- **`__init__(self, ...)`** runs *automatically* when you create the object (`Dog("Rex")` triggers it). You never call it yourself
+- **`self.name = name`** inside `__init__` stores incoming data as an **attribute** ON the object, so it persists. Without it, the value vanishes when `__init__` ends
+- ⚠️ **Inside any method, the object's own data is ALWAYS `self.something`** — to *set* it (`self.desc = desc` in `__init__`) and to *read* it (`self.desc` in other methods). Using a bare name or a global variable instead is the classic bug
+- Two moments: (1) object born → `__init__` runs, `self` = the new object; (2) method called later → `self` = the object you called it on
+- Each object holds its **own** attributes — `d.name="Rex"` and `d2.name="Luna"` don't interfere. One blueprint, many objects, each with its own data (in memory; not saved to disk unless you write it to a file)
 
 ### Flask (EXPLORED as a walkthrough — reference only, NOT a drilled/tracked concept)
 *Dustin did this as a "see how it all fits together" tour (sessions 27), not to learn as a skill. Kept here as a reference if he returns to web, but it does not count as active learning and won't be drilled.*
