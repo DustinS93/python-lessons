@@ -173,7 +173,8 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - A **method** is a function that belongs to an object, called with a dot: `app.run()`, `entry.get()`, `label.configure()`
 - You've been *using* classes since the first GUI step — writing your own (OOP) is the planned next core-Python topic
 
-### Flask (web apps)
+### Flask (EXPLORED as a walkthrough — reference only, NOT a drilled/tracked concept)
+*Dustin did this as a "see how it all fits together" tour (sessions 27), not to learn as a skill. Kept here as a reference if he returns to web, but it does not count as active learning and won't be drilled.*
 - `from flask import Flask` — import the Flask class
 - `app = Flask(__name__)` — build the app object (`__name__` = boilerplate telling Flask the current file)
 - `@app.route("/")` — a **decorator** mapping a URL path to the function below it. `"/"` is the homepage
