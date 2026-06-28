@@ -64,8 +64,8 @@ small snippet and predict what appears on screen before you look.*
 ### 5. Entry widget — reading what the user typed
 *Needed for: capturing the description, category, and amount*
 *Teaches: `CTkEntry`, `.get()` to read its text*
-- [ ] Tried in REPL/snippet
-- [ ] Puzzle — `greeter_gui.py` (type a name, click, label greets you by name)
+- [x] Tried in REPL/snippet
+- [x] Puzzle — `greeter_gui.py` (type a name, click, label greets you by name)
 
 ### 6. Updating the display dynamically
 *Needed for: showing new expenses and totals without restarting*

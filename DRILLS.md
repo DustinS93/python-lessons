@@ -69,6 +69,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | GUI window + widgets — CustomTkinter CTk(), CTkLabel, CTkButton, .pack(), mainloop() | `my_first_window.py` |
 | GUI layout — .grid(row, column), row=down/column=right, no pack/grid mixing | `layout_practice.py` |
 | GUI callbacks — `command=` wiring a button to a function, `.configure(text=)`, `global` in a callback | `click_counter.py` |
+| GUI input — `CTkEntry`, `.get()` to read typed text, update a label with an f-string | `greeter_gui.py` |
 
 ---
 
@@ -150,6 +151,11 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `widget.configure(text="new text")` — changes a widget's property (e.g. its text) *after* creation. This is how a label updates on screen
 - A global counter changed inside a callback needs `global count` as the first line of the function (same scope rule as `the_vault.py`) — otherwise `UnboundLocalError`
 - ⚠️ When a callback crashes, the **window keeps running** (button looks dead) but the error prints to the **terminal** — always check the terminal when a click "does nothing"
+- `entry = customtkinter.CTkEntry(app)` — a text input box. Show it with `.pack()`/`.grid()` like any widget
+- `entry.get()` — returns the current text in the box, always **as a string** (like `input()` did). Call it inside a callback (read on click)
+- Widgets are created **once** before `mainloop()`. A callback never *creates* widgets — it only **reads** them (`.get()`) and **updates** them (`.configure()`)
+- Name the widget and the value differently — `name_entry` (the box) vs `typed = name_entry.get()` (the string). Reusing one name clobbers the widget and re-triggers the scope trap
+- `print()` always goes to the **terminal**, never the window. To show text to the user, update a widget with `.configure(text=...)`
 
 ---
 
