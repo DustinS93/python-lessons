@@ -31,6 +31,7 @@
 | event-driven programming | Program starts, then sits idle and *reacts* to user actions, instead of running top-to-bottom and stopping |
 | event loop / `mainloop()` | The endless loop `mainloop()` starts: watch for events (clicks, keypresses) and run matching code. Program stays "busy waiting" until the window closes |
 | widget | A single building block of a GUI window — a label, button, entry box, etc. |
+| callback | A function you hand to a widget (via `command=`) that runs *later*, when the user triggers it (e.g. clicks the button). You pass it by name, no parens |
 
 ---
 
@@ -67,6 +68,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | try/except ValueError + range validation — checking input falls within 1 to 10 | `input_validator.py` |
 | GUI window + widgets — CustomTkinter CTk(), CTkLabel, CTkButton, .pack(), mainloop() | `my_first_window.py` |
 | GUI layout — .grid(row, column), row=down/column=right, no pack/grid mixing | `layout_practice.py` |
+| GUI callbacks — `command=` wiring a button to a function, `.configure(text=)`, `global` in a callback | `click_counter.py` |
 
 ---
 
