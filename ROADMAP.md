@@ -49,8 +49,8 @@ Same format as always:
 ### 2. Returning HTML
 *Needed for: a real page, not just plain text*
 *Teaches: a view function can return an HTML string; the browser renders the tags*
-- [ ] Tried in snippet
-- [ ] Puzzle — add a second route that returns a small HTML page (heading + paragraph)
+- [x] Tried in snippet
+- [x] Puzzle — add a second route that returns a small HTML page (heading + paragraph)
 
 ### 3. Templates — HTML in its own file
 *Needed for: keeping HTML out of your Python; the proper way*

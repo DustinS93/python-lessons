@@ -180,6 +180,9 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - `app.run(debug=True)` — starts the dev server (the web's event loop, like `mainloop()`); `debug=True` auto-reloads on edit + shows errors in the browser
 - Run with `python3 hello_flask.py`, then open the printed `http://127.0.0.1:5000` in the browser. Stop the server with **Ctrl+C**
 - Mental model: URL request → view function runs → return value rendered. Same shape as button click → callback
+- You can have **many routes**, each its own path + its own uniquely-named view function (`/` → `home()`, `/other` → `other()`). Visit a path at `http://127.0.0.1:5000/other`
+- A view function can return a string of **HTML tags** (`"<h1>..</h1><p>..</p>"`) — Python *builds* the HTML text on the server and sends it; the browser renders it. Python never runs in the browser
+- The browser only understands HTML (structure) / CSS (style) / JavaScript (in-browser logic). Python runs on the **server** and produces HTML — that's why no JS is needed for a working app
 
 ---
 
