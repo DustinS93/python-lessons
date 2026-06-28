@@ -1,32 +1,34 @@
-## Session 25 — 2026-06-26
+## Session 26 — 2026-06-27
 
 ### What We Covered
-- Opener placement drill: `return` inside a for loop — predicted `10` and named the fix correctly (drill, not build)
-- Decided next roadmap: rebuild Expense Tracker as a **GUI app** with **CustomTkinter** (modern look). Archived CLI roadmap → `roadmaps/ROADMAP_expense_tracker_cli.md`
-- Step 1: installed customtkinter via `python3 -m pip`; built first window (CTk, title, geometry, mainloop)
-- Discussed "multiple Pythons" (why `python3 -m pip`) and dependencies (darkdetect/packaging pulled in)
-- Step 2: widgets — `CTkLabel`, `CTkButton`, `.pack()`; naming convention `CTk` + widget
-- Taught self-discovery: `dir(customtkinter)`, `help()`, official docs
-- Step 3: layout — `.grid(row, column)`, row=down/column=right, no pack/grid mixing
+- Opener: dict/list access from memory — wrote `totals[e["category"]] = totals[e["category"]] + e["amount"]` COLD, no peeking (the fluency gap is closing)
+- REPL drill: function name vs call — `say_hi` (object) vs `say_hi()` (runs) vs storing `x = say_hi` then `x()`
+- Step 4 — callbacks: `command=on_click` (no parens = pass the function as a value, called later on click)
+- `.configure(text=...)` to update a widget after creation; `global count` in a callback (scope trap → UnboundLocalError)
+- Debugging: a crashing callback leaves the window running but prints the error to the TERMINAL — caught `NameError` (counter vs count) by looking there
+- Step 5 — entry input: `CTkEntry`, `.get()` reads typed text as a string; greet via f-string in a label
 
 ### Puzzles Completed
-- `puzzles/my_first_window.py` (GUI Steps 1–2: window + label + button)
-- `puzzles/layout_practice.py` (GUI Step 3: grid layout)
+- `puzzles/click_counter.py` (GUI Step 4: callback increments a label)
+- `puzzles/greeter_gui.py` (GUI Step 5: entry → .get() → f-string greeting)
 
 ### Vocabulary Introduced
-- library/package, third-party package, pip, dependency, GUI, event-driven programming, event loop / mainloop, widget, geometry manager, callback (named, not yet used)
+- callback (now used, not just named)
 
 ### What He Struggled With
-- Placement: stuffed widget lines INSIDE `mainloop()`'s parentheses — needed structural prompting to fix (not clean)
-- row vs column swapped twice — fixed after a drawn grid scaffold
-- Explain-back again needed scaffolding to get crisp (consistent pattern)
+- Confused creating a widget with reading one — callback made a NEW empty CTkEntry then `.get()` on it (always empty); also a duplicate stray entry
+- Widget-vs-value: tried `name = name.get()`, clobbering the widget + re-triggering the scope trap
+- Froze on writing the f-string into `.configure(text=...)` despite knowing f-strings
+- Explain-back: said callback "stores the entry" — meant the TEXT from `.get()`, not the widget
 
 ### What Felt Solid
-- Strong analogical transfer: mapped grid/divs from CSS; intuited frames=divs before being taught
-- Asked "where do I learn what that means" → then used `CTkEntry` unprompted via discovery
-- Fixed the mainloop placement himself once pointed at the structure; described the event loop correctly
+- Dict-access line written cold from memory — fluency gap nearly closed
+- Function name-vs-call drill: all three predictions right
+- Named the scope fix (`global count`) and the no-parens reason unprompted
+- Observed on his own that the GUI runs from the terminal and `print()` lands there
 
 ### Where to Start Next Session
-- Step 4: callbacks (`command=`) — THE core event-driven concept; he already described it in explain-back
-- Placement weak spot: appeared in build (widgets in mainloop), needed prompting → streak reset to 0
-- Keep one puzzle per file (drifted into reusing my_first_window.py mid-session)
+- Step 6: updating the display dynamically (`.configure`, building output strings) — last step before BUILD v0.1
+- Placement: clean & unprompted both puzzles this session (widgets before mainloop, mainloop last) → streak 0 → 1
+- Reinforce widget (the box) vs value (the string from `.get()`) — surfaced twice today
+- Keep nudging: RUN and read the terminal before theorizing (paid off catching the NameError)
