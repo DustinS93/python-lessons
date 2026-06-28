@@ -1,16 +1,15 @@
 # Concept: Flask intro
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "First Flask"
+    return render_template("about.html", name="Dustin")
 
 @app.route("/other")
 def other():
-    return "<h1>First Time Ever</h1> <br> <p>This is the start of a revolution</p>"
+    return render_template("home.html")
 
 app.run(debug=True)
-
 
