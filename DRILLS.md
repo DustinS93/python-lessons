@@ -80,6 +80,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | GUI callbacks — `command=` wiring a button to a function, `.configure(text=)`, `global` in a callback | `click_counter.py` |
 | GUI input — `CTkEntry`, `.get()` to read typed text, update a label with an f-string | `greeter_gui.py` |
 | Flask first route — `Flask(__name__)`, `@app.route("/")`, view function, `app.run()`, localhost in browser | `flask_app/hello_flask.py` |
+| Flask templates — `render_template`, `templates/` + `static/` folders, linking CSS, `{{ }}` value injection (Jinja2) | `flask_app/` (templates/about.html + static/style.css) |
 
 ---
 
@@ -183,6 +184,12 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - You can have **many routes**, each its own path + its own uniquely-named view function (`/` → `home()`, `/other` → `other()`). Visit a path at `http://127.0.0.1:5000/other`
 - A view function can return a string of **HTML tags** (`"<h1>..</h1><p>..</p>"`) — Python *builds* the HTML text on the server and sends it; the browser renders it. Python never runs in the browser
 - The browser only understands HTML (structure) / CSS (style) / JavaScript (in-browser logic). Python runs on the **server** and produces HTML — that's why no JS is needed for a working app
+- **Templates (Step 3):** import `render_template` (name only — `from flask import Flask, render_template`); a view function returns `render_template("page.html")`. HTML files live in a `templates/` folder; you pass just the filename, Flask looks in `templates/` automatically
+- **Injecting Python values:** `render_template("page.html", name="Dustin")` passes a keyword argument; in the HTML use `{{ name }}` (Jinja2 placeholder — like an f-string's `{}` but inside HTML). The word in `{{ }}` must match the keyword passed
+- **Project structure:** `app.py` (logic/routes) · `templates/` (HTML files) · `static/` (CSS, JS, images — served as-is). The `.py` renders the HTML; the HTML links the CSS
+- **Linking CSS:** in the HTML `<head>`: `<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">`. You do NOT import CSS in Python — the HTML links it and the browser fetches it
+- ⚠️ HTML attributes are separated by **spaces, not commas** (`rel="stylesheet" href="..."`). Python habit of comma-separating breaks the tag
+- ⚠️ A CSS class selector (`.sent_style`) must match the HTML `class="..."` **exactly**, letter for letter — a typo means the style silently never applies (no error, just no effect)
 
 ---
 

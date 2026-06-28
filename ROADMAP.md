@@ -55,8 +55,8 @@ Same format as always:
 ### 3. Templates — HTML in its own file
 *Needed for: keeping HTML out of your Python; the proper way*
 *Teaches: `render_template`, the `templates/` folder, passing a variable into a page with `{{ }}`*
-- [ ] Tried in snippet
-- [ ] Puzzle — `templates/page.html` rendered by a route, with one Python value injected
+- [x] Tried in snippet
+- [x] Puzzle — `templates/about.html` rendered by a route, with one Python value injected (`{{ name }}`); also linked CSS from `static/`
 
 ### 4. Forms — reading what the user typed (the web `.get()`)
 *Needed for: input — the web version of `CTkEntry` + `.get()`*
