@@ -32,6 +32,15 @@
 | event loop / `mainloop()` | The endless loop `mainloop()` starts: watch for events (clicks, keypresses) and run matching code. Program stays "busy waiting" until the window closes |
 | widget | A single building block of a GUI window — a label, button, entry box, etc. |
 | callback | A function you hand to a widget (via `command=`) that runs *later*, when the user triggers it (e.g. clicks the button). You pass it by name, no parens |
+| class | A blueprint/template that describes what something *is* and can *do* — e.g. `CTk`, `CTkEntry`, `Flask`. Not a thing yet; a cookie cutter, not a cookie |
+| object / instance | The actual thing built from a class by calling it with `()` — `app = Flask(__name__)` builds one Flask object. `app` is the instance |
+| method | A function that belongs to an object, called with a dot — `app.run()`, `entry.get()`, `label.configure()`. "Reach into this object and use one of its abilities" |
+| argument (parent window) | The first argument to a widget, e.g. `CTkEntry(app)` — tells the widget which window it lives in (its parent) |
+| Flask | A small third-party web framework. `Flask(__name__)` builds your app object |
+| route | A URL path mapped to a Python function — `@app.route("/")` maps the homepage to a function |
+| view function / route handler | The function that runs when its route is requested — the web's version of a callback. Whatever it returns is what the browser shows |
+| decorator | A line starting with `@` placed on top of a function that registers/modifies it — `@app.route("/")` attaches the function below to a URL |
+| localhost | `127.0.0.1` — your own machine. The Flask dev server runs here; `:5000` is the port |
 
 ---
 
@@ -70,6 +79,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | GUI layout — .grid(row, column), row=down/column=right, no pack/grid mixing | `layout_practice.py` |
 | GUI callbacks — `command=` wiring a button to a function, `.configure(text=)`, `global` in a callback | `click_counter.py` |
 | GUI input — `CTkEntry`, `.get()` to read typed text, update a label with an f-string | `greeter_gui.py` |
+| Flask first route — `Flask(__name__)`, `@app.route("/")`, view function, `app.run()`, localhost in browser | `flask_app/hello_flask.py` |
 
 ---
 
@@ -156,6 +166,20 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - Widgets are created **once** before `mainloop()`. A callback never *creates* widgets — it only **reads** them (`.get()`) and **updates** them (`.configure()`)
 - Name the widget and the value differently — `name_entry` (the box) vs `typed = name_entry.get()` (the string). Reusing one name clobbers the widget and re-triggers the scope trap
 - `print()` always goes to the **terminal**, never the window. To show text to the user, update a widget with `.configure(text=...)`
+
+### Classes & Objects (just using them, not writing yet)
+- A **class** is a blueprint (`CTk`, `CTkEntry`, `Flask`); calling it with `()` builds an **object/instance** (`app = Flask(__name__)`)
+- A **method** is a function that belongs to an object, called with a dot: `app.run()`, `entry.get()`, `label.configure()`
+- You've been *using* classes since the first GUI step — writing your own (OOP) is the planned next core-Python topic
+
+### Flask (web apps)
+- `from flask import Flask` — import the Flask class
+- `app = Flask(__name__)` — build the app object (`__name__` = boilerplate telling Flask the current file)
+- `@app.route("/")` — a **decorator** mapping a URL path to the function below it. `"/"` is the homepage
+- The function under the route is the **view function** — runs on request; whatever it **returns** is what the browser shows (return a string → browser shows that text)
+- `app.run(debug=True)` — starts the dev server (the web's event loop, like `mainloop()`); `debug=True` auto-reloads on edit + shows errors in the browser
+- Run with `python3 hello_flask.py`, then open the printed `http://127.0.0.1:5000` in the browser. Stop the server with **Ctrl+C**
+- Mental model: URL request → view function runs → return value rendered. Same shape as button click → callback
 
 ---
 

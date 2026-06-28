@@ -43,8 +43,8 @@ Same format as always:
 ### 1. Install Flask + your first route
 *Needed for: running a web server at all, seeing URL → function → response*
 *Teaches: `pip install flask`, `Flask(__name__)`, `@app.route("/")`, `app.run()`, the dev server + localhost in the browser*
-- [ ] Tried in snippet (run the server, visit the URL, see text)
-- [ ] Puzzle — `hello_flask.py` (one route returns a line of text in the browser)
+- [x] Tried in snippet (run the server, visit the URL, see text)
+- [x] Puzzle — `hello_flask.py` (one route returns a line of text in the browser)
 
 ### 2. Returning HTML
 *Needed for: a real page, not just plain text*
