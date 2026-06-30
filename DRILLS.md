@@ -86,6 +86,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | Flask first route — `Flask(__name__)`, `@app.route("/")`, view function, `app.run()`, localhost in browser | `flask_app/hello_flask.py` |
 | Flask templates — `render_template`, `templates/` + `static/` folders, linking CSS, `{{ }}` value injection (Jinja2) | `flask_app/` (templates/about.html + static/style.css) |
 | Writing your own class — `class`, `__init__`, `self`, attributes, a method using `self` | `expense_class.py` |
+| Class from scratch — `__init__` stores starting data, methods take an `amount` parameter and read+write `self.x`; method vs parameter | `bank_account.py` |
 
 ---
 
@@ -182,6 +183,11 @@ Verbose detail for concepts not yet fully ingrained. Update as new concepts are 
 - ⚠️ **Inside any method, the object's own data is ALWAYS `self.something`** — to *set* it (`self.desc = desc` in `__init__`) and to *read* it (`self.desc` in other methods). Using a bare name or a global variable instead is the classic bug
 - Two moments: (1) object born → `__init__` runs, `self` = the new object; (2) method called later → `self` = the object you called it on
 - Each object holds its **own** attributes — `d.name="Rex"` and `d2.name="Luna"` don't interfere. One blueprint, many objects, each with its own data (in memory; not saved to disk unless you write it to a file)
+- ⚠️ **Method vs parameter:** a method is its OWN `def` line at the same indent as `__init__` (an ability). A parameter goes in the parens of a `def` line (data passed in). Don't cram a method name into `__init__`'s parens
+- A method can take extra parameters beyond `self`: `def deposit(self, amount):` — call it `b.deposit(50)`, the `50` lands in `amount`. `self` is auto-passed, `amount` you pass
+- **Give a method its data, don't let it fetch it:** prefer `deposit(self, amount)` over calling `input()` inside the method — a parameterized method works from a loop, a file, or a test, not only a human typing
+- `self` is just the first parameter's NAME (could be anything); convention is always `self`. It is the **instance**, never the class
+- CapWords convention for class names: `BankAccount`, not `bankaccount`
 
 ### Flask (EXPLORED as a walkthrough — reference only, NOT a drilled/tracked concept)
 *Dustin did this as a "see how it all fits together" tour (sessions 27), not to learn as a skill. Kept here as a reference if he returns to web, but it does not count as active learning and won't be drilled.*

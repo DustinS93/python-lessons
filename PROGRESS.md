@@ -1,32 +1,33 @@
-## Session 27 — 2026-06-28
+## Session 28 — 2026-06-29
 
 ### What We Covered
-- Flask walkthrough (install → routes → HTML → templates → static CSS → `{{ }}` injection) — done as a TOUR to see how the web fits together, NOT learned as a skill (his framing). Marked "explored, not learned" in DRILLS
-- "What runs where" model: server vs browser; client-side JS can't be the source of truth, but Node runs JS server-side — so it's client-vs-server, not Python-vs-JS
-- When you need a backend (Flask) vs static HTML/CSS/JS: stored data, secrets, accounts, data-driven pages
-- **Pivot to pure Python — OOP:** writing your own class. `class`, `__init__`, `self`, attributes, a method using `self`
-- Drills: `Dog` class — `self` is the instance not the class (`d.who_am_i() == d` → True); two objects each keep their own data
+- OOP reps from scratch, pure Python (spaced repetition of S27 — he asked to revisit)
+- REPL drill: `Counter` class — `__init__`/`self`, a method that returns (`show`), then a mutating method (`add_one`/`sub_one`) reading+writing `self.count` inside the method
+- Method-with-no-`return` displays nothing in REPL but still changes the object
+- Distinguished parameter vs method (own `def` line); `start` is data you pass (`Counter(5)` → start=5), `self` is auto-passed
+- `self` is just a parameter name (could be `thing`); convention = `self`; it's the INSTANCE, not the class
+- Each class has its own `__init__`/`self`; multiple objects keep separate data (`c` vs `c2`)
+- Design: method should take data via a parameter (`deposit(amount)`), not call `input()` itself
+- Class naming convention: CapWords (`BankAccount`)
 
 ### Puzzles Completed
-- `puzzles/expense_class.py` (first hand-written class: `Expense` with `__init__` + `summary()`)
-- (Flask `flask_app/` built as a tour — reference only, not a tracked puzzle)
+- `puzzles/bank_account.py` (BankAccount class from scratch: `__init__`, `deposit(amount)`, `withdraw(amount)`, `show()`)
 
 ### Vocabulary Introduced
-- class, object/instance, method, attribute, `__init__`, `self`, instantiate (+ Flask tour terms: route, view function, decorator, localhost — reference only)
+- (none new — reinforced: self, instance, method vs parameter, attribute)
 
 ### What He Struggled With
-- Inside `summary()` used bare names / global `e` instead of `self.desc` (the core OOP bug — flagged it himself after)
-- Added an unnecessary `for` loop inside `summary` (pattern-matched to old list-looping tracker; also a return-inside-loop echo)
-- Got frustrated ("im way off") while actually one fix from done — spirals when close
-- Flask tour debugging: called `render_template` on the import line, empty templates, HTML comma, CSS class typo
+- Method-vs-parameter twice: put `add_one` in `__init__` line; called `deposit(50)` before adding the `amount` param (TypeError — caught both himself via the error)
+- Explain-back: first said `self` "refers to the class" — corrected to instance (had proven it earlier same session)
 
 ### What Felt Solid
-- Class + `__init__` + storing attributes on `self` — correct first try (the hard part)
-- Realized the rule himself: "self.desc should be used the whole time" — the key OOP insight
-- Sharp conceptual questions (Node/server-vs-client, when-is-a-backend-needed)
+- `self.attr` read+write INSIDE methods — clean all session (last session's core bug, now gone)
+- Read every error and diagnosed it himself (TypeError "2 given", `__init__` missing arg)
+- Sharp unprompted questions (can `self` be renamed? can two classes both have `__init__`?)
+- Wrote a full BankAccount class COLD, predictions matched results
 
 ### Where to Start Next Session
-- OOP reps from scratch, PURE PYTHON, NO libraries — open with a small class drill, rebuild `__init__`/`self` while fresh (he asked to go over it a few more times)
-- Watch: `self.attr` access inside methods (used global/bare name) — design next class to surface it
-- When he says "I'm way off," point at what's RIGHT first — he's usually closer than he thinks
-- See ROADMAP.md (new Core Python / OOP track). GUI + Flask both parked in roadmaps/
+- Stretch class: one that holds a LIST of things (he parked this himself), and/or a method that calls another method on the same object
+- Watch: `self` = instance not class (slipped in explain-back) — re-confirm early
+- Reinforce method-vs-parameter (his recurring trip-up this session)
+- See ROADMAP.md (Core Python / OOP track)
