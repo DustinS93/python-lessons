@@ -87,6 +87,7 @@ Use this when Dustin is stuck on a concept — point him to the puzzle that cove
 | Flask templates — `render_template`, `templates/` + `static/` folders, linking CSS, `{{ }}` value injection (Jinja2) | `flask_app/` (templates/about.html + static/style.css) |
 | Writing your own class — `class`, `__init__`, `self`, attributes, a method using `self` | `expense_class.py` |
 | Class from scratch — `__init__` stores starting data, methods take an `amount` parameter and read+write `self.x`; method vs parameter | `bank_account.py` |
+| Class holding a list — `self.attr = []` in `__init__`, method appends via parameter (no `input()` inside), for loop in `show` | `playlist.py` |
 
 ---
 

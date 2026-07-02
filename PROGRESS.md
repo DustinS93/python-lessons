@@ -1,33 +1,35 @@
-## Session 28 — 2026-06-29
+## Session 29 — 2026-07-01
 
 ### What We Covered
-- OOP reps from scratch, pure Python (spaced repetition of S27 — he asked to revisit)
-- REPL drill: `Counter` class — `__init__`/`self`, a method that returns (`show`), then a mutating method (`add_one`/`sub_one`) reading+writing `self.count` inside the method
-- Method-with-no-`return` displays nothing in REPL but still changes the object
-- Distinguished parameter vs method (own `def` line); `start` is data you pass (`Counter(5)` → start=5), `self` is auto-passed
-- `self` is just a parameter name (could be `thing`); convention = `self`; it's the INSTANCE, not the class
-- Each class has its own `__init__`/`self`; multiple objects keep separate data (`c` vs `c2`)
-- Design: method should take data via a parameter (`deposit(amount)`), not call `input()` itself
-- Class naming convention: CapWords (`BankAccount`)
+- REPL warm-up: list methods (`.append()`, `len()`, for loop) — feeds into class-holds-a-list
+- Re-confirmed `self` = instance not class (slipped in S28 explain-back — clean this session)
+- Stretch class: `Playlist` — `__init__` takes `name`, stores `self.songs = []`; `add_song(title)`, `show()` (for loop), `length()`
+- Two kinds of `__init__` setup: data that varies per object (parameter) vs data that's always the same starting state (created fresh inside)
+- Method as a printer: `show()` prints internally, caller doesn't wrap in `print()`
+- Design principle reinforced: methods receive data via parameter, don't call `input()` internally
 
 ### Puzzles Completed
-- `puzzles/bank_account.py` (BankAccount class from scratch: `__init__`, `deposit(amount)`, `withdraw(amount)`, `show()`)
+- `puzzles/playlist.py` (Playlist class: `__init__`, `add_song(title)`, `show()`, `length()`)
 
 ### Vocabulary Introduced
-- (none new — reinforced: self, instance, method vs parameter, attribute)
+- (none new — reinforced: attribute, self, instance, method vs parameter)
 
 ### What He Struggled With
-- Method-vs-parameter twice: put `add_one` in `__init__` line; called `deposit(50)` before adding the `amount` param (TypeError — caught both himself via the error)
-- Explain-back: first said `self` "refers to the class" — corrected to instance (had proven it earlier same session)
+- Method-vs-parameter again: used `songs` as a parameter in `__init__` (should be `name`); moved `title` around without putting it in the `def` line
+- `input()` inside `add_song` — kept drifting back to it despite the design principle from S28
+- Backwards assignment (`name = self.name` instead of `self.name = name`) — one-off slip
+- `self.songs()` — put parens on an attribute (list is not callable)
+- Chained assignment confusion (`songs = self.songs = []`)
 
 ### What Felt Solid
-- `self.attr` read+write INSIDE methods — clean all session (last session's core bug, now gone)
-- Read every error and diagnosed it himself (TypeError "2 given", `__init__` missing arg)
-- Sharp unprompted questions (can `self` be renamed? can two classes both have `__init__`?)
-- Wrote a full BankAccount class COLD, predictions matched results
+- `self.attr` read/write inside methods — clean all session (no bare names, no globals)
+- `self` = instance not class — confirmed correctly at session open and held
+- Read every error himself and diagnosed it (TypeError positional args, NameError)
+- Understood the "two kinds of init setup" distinction at explain-back
+- `show()` as a printer (no return needed) — got it after seeing the duplicate output
 
 ### Where to Start Next Session
-- Stretch class: one that holds a LIST of things (he parked this himself), and/or a method that calls another method on the same object
-- Watch: `self` = instance not class (slipped in explain-back) — re-confirm early
-- Reinforce method-vs-parameter (his recurring trip-up this session)
-- See ROADMAP.md (Core Python / OOP track)
+- Method that calls another method on the same object (`self.method()` inside a method)
+- Consider another class rep from scratch before introducing method-calls-method
+- Method-vs-parameter still the recurring trip-up — design next puzzle to surface it
+- Check ROADMAP.md for next step
