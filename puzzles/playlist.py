@@ -1,4 +1,4 @@
-# Concept: Class that stores a list and append
+# Concept: Class that stores a list and adds to it
 class Playlist:
     def __init__(self, name):
         self.name = name
@@ -10,8 +10,7 @@ class Playlist:
         for song in self.songs:
             print(song)
     def length(self):
-        song_list = len(self.songs)
-        return song_list
+        return len(self.songs)
 
 my_playlist = Playlist("90's")
 my_playlist.add_song("Yesterday")
