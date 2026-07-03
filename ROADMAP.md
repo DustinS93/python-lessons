@@ -47,8 +47,8 @@ including the write-builds — at the copy, so nothing risks the real vault.
 
 ### 1. Run a script from the terminal + take an argument
 *Teaches: `python3 script.py`, `sys.argv`, `if __name__ == "__main__":`*
-- [ ] REPL/drill — `import sys; sys.argv` (what the list holds; `argv[0]` vs `argv[1]`)
-- [ ] Puzzle — `greet.py`: run `python3 greet.py Dustin` and it prints `Hello, Dustin`
+- [x] REPL/drill — `import sys; sys.argv` (what the list holds; `argv[0]` vs `argv[1]`)
+- [x] Puzzle — `greet.py`: run `python3 greet.py Dustin` and it prints `Hello, Dustin`
       (reads the name from the command line, not `input()`)
 
 ### 2. Read a file whose path comes from the command line
