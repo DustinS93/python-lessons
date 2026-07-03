@@ -34,9 +34,12 @@ Same format as always:
 - **Build** is the milestone — a running pure-Python script.
 - At session start, scan for the first unchecked box.
 
-**Setup note:** builds need a folder of `.md` files. Point at the real vault for
-read-only scans, or make a small `test_vault/` folder of sample notes to
-experiment safely first.
+**Pace:** thorough over speed (Dustin's rule, S30). Full REPL drills before every
+concept, explain-backs that actually probe, and no advancing to the next build
+until the current one is genuinely solid — even when a concept looks easy.
+
+**Setup note:** Dustin has a **copy of his vault** to test on. Point all scripts —
+including the write-builds — at the copy, so nothing risks the real vault.
 
 ---
 
@@ -66,24 +69,36 @@ experiment safely first.
 
 ---
 
-### BUILD 1 — Tag finder (CLI, no libraries)
-*Prereqs: steps 1–4. First real vault tool.*
-- [ ] Takes a tag as a command-line argument: `python3 find_tag.py "#idea"`
-- [ ] Scans every `.md` file in the vault folder
+> **New capability the write-builds add:** so far the script only *reads*. BUILD 2+
+> **write a note back into the vault.** Two pieces, both from what he knows:
+> a `[[link]]` is just a built string (`"[[" + filename-without-".md" + "]]"`), and
+> "overwrite each run" is `open(path, "w")` (write mode wipes + rewrites — the reason
+> it's `"w"` not `"a"`). An "empty note" = content that is `""` after `.strip()`.
+
+### BUILD 1 — Tag finder (read-only foundation)
+*Prereqs: steps 1–4. First real vault tool; the read-half of everything below.*
+- [ ] Takes a tag as a command-line argument: `python3 find_tag.py "#Nuggets"`
+- [ ] Scans every `.md` file in the (copy) vault folder
 - [ ] Prints each note that contains the tag (filename, maybe a match count)
 - [ ] Runs in the terminal; committed to GitHub
 
-### BUILD 2 — Link counter
-*Prereqs: BUILD 1. Building block for the stats report. Leans on the grouping/accumulator dict.*
-- [ ] Scans the vault, extracts every `[[link]]` target with `re.findall`
-- [ ] Tallies counts **by name** in a dict: `counts[name] = counts[name] + 1`
-- [ ] Prints each linked note and how many times it's referenced (most-linked first)
+### BUILD 2 — Empty-note report (first write)
+*Prereqs: BUILD 1. Smallest, safest write-build — teaches generating an output note.*
+- [ ] Finds notes whose content is empty after `.strip()`
+- [ ] Writes them as `[[links]]` into `Empty Notes.md`, one per line
+- [ ] Overwrites the report each run (`"w"` mode)
 
-### BUILD 3 — Vault Stats Report (capstone)
-*Prereqs: BUILDS 1–2. The thing he actually wants: useful data about the vault.*
+### BUILD 3 — Tag MOC generator
+*Prereqs: BUILD 2. Dustin's #Nuggets/#Exploration idea. ("MOC" = Map of Content, an auto-index note.)*
+- [ ] `python3 moc.py "#Exploration"` → builds an overview note linking every note of that kind
+- [ ] Each match becomes a `[[link]]` line; a count at the top (e.g. "17 notes")
+- [ ] Overwrites the MOC note each run so it always reflects the current vault
+
+### BUILD 4 — Vault Stats Report (alongside capstone)
+*Prereqs: BUILDS 1–3. The useful-data overview — kept alongside the MOC per Dustin's ask.*
 - [ ] Note count and total word count across the vault
-- [ ] Top tags by frequency (grouping/accumulator)
-- [ ] Most-linked notes (reuses BUILD 2)
+- [ ] Top tags by frequency, and `[[links]]` counted **by name** (grouping/accumulator dict)
+- [ ] Most-linked notes, most-referenced tags
 - [ ] Prints a clean report to the terminal — stretch: write it to `VAULT_STATS.md`
 - [ ] Runs in the terminal; committed to GitHub
 
@@ -93,6 +108,7 @@ experiment safely first.
 - `argparse` for nicer command-line tools (flags, help text) — stdlib
 - Write-scripts that *modify* the vault (add frontmatter, bulk-rename) — with a dry-run first
 - A "task inbox": collect every unfinished `- [ ]` task into one note (stretch build)
+- A session log: append a dated line to a log note each run (`"a"` mode) — Dustin's idea
 - Return to OOP when a script grows big enough to earn a class (`roadmaps/ROADMAP_oop_PAUSED.md`)
 
 ## Parked (set aside on purpose)
