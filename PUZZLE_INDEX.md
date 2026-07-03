@@ -41,3 +41,4 @@ Never repeat a concept already covered here.
 | Writing your own class — `class`, `__init__`, `self`, attributes, a method using `self` | `expense_class.py` |
 | Class from scratch — `__init__` stores starting data, methods take an `amount` parameter and read+write `self.x`; method vs parameter | `bank_account.py` |
 | Class holding a list — `self.attr = []` in `__init__`, method appends via parameter (no `input()` inside), for loop in `show` | `playlist.py` |
+| Command-line arguments — `sys.argv`, running a script from the terminal, `argv[1]` as first arg, script vs REPL printing | `greet.py` |

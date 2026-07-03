@@ -12,6 +12,10 @@ consult mid-session when confirming a method or term.
 | return value | The value a function hands back to the caller via `return`. Distinct from printing |
 | truncation | Cutting off the decimal without rounding — `int(7.9)` gives `7`, not `8` |
 | REPL | Read, Evaluate, Print, Loop — the interactive Python shell (`python3` in terminal) |
+| script | Code saved in a `.py` file and run as a whole from the terminal (`python3 file.py`), not typed line-by-line in the REPL |
+| command-line argument | A word typed after the script name when running it — `python3 greet.py Dustin`, `Dustin` is the argument. Python collects them in `sys.argv` |
+| `sys.argv` | A built-in list of the command-line pieces. `sys.argv[0]` is always the script name; `sys.argv[1]` is the first real argument. Built fresh each run |
+| shell / terminal | Where you launch scripts (prompt ends in `%` or `$`) — distinct from the REPL (`>>>`). `sys.argv` only fills when you launch a script here |
 | conditional | A statement that runs code only if a condition is true — `if`, `elif`, `else` |
 | elif | Short for "else if" — checks a new condition only if the previous one was false |
 | scope | Where a variable exists and can be accessed |
