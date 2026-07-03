@@ -66,6 +66,17 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - Code inside `except` only runs if that error occurs — otherwise skipped
 - Code after the failing line inside `try` is also skipped when an error is raised
 
+### Scripting — command-line arguments (`sys.argv`) — NEW S30
+- A **script** is code saved in a `.py` file and run from the terminal with `python3 file.py` (not typed line-by-line in the REPL)
+- ⚠️ **REPL vs script:** the REPL auto-echoes the value of any bare expression you type; a script does NOT. A script only puts something on screen if you explicitly `print()` it. A bare `sys.argv` line in a file produces no output
+- `import sys` then `sys.argv` — a **list** of the command-line pieces, built fresh every run
+- **`sys.argv[0]` is always the script name** (e.g. `'argv_drill.py'`) — the list is never empty, even with no arguments
+- Each word typed after the filename becomes its own list item, **split on spaces**: `python3 s.py hello world` → `['s.py', 'hello', 'world']`
+- **Quotes group words into one argument:** `python3 s.py "hello world"` → `['s.py', 'hello world']`. Quote args that contain spaces or shell-special characters like `#` (e.g. `"#Nuggets"`)
+- The first real argument you pass is `sys.argv[1]` (index 1, since 0 is the script name)
+- Each run starts from a blank slate — `sys.argv` reflects only the command just typed; nothing persists between runs unless saved to a file
+- Run a script that lives in a subfolder by its path: `python3 projects/argv_drill.py`
+
 ### Classes & Objects — writing your own (OOP) — IN PROGRESS, needs more reps
 - A **class** is a blueprint; calling it with `()` builds an **object/instance**. `class Dog:` defines the blueprint
 - A **method** is a function defined inside the class. Its first parameter is always **`self`** — but you don't pass it; Python auto-passes the object you called it on (`d.bark()` → `self` is `d`)
