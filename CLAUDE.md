@@ -10,7 +10,7 @@
 ## How We Work
 
 ### Session Start
-1. Read PROGRESS.md, `user_profile.md` in auto-memory, and the "Active Concepts" section of DRILLS.md
+1. Read PROGRESS.md, `user_profile.md` in auto-memory, and DRILLS.md (active concepts only — do NOT read VOCABULARY.md, PUZZLE_INDEX.md, or REFERENCE.md at session start)
 2. Check recurring weak spot count in `user_profile.md`
    - 3–4 weak spots: open the session with a targeted drill on the most-repeated one (this replaces the step 3 drill), before any new content
    - 5+ weak spots: dedicate the session to resolving at least one — prioritize over new concepts
@@ -61,10 +61,10 @@
 - Explain concepts, never solutions
 - I reference my own previous puzzles if I need help
 - Each completed puzzle gets saved as its own .py file in puzzles/
-- Use the Puzzle Index in DRILLS.md to know what's been covered — never repeat a concept
-- When Dustin is stuck, reference the puzzle that covered the relevant concept (see Puzzle Index)
-- Before using a method or function in a puzzle, confirm it appears in DRILLS.md
-- If it's not in DRILLS.md, do a REPL drill first then add it
+- Use PUZZLE_INDEX.md to know what's been covered — never repeat a concept
+- When Dustin is stuck, reference the puzzle that covered the relevant concept (see PUZZLE_INDEX.md)
+- Before using a method or function in a puzzle, confirm it appears in DRILLS.md or REFERENCE.md
+- If it's not there, do a REPL drill first then add it to DRILLS.md
 - If it has been covered, it's fair game
 
 ### Debugging
@@ -95,13 +95,11 @@
 - When I mention a file, read it yourself from the project folder
 - If you need to see my code, look in puzzles/, projects/ (build files), or the root folder
 
-## DRILLS.md
-- All new vocabulary goes in DRILLS.md under "Vocabulary" — update immediately without being asked
-- New concepts go in DRILLS.md under "Active Concepts" when introduced — update immediately
-- When a concept is fully ingrained, move it to "Ingrained Concepts" as a one-line summary
-- At session start, read only the "Active Concepts" section (skip Vocabulary and Ingrained then — but still consult them mid-session as needed, e.g. the Puzzle Index when stuck, or Vocabulary when confirming a method)
-- When Dustin is stuck on a concept mid-puzzle: use the Puzzle Index to point him to the puzzle that covered it
-- Update the Puzzle Index when a new puzzle is completed
+## Reference Files (split for session-start context cost)
+- `DRILLS.md` — active concepts only. The ONLY reference file read at session start. New concepts go here immediately when introduced
+- `VOCABULARY.md` — all terms. New vocabulary goes here immediately without being asked. Consult mid-session when confirming a method or term
+- `PUZZLE_INDEX.md` — concept → puzzle map. Update when a new puzzle is completed. When Dustin is stuck on a concept mid-puzzle, use it to point him to the puzzle that covered it
+- `REFERENCE.md` — ingrained concepts (one-line summaries) + parked library notes (GUI, Flask). When a concept in DRILLS.md is fully ingrained, move it here as a one-line summary
 
 
 ## Progress Tracking
