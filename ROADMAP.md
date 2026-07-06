@@ -59,8 +59,8 @@ including the write-builds — at the copy, so nothing risks the real vault.
 
 ### 3. Scan a whole folder of files
 *Teaches: `os.listdir`, filtering with `.endswith(".md")`, `os.path.join`*
-- [ ] REPL/drill — list a folder, keep only `.md` files, build full paths
-- [ ] Puzzle — `list_notes.py`: print every `.md` filename in a vault/test folder
+- [x] REPL/drill — list a folder, keep only `.md` files, build full paths
+- [x] Puzzle — `list_notes.py`: print every `.md` filename in a vault/test folder
 
 ### 4. Search & extract patterns inside files
 *Teaches: `in` / `.startswith` for simple matches; intro `re.findall` for `#tags` and `[[links]]`*
