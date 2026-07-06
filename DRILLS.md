@@ -21,6 +21,9 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 ### Modules
 - `import os` — loads the `os` module (tools for interacting with the operating system)
 - `os.path.exists(filename)` — returns `True` if the file exists, `False` if not
+- `os.listdir(folder)` — returns a **list of strings**, the names inside `folder`. Names only, no path attached (`'greet.py'`, not `'puzzles/greet.py'`). Lists **everything** — files AND subfolders — with no filtering; you filter yourself — NEW S31
+- `name.endswith(".md")` — a **boolean** test on a string: `True` if it ends with that text. Use in an `if` to keep only certain files: `if name.endswith(".md"):` — NEW S31
+- `os.path.join(folder, name)` — glues a folder + filename into a full path using the OS's correct separator (`/` on Mac, `\` on Windows) — portable, and avoids double `//`. `os.path.join("puzzles", "greet.py")` → `'puzzles/greet.py'` — NEW S31
 
 ### Dictionaries
 - Creating a dictionary: `person = {"name": "Dustin", "age": 30}`
