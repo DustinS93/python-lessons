@@ -38,6 +38,7 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - Loop over and pull fields: `for item in items: print(item["name"], item["done"])`
 - `.pop(index)` removes and returns the item at that position — the list holds dicts, so you get a dict back
 - `str.split(",")` — splits a string on a delimiter, returns a list: `"eggs,False".split(",")` → `["eggs", "False"]`
+- ⚠️ **bare `.split()` vs `.split(" ")`:** bare `.split()` (no argument) is "smart" — it treats any run of whitespace as one divider and trims the ends, so no empty strings (`"  a   b  ".split()` → `["a", "b"]`). Passing an explicit delimiter like `.split(" ")` is literal — it splits on every single space and does NOT collapse runs, producing empty strings `''` in the gaps. For word counting, always use bare `.split()`
 - Reconstruct bool from file string: `parts[1] == "True"` — compares strings, result is a real boolean
 
 ### Accumulator Pattern

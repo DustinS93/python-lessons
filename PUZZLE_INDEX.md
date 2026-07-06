@@ -42,3 +42,4 @@ Never repeat a concept already covered here.
 | Class from scratch — `__init__` stores starting data, methods take an `amount` parameter and read+write `self.x`; method vs parameter | `bank_account.py` |
 | Class holding a list — `self.attr = []` in `__init__`, method appends via parameter (no `input()` inside), for loop in `show` | `playlist.py` |
 | Command-line arguments — `sys.argv`, running a script from the terminal, `argv[1]` as first arg, script vs REPL printing | `greet.py` |
+| Read a file whose path comes from `sys.argv[1]` — `open(argv[1])`, `.read()` → one string, `.split()` + `len()` to count words | `wordcount.py` |

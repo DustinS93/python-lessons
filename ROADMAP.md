@@ -53,8 +53,8 @@ including the write-builds — at the copy, so nothing risks the real vault.
 
 ### 2. Read a file whose path comes from the command line
 *Teaches: opening a path passed as an argument; script works on any file*
-- [ ] REPL/drill — `open(sys.argv[1])`, read it, print it
-- [ ] Puzzle — `wordcount.py`: `python3 wordcount.py notes.md` prints the word count
+- [x] REPL/drill — `open(sys.argv[1])`, read it, print it
+- [x] Puzzle — `wordcount.py`: `python3 wordcount.py notes.md` prints the word count
       (reuses `.read()` / `.split()`)
 
 ### 3. Scan a whole folder of files
