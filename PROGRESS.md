@@ -1,30 +1,32 @@
-## Session 31 — 2026-07-05
+## Session 32 — 2026-08-04
 
 ### What We Covered
-- Warm-up drill: `.split()` returns a list; bare `.split()` collapses whitespace (no empty strings) vs `.split(" ")` (literal, yields `''`)
-- Closed Step 2 — `wordcount.py` (done last session): explain-back on `argv[1]` as a string path, `.read()` → one string, `.split()` + `len()`
-- Step 3 — scan a folder: `os.listdir(folder)` → list of names, `name.endswith(".md")` boolean filter, `os.path.join` (OS-correct path separator, portability)
-- Key distinction: `open()/.read()` looks INSIDE a file; `os.listdir()` looks at what's IN a folder — a folder isn't "read"
-- Proved the filter is a swappable rule (swapped `.md`→`.py`, listed all puzzles)
+- Warm-up (spaced rep, S30): REPL auto-echoes a **bare expression** (raw stored value, `\n` shown literally); a **script** does NOT — silent unless `print()`. Proved it live with `scratch.py`
+- Defined **bare expression** (value-producing code typed alone); SyntaxError (bad grammar) vs NameError (valid name, doesn't exist) off his own typo
+- Step 4 concept — searching inside text:
+  - `substring in text` → boolean, case-sensitive; limit = must know exact text, can't discover
+  - `re.findall(pattern, text)` → list of ALL matches (dupes included), `[]` if none
+  - raw string `r"..."`; tag pattern `r"#\w+"` (`#` literal, `\w` word char, `+` one-or-more, stops at first non-word char)
+  - link pattern `r"\[\[(.+?)\]\]"` — escaped brackets `\[`, `.` any char, greedy `.+` vs lazy `.+?`, capture group `( )` returns only inside
+- Did NOT start the puzzle — parked to avoid overreach (thorough-over-speed)
 
 ### Puzzles Completed
-- `puzzles/list_notes.py` (folder path from `sys.argv[1]`, `os.listdir` + `for` loop + `if .endswith(".md")` filter, prints each note)
+- (none — concept + REPL drills only)
 
 ### Vocabulary Introduced
-- `os.listdir`, `os.path.join`, `.endswith`, path separator
+- bare expression, regex / regular expression, `re.findall`, raw string, word character, escaping, greedy vs lazy, capture group
 
 ### What He Struggled With
-- Pattern-matched `wordcount.py`'s `open()/.read()` shape onto a folder task (folders aren't read) — reworked once explained
-- Backwards assignment again: `sys.argv[1] = folder` (should be `folder = sys.argv[1]`)
-- `NameError` from `names = os.listdir(names)` — used the not-yet-defined variable (right-side-evaluated-first concept)
-- Didn't know second import was `sys` at first (nudged to his own wordcount.py)
+- Guessed output before running again (S24 pattern): said assignment "prints three lines"; predicted script would echo bare `text` — corrected only by running
+- Ran with an unsaved file; ran `python3 scratch.py` from wrong folder (file was in `projects/`)
+- `\w+` boundary on `#multi-word` — predicted it'd keep the `-word` (missed that `-` stops the match)
 
 ### What Felt Solid
-- Read/diagnosed every error himself (NameError); self-corrected fast once pointed at the wire
-- Placement correct — `if` inside `for`, `print` inside `if` (but guided via Wire C, not fully unprompted)
-- Sharp instinct: realized the extension filter is a rule you choose, tested it himself
+- Read both errors correctly (SyntaxError vs NameError) unprompted
+- Trusted his second instinct on the `# b` no-match case
+- Got the greedy→lazy fix and full link pattern each on first guess; clean explain-back (pattern vs exact match; `?` = "one or more but as few as possible")
 
 ### Where to Start Next Session
-- ROADMAP Step 4 — searching INSIDE files: intro `re` (regex), `re.findall(r"#\w+", text)` and `[[links]]` — meaty new concept, fresh start
-- Step 4 feeds BUILD 1 (tag finder)
-- Point scripts at his copy vault
+- ROADMAP Step 4 PUZZLE — `find_tag.py`: tag from `sys.argv[1]`, scan `.md` files in copy-vault (`os.listdir`), `re.findall` inside each, report which notes match
+- Combines S30 (`sys.argv`) + S31 (`os.listdir` scan) + today (regex) — watch for backwards assignment + block placement
+- Feeds BUILD 1 (tag finder)

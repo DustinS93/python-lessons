@@ -81,6 +81,25 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - Each run starts from a blank slate — `sys.argv` reflects only the command just typed; nothing persists between runs unless saved to a file
 - Run a script that lives in a subfolder by its path: `python3 projects/argv_drill.py`
 
+### Searching inside text — `in` and `re` (regex) — NEW S32
+- **`substring in text`** — a **boolean** test: `True` if `substring` appears anywhere inside the string. `"#Nuggets" in text`. **Case-sensitive** — `"nuggets"` ≠ `"Nuggets"`. Limit: you must already know the exact thing you're searching for; it can't *discover* or list all matches
+- **regex (regular expression)** — a **pattern** describing a *shape* of text, not one exact string. Lets you find every substring of that shape, even ones you've never seen. Built-in module: `import re`
+- **`re.findall(pattern, text)`** — returns a **list of every substring** matching `pattern`, in order, **including duplicates** (does NOT dedupe). No matches → empty list `[]`
+- **raw string `r"..."`** — prefix that tells Python NOT to interpret backslashes (so regex codes like `\w` reach the regex engine intact). Regex patterns always go in `r"..."`
+- Pattern pieces so far:
+  - `#` — a **literal** character (matches an actual `#`)
+  - `\w` — one **word character**: any letter, digit, or underscore
+  - `+` — **one or more** of the thing right before it
+  - `\w+` grabs a **run** of word characters and **stops at the first non-word char** (space, `-`, `.`, etc.)
+- Tag pattern: **`re.findall(r"#\w+", text)`** → `['#Nuggets', '#Coffee']`. `#\w+` = "a `#`, then one or more word characters." A `#` with no word char after it (e.g. `"# b"`) → no match at all (the `+` needs at least one)
+- More pattern pieces (for `[[links]]`):
+  - `\[` / `\]` — **escaped** literal brackets. `[` and `]` are special in regex, so a backslash means "match an actual bracket." Obsidian links = `\[\[` ... `\]\]`
+  - `.` — matches **any single character** (letter, space, digit, punctuation)
+  - `.+` — one or more of any character (a run of "whatever's in the middle")
+  - **greedy vs lazy:** plain `.+` is **greedy** — grabs as MUCH as possible, so `\[\[.+\]\]` swallows two links + the text between them as one match. Add `?` → **`.+?`** is **lazy** (non-greedy) — grabs as FEW as possible, stopping at the first `]]`, giving each link separately
+  - **capture group `( )`** — marks "the part I want." When a pattern has a group, `re.findall` returns **only what's inside the parens**, dropping the rest of the match (the brackets still have to match, but aren't returned)
+- Link pattern: **`re.findall(r"\[\[(.+?)\]\]", notes)`** → `['Daily Note', 'Project Ideas']` (names only, brackets stripped by the capture group + lazy match)
+
 ### Classes & Objects — writing your own (OOP) — IN PROGRESS, needs more reps
 - A **class** is a blueprint; calling it with `()` builds an **object/instance**. `class Dog:` defines the blueprint
 - A **method** is a function defined inside the class. Its first parameter is always **`self`** — but you don't pass it; Python auto-passes the object you called it on (`d.bark()` → `self` is `d`)
