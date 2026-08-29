@@ -57,8 +57,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 3. Building strings — glue and format
 *Teaches: `+` just concatenates (no auto-space); f-strings for clean building*
-- [ ] REPL/drill — `"cat" + "dog"`, `"cat" + " " + "dog"`, `f"{name} is {age}"`
-- [ ] Puzzle — `greeting.py`: from a name variable, print `Hello, <name>!` two ways (`+` and f-string)
+- [x] REPL/drill — `"cat" + "dog"`, `"cat" + " " + "dog"`, `f"{name} is {age}"`
+- [x] Puzzle — `greeting.py`: from a name variable, print `Hello, <name>!` two ways (`+` and f-string)
 
 ### 4. String methods — transforming text
 *Teaches: the `object.method()` pattern; `.upper()`, `.lower()`, `.strip()`, `.replace()`*
