@@ -45,3 +45,4 @@ Never repeat a concept already covered here.
 | Read a file whose path comes from `sys.argv[1]` — `open(argv[1])`, `.read()` → one string, `.split()` + `len()` to count words | `wordcount.py` |
 | Scan a folder — `os.listdir(folder)` → list of names, `for` loop + `if name.endswith(".md")` filter, folder path from `sys.argv[1]` | `list_notes.py` |
 | Zero-based indexing — `[0]` first char/item, `[-1]` last, out-of-range `IndexError`, joining two indexes with `+` | `first_last.py` |
+| Slicing — `[start:end]` grabs a range, end **excluded**; blank start/end; negative-start slice `[-2:]` for last N | `slice_it.py` |

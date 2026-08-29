@@ -52,8 +52,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 2. Slicing — grab a *range* of items
 *Teaches: `[start:end]` (end is excluded), on both strings and lists*
-- [ ] REPL/drill — `"python"[0:3]`, `"python"[2:]`, `nums[1:3]`; predict each first
-- [ ] Puzzle — `slice_it.py`: from a word, print the first 3 letters and the last 2
+- [x] REPL/drill — `"python"[0:3]`, `"python"[2:]`, `nums[1:3]`; predict each first
+- [x] Puzzle — `slice_it.py`: from a word, print the first 3 letters and the last 2
 
 ### 3. Building strings — glue and format
 *Teaches: `+` just concatenates (no auto-space); f-strings for clean building*
