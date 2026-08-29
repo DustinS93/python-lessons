@@ -1,117 +1,109 @@
-# ROADMAP.md — Core Python: Scripting (terminal + Obsidian-vault tools)
+# ROADMAP.md — Basics Reboot (Reactivation)
 
 ## The Point
-Turn Python into something **useful in real life** — small scripts that run from
-the terminal and do real work on Dustin's Obsidian vault (a folder of plain-text
-`.md` files). The end goal he named: **pull useful stats/data out of the vault.**
+Knock the rust off the core fundamentals and **get the daily coding rhythm back**.
+After ~2 months away, a ground-floor assessment (S33) showed the *logic* is intact —
+the misses were a few specific, repeating ideas, and each one clicked the instant
+Dustin saw it run. **This is reactivation, not remedial.** Rust burns off fast.
 
-Still **pure Python, stdlib only** — no third-party libraries. Everything runs in
-plain `python3`. The new tools this track introduces are all built in: `sys`
-(command-line arguments), `os` (walking a folder of files), and `re` (regex
-pattern-matching for tags and `[[links]]`).
+**Why this track, why now:** the Scripting track went dry and daily practice
+stalled. The old **puzzle format** (one concept → REPL drill → struggle-through
+puzzle → commit) is what had Dustin coding every day. So we're returning to that
+format and pointing it straight at the fundamentals that came up shaky. Momentum
+is the asset we're protecting — a "correct" roadmap that goes untouched teaches
+nothing.
 
-**Why scripting now:** Dustin uses Obsidian daily and wants Python to earn its
-keep. This is his "build something real." It reuses what's already solid —
-**file I/O, string methods, dicts, the grouping/accumulator pattern** — and adds
-the handful of new skills that separate a *puzzle* from a *tool you run*.
+**Still pure Python, stdlib only.** No third-party libraries. REPL + small puzzle
+files, same as the original roadmap that worked.
 
-**What a vault script can/can't do** (mental model, set S30):
-- CAN: read/scan the whole vault folder, search & extract text (tags, links,
-  tasks), count things, generate reports, create/rewrite/rename files.
-- CAN'T (pure Python): touch the live Obsidian app, graph, or rendering — that's
-  the JS plugin world. The script only sees files on disk, and only knows what a
-  "tag" or "link" is because you code that rule.
-- GOTCHA: run write-scripts with Obsidian **closed**; read-only scans are safe anytime.
+---
 
-**OOP is parked** (`roadmaps/ROADMAP_oop_PAUSED.md`) — understood fundamentally,
-resume later on request.
+## Assessment findings (S33) — what we're patching
+Solid ✅: variables & types, reassignment, if/else, function *calls*, list/dict
+access, `len()`, and the *intuition* for `return` vs `print`.
+
+Gaps 🔧 (front-loaded below, worst first):
+1. **Zero-based indexing** — the big one, missed twice (`"hello"[1]`, `range(3)`).
+   Python counts from **0**; first item is position `0`.
+2. **String building** — `"cat" + "dog"` → `catdog`; Python never adds a space for you.
+3. **String methods** — `.upper()` etc. — the `object.method()` shape was unfamiliar.
+4. **Method-call syntax** — `nums.append(40)`, not `append(40)`. Same shape as #3,
+   so they close together.
 
 ---
 
 ## How to Read This
-Same format as always:
 - **Learn** steps: REPL drill + puzzle. Both checked before moving on.
-- **Build** is the milestone — a running pure-Python script.
 - At session start, scan for the first unchecked box.
-
-**Pace:** thorough over speed (Dustin's rule, S30). Full REPL drills before every
-concept, explain-backs that actually probe, and no advancing to the next build
-until the current one is genuinely solid — even when a concept looks easy.
-
-**Setup note:** Dustin has a **copy of his vault** to test on. Point all scripts —
-including the write-builds — at the copy, so nothing risks the real vault.
+- **Pace:** thorough over speed (Dustin's standing rule). Full REPL drills before
+  every concept, explain-backs that actually probe, no advancing until solid.
+- Every finished puzzle → its own file in `puzzles/`, commit + push, update
+  `PUZZLE_INDEX.md`. Confirm each method is in `DRILLS.md`/`REFERENCE.md` first;
+  if not, drill it and add it.
 
 ---
 
 ## Steps
 
-### 1. Run a script from the terminal + take an argument
-*Teaches: `python3 script.py`, `sys.argv`, `if __name__ == "__main__":`*
-- [x] REPL/drill — `import sys; sys.argv` (what the list holds; `argv[0]` vs `argv[1]`)
-- [x] Puzzle — `greet.py`: run `python3 greet.py Dustin` and it prints `Hello, Dustin`
-      (reads the name from the command line, not `input()`)
+### 1. Zero-based indexing — grab items by position
+*Teaches: strings and lists are indexed from 0; `[0]` is first, `[-1]` is last*
+- [ ] REPL/drill — index a string and a list; predict `"python"[0]`, `[-1]`, `range(3)` as a list
+- [ ] Puzzle — `first_last.py`: print the first and last character of any word
 
-### 2. Read a file whose path comes from the command line
-*Teaches: opening a path passed as an argument; script works on any file*
-- [x] REPL/drill — `open(sys.argv[1])`, read it, print it
-- [x] Puzzle — `wordcount.py`: `python3 wordcount.py notes.md` prints the word count
-      (reuses `.read()` / `.split()`)
+### 2. Slicing — grab a *range* of items
+*Teaches: `[start:end]` (end is excluded), on both strings and lists*
+- [ ] REPL/drill — `"python"[0:3]`, `"python"[2:]`, `nums[1:3]`; predict each first
+- [ ] Puzzle — `slice_it.py`: from a word, print the first 3 letters and the last 2
 
-### 3. Scan a whole folder of files
-*Teaches: `os.listdir`, filtering with `.endswith(".md")`, `os.path.join`*
-- [x] REPL/drill — list a folder, keep only `.md` files, build full paths
-- [x] Puzzle — `list_notes.py`: print every `.md` filename in a vault/test folder
+### 3. Building strings — glue and format
+*Teaches: `+` just concatenates (no auto-space); f-strings for clean building*
+- [ ] REPL/drill — `"cat" + "dog"`, `"cat" + " " + "dog"`, `f"{name} is {age}"`
+- [ ] Puzzle — `greeting.py`: from a name variable, print `Hello, <name>!` two ways (`+` and f-string)
 
-### 4. Search & extract patterns inside files
-*Teaches: `in` / `.startswith` for simple matches; intro `re.findall` for `#tags` and `[[links]]`*
-- [ ] REPL/drill — `re.findall(r"#\w+", text)` and `re.findall(r"\[\[(.+?)\]\]", text)`
-- [ ] Puzzle — `find_tag.py` (feeds BUILD 1): given a tag, report which notes contain it
+### 4. String methods — transforming text
+*Teaches: the `object.method()` pattern; `.upper()`, `.lower()`, `.strip()`, `.replace()`*
+- [ ] REPL/drill — `"python".upper()`, `"  hi  ".strip()`, `"a,b".replace(",", "-")`
+- [ ] Puzzle — `shout.py`: take a messy string and print it clean + uppercase
 
----
+### 5. List methods — changing a list
+*Teaches: `.append()`, `.remove()`, reassign vs. in-place; reuses `object.method()` from #4*
+- [ ] REPL/drill — build a list, `.append()`, `.remove()`, check `len()` after each
+- [ ] Puzzle — `todo.py`: start with a list, add two items, remove one, print the result
 
-> **New capability the write-builds add:** so far the script only *reads*. BUILD 2+
-> **write a note back into the vault.** Two pieces, both from what he knows:
-> a `[[link]]` is just a built string (`"[[" + filename-without-".md" + "]]"`), and
-> "overwrite each run" is `open(path, "w")` (write mode wipes + rewrites — the reason
-> it's `"w"` not `"a"`). An "empty note" = content that is `""` after `.strip()`.
+### 6. Loops — repeating with a counter and over a list
+*Teaches: `for x in list`, `range(n)` starts at 0, looping with an index*
+- [ ] REPL/drill — `for i in range(3)`, `for item in nums`; predict output before running
+- [ ] Puzzle — `count_up.py`: print each item in a list with its position number
 
-### BUILD 1 — Tag finder (read-only foundation)
-*Prereqs: steps 1–4. First real vault tool; the read-half of everything below.*
-- [ ] Takes a tag as a command-line argument: `python3 find_tag.py "#Nuggets"`
-- [ ] Scans every `.md` file in the (copy) vault folder
-- [ ] Prints each note that contains the tag (filename, maybe a match count)
-- [ ] Runs in the terminal; committed to GitHub
+### 7. Conditionals — deeper
+*Teaches: `if`/`elif`/`else`, comparisons, `in` for membership*
+- [ ] REPL/drill — `5 > 3`, `"a" in "cat"`, an `if`/`elif`/`else` chain
+- [ ] Puzzle — `grade.py`: given a score, print a letter grade using `if`/`elif`/`else`
 
-### BUILD 2 — Empty-note report (first write)
-*Prereqs: BUILD 1. Smallest, safest write-build — teaches generating an output note.*
-- [ ] Finds notes whose content is empty after `.strip()`
-- [ ] Writes them as `[[links]]` into `Empty Notes.md`, one per line
-- [ ] Overwrites the report each run (`"w"` mode)
+### 8. Dicts — deeper
+*Teaches: add/update a key, check membership, loop over keys/values*
+- [ ] REPL/drill — add a key, update a value, `for k in d`, `d.items()`
+- [ ] Puzzle — `tally.py`: count how many times each letter appears in a word (accumulator dict)
 
-### BUILD 3 — Tag MOC generator
-*Prereqs: BUILD 2. Dustin's #Nuggets/#Exploration idea. ("MOC" = Map of Content, an auto-index note.)*
-- [ ] `python3 moc.py "#Exploration"` → builds an overview note linking every note of that kind
-- [ ] Each match becomes a `[[link]]` line; a count at the top (e.g. "17 notes")
-- [ ] Overwrites the MOC note each run so it always reflects the current vault
+### 9. Functions — write your own
+*Teaches: parameters vs. arguments, `return` vs `print` (sharpen the S33 intuition), calling your own function*
+- [ ] REPL/drill — define a function, `return` a value, store it in a variable, `print` it
+- [ ] Puzzle — `helpers.py`: write a function that takes a word and returns it reversed
 
-### BUILD 4 — Vault Stats Report (alongside capstone)
-*Prereqs: BUILDS 1–3. The useful-data overview — kept alongside the MOC per Dustin's ask.*
-- [ ] Note count and total word count across the vault
-- [ ] Top tags by frequency, and `[[links]]` counted **by name** (grouping/accumulator dict)
-- [ ] Most-linked notes, most-referenced tags
-- [ ] Prints a clean report to the terminal — stretch: write it to `VAULT_STATS.md`
-- [ ] Runs in the terminal; committed to GitHub
+### CAPSTONE — tie it together
+*Prereqs: steps 1–9. One small puzzle that uses indexing, a loop, a dict, and a function.*
+- [ ] `word_stats.py`: given a word, print its length, first & last letter, uppercase
+      version, and a letter-frequency tally — built from a function you wrote
 
 ---
 
-## After Scripting
-- `argparse` for nicer command-line tools (flags, help text) — stdlib
-- Write-scripts that *modify* the vault (add frontmatter, bulk-rename) — with a dry-run first
-- A "task inbox": collect every unfinished `- [ ]` task into one note (stretch build)
-- A session log: append a dated line to a log note each run (`"a"` mode) — Dustin's idea
-- Return to OOP when a script grows big enough to earn a class (`roadmaps/ROADMAP_oop_PAUSED.md`)
+## After the Reboot
+- Return to the **Scripting track** (`roadmaps/ROADMAP_scripting_PAUSED.md`) once the
+  daily rhythm is back and the fundamentals feel automatic — resume at Step 4.
+- Or pick the next fundamentals gap the reboot surfaces and keep the puzzle rhythm going.
 
 ## Parked (set aside on purpose)
+- Scripting / vault tools — `roadmaps/ROADMAP_scripting_PAUSED.md` (resume at Step 4)
 - OOP / writing your own classes — `roadmaps/ROADMAP_oop_PAUSED.md`
 - GUI Expense Tracker (CustomTkinter) — `roadmaps/ROADMAP_expense_gui_PAUSED.md`
-- Flask web walkthrough (a tour, explored not learned) — `roadmaps/ROADMAP_flask_walkthrough.md`
+- Flask web walkthrough — `roadmaps/ROADMAP_flask_walkthrough.md`
