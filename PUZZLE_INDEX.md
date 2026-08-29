@@ -44,3 +44,4 @@ Never repeat a concept already covered here.
 | Command-line arguments — `sys.argv`, running a script from the terminal, `argv[1]` as first arg, script vs REPL printing | `greet.py` |
 | Read a file whose path comes from `sys.argv[1]` — `open(argv[1])`, `.read()` → one string, `.split()` + `len()` to count words | `wordcount.py` |
 | Scan a folder — `os.listdir(folder)` → list of names, `for` loop + `if name.endswith(".md")` filter, folder path from `sys.argv[1]` | `list_notes.py` |
+| Zero-based indexing — `[0]` first char/item, `[-1]` last, out-of-range `IndexError`, joining two indexes with `+` | `first_last.py` |

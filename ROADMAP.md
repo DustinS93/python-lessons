@@ -47,8 +47,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 1. Zero-based indexing — grab items by position
 *Teaches: strings and lists are indexed from 0; `[0]` is first, `[-1]` is last*
-- [ ] REPL/drill — index a string and a list; predict `"python"[0]`, `[-1]`, `range(3)` as a list
-- [ ] Puzzle — `first_last.py`: print the first and last character of any word
+- [x] REPL/drill — index a string and a list; predict `"python"[0]`, `[-1]`, `range(3)` as a list
+- [x] Puzzle — `first_last.py`: print the first and last character of any word
 
 ### 2. Slicing — grab a *range* of items
 *Teaches: `[start:end]` (end is excluded), on both strings and lists*
