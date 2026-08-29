@@ -10,6 +10,15 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 
 ---
 
+### Indexing & Slicing — NEW S33
+- **Zero-based**: positions start at `0`. `"python"[0]` → `'p'` (first), `"python"[5]` → `'n'` (last)
+- `[-1]` = last item, `[-2]` = second-to-last. Works no matter the length
+- Indexing past the end → **`IndexError`** (`"python"[6]` errors)
+- Same rule for lists: `nums[0]` = first **item**, `nums[-1]` = last. (Strings hold *characters*, lists hold *items/elements*)
+- **Slicing** `[start:end]` grabs a **range** — the `end` is **excluded** ("up to, but not including"). `"python"[0:3]` → `'pyt'` (positions 0,1,2 — NOT 3)
+- Trick: `end - start` = how many you get. `[0:3]` → 3 chars
+- Blank start = from the beginning (`[:2]` → `'py'`); blank end = to the end (`[2:]` → `'thon'`); both blank = the whole thing (`[:]` → `'python'`)
+
 ### File I/O
 - `open(filename, mode)` — opens a file. Modes: `"r"` (read), `"w"` (write, overwrites), `"a"` (append)
 - `with open(filename, mode) as f:` — opens a file and closes it automatically when the block ends
