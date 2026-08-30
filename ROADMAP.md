@@ -62,8 +62,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 4. String methods — transforming text
 *Teaches: the `object.method()` pattern; `.upper()`, `.lower()`, `.strip()`, `.replace()`*
-- [ ] REPL/drill — `"python".upper()`, `"  hi  ".strip()`, `"a,b".replace(",", "-")`
-- [ ] Puzzle — `shout.py`: take a messy string and print it clean + uppercase
+- [x] REPL/drill — `"python".upper()`, `"  hi  ".strip()`, `"a,b".replace(",", "-")`
+- [x] Puzzle — `shout.py`: take a messy string and print it clean + uppercase
 
 ### 5. List methods — changing a list
 *Teaches: `.append()`, `.remove()`, reassign vs. in-place; reuses `object.method()` from #4*

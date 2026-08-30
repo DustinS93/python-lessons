@@ -47,3 +47,4 @@ Never repeat a concept already covered here.
 | Zero-based indexing — `[0]` first char/item, `[-1]` last, out-of-range `IndexError`, joining two indexes with `+` | `first_last.py` |
 | Slicing — `[start:end]` grabs a range, end **excluded**; blank start/end; negative-start slice `[-2:]` for last N | `slice_it.py` |
 | Building strings — `+` concatenation (same-type only, `str()` to add a number), vs f-strings (auto-convert, cleaner) | `greeting.py` |
+| String methods — `object.method()` shape, `.strip()`/`.upper()`/`.replace()`, **immutability** (original never changes), method chaining + why chain order matters | `shout.py` |

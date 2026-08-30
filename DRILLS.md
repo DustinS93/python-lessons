@@ -66,6 +66,23 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 
 ### String Methods
 - `str.capitalize()` — returns the string with the first letter uppercased, rest lowercased: `"burger".capitalize()` → `"Burger"`
+- **The `object.method()` shape** — the object goes BEFORE the dot, not inside parens. Compare: `len(word)` is a plain **function** (thing goes inside); `word.upper()` is a **method** (thing goes before the dot) — NEW S34
+- **Parens are required.** `word.upper` (no parens) does NOT error and does NOT run — it returns the method object itself (`<built-in method upper of str object ...>`). The `()` is what actually *calls* it — NEW S34
+- `str.upper()` — returns a new string, all uppercase: `"python".upper()` → `'PYTHON'` — NEW S34
+- `str.lower()` — returns a new string, all lowercase — NEW S34
+- `str.replace(find, replace_with)` — returns a new string with every occurrence of the 1st argument swapped for the 2nd: `"a,b,c".replace(",", "-")` → `'a-b-c'`. Original unchanged — NEW S34
+- ⚠️ **Strings are IMMUTABLE** — a string method can never change the original. It **returns a brand-new string** and leaves the old one untouched. Two questions every time: *what does it return*, and *did you keep it?* — NEW S34
+- **Nothing is saved unless you assign it:** `word.upper()` alone evaporates; `word = word.upper()` catches the returned value. Right side runs first, result gets stored in the name on the left — NEW S34
+- `.strip()` removes whitespace from **both ends only** — never from the middle. `"  a b  ".strip()` → `'a b'` (inner space kept)
+- Methods **chain** — each returns a string, so the next method can act on it: `"  hi  ".strip().upper()` → `'HI'` — NEW S34
+
+#### Names, objects, and identity (the model underneath) — NEW S34
+- A variable is a **name pointing at an object**. Assignment re-points the name; it never edits the object
+- `id(x)` — built-in function returning the object's identity (roughly its memory address). Same `id` = literally the same object
+- `x is y` — asks "**same object?**". `x == y` — asks "**same value?**". ⚠️ **Always compare strings with `==`, never `is`**
+- **garbage collection** — when nothing can reach an object any more, Python reclaims its memory. **garbage = unreachable**, so there is no way to retrieve it. Not a recycle bin; no undo
+- **interning** — CPython optimization: short, identifier-shaped strings (letters/digits/underscore) are stored once and reused, so `"python" is "python"` → `True`, while `"hello world"` (has a space) typically → `False`. An implementation detail, NOT a language rule — never write code that depends on it
+- Preview: **lists are MUTABLE** — `.append()` really does change the original in place. That contrast is the point of Step 5
 
 ### f-strings
 - Prefix a string with `f` to make it an f-string: `f"Hello, {name}"`

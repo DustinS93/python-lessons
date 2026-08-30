@@ -50,3 +50,11 @@ consult mid-session when confirming a method or term.
 | `__init__` | The initializer/constructor method — runs *automatically* when you create an object. Sets up its attributes |
 | `self` | Inside a class, "this particular object." Auto-passed when you call a method; the object being built inside `__init__` |
 | instantiate | To create an object from a class — `Expense("Coffee", "Food", 3.33)` instantiates an Expense |
+| immutable | Cannot be changed after it's created. Strings are immutable — `.upper()` can't edit `"python"`, it returns a NEW string instead |
+| mutable | Can be changed in place after creation — lists are mutable (`.append()` modifies the original) |
+| return value | The value a function/method hands back. `word.upper()` returns `'PYTHON'`; it's lost unless you assign it |
+| `id()` | Built-in function giving an object's identity (roughly its memory address). Same `id` = the same object, not just an equal one |
+| `is` vs `==` | `is` asks "same object?"; `==` asks "same value?". Compare strings with `==` — never `is` |
+| garbage collection | Python reclaiming memory once nothing can reach an object. **garbage = unreachable** — there's no recycle bin and no way to get it back |
+| interning | CPython storing one copy of short identifier-like strings and reusing it, so identical literals share an object. An optimization, not a language guarantee |
+| method vs function | `word.upper()` is a method (object before the dot); `len(word)` is a function (thing inside the parens). Same idea, different shape |
