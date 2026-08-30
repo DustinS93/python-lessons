@@ -67,8 +67,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 5. List methods — changing a list
 *Teaches: `.append()`, `.remove()`, reassign vs. in-place; reuses `object.method()` from #4*
-- [ ] REPL/drill — build a list, `.append()`, `.remove()`, check `len()` after each
-- [ ] Puzzle — `todo.py`: start with a list, add two items, remove one, print the result
+- [x] REPL/drill — build a list, `.append()`, `.remove()`, check `len()` after each
+- [x] Puzzle — `todo.py`: start with a list, add two items, remove one, print the result
 
 ### 6. Loops — repeating with a counter and over a list
 *Teaches: `for x in list`, `range(n)` starts at 0, looping with an index*

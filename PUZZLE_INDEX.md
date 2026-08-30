@@ -48,3 +48,4 @@ Never repeat a concept already covered here.
 | Slicing — `[start:end]` grabs a range, end **excluded**; blank start/end; negative-start slice `[-2:]` for last N | `slice_it.py` |
 | Building strings — `+` concatenation (same-type only, `str()` to add a number), vs f-strings (auto-convert, cleaner) | `greeting.py` |
 | String methods — `object.method()` shape, `.strip()`/`.upper()`/`.replace()`, **immutability** (original never changes), method chaining + why chain order matters | `shout.py` |
+| List methods — `.append()`, `.remove(value)` vs `.pop(index)`, lists are **mutable** (change in place), in-place methods return `None`, `len()` live vs snapshot, avoid shadowing built-ins | `todo.py` |

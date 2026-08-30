@@ -58,3 +58,5 @@ consult mid-session when confirming a method or term.
 | garbage collection | Python reclaiming memory once nothing can reach an object. **garbage = unreachable** — there's no recycle bin and no way to get it back |
 | interning | CPython storing one copy of short identifier-like strings and reusing it, so identical literals share an object. An optimization, not a language guarantee |
 | method vs function | `word.upper()` is a method (object before the dot); `len(word)` is a function (thing inside the parens). Same idea, different shape |
+| `None` / `NoneType` | Python's "no value at all" — its own type. Returned by methods that change an object in place. The REPL refuses to echo it; `print()` shows it |
+| in place | Changing the original object itself rather than building a new one — `nums.append(4)` modifies `nums` directly |

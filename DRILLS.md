@@ -84,6 +84,16 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - **interning** — CPython optimization: short, identifier-shaped strings (letters/digits/underscore) are stored once and reused, so `"python" is "python"` → `True`, while `"hello world"` (has a space) typically → `False`. An implementation detail, NOT a language rule — never write code that depends on it
 - Preview: **lists are MUTABLE** — `.append()` really does change the original in place. That contrast is the point of Step 5
 
+### List Methods — changing a list in place — NEW S34
+- Same `object.method()` shape as string methods — but lists are **MUTABLE**, so the rules invert
+- `list.append(item)` — adds `item` to the **end** of the list, **changing the original in place**. No assignment needed
+- `list.remove(value)` — removes the **first item equal to that VALUE** (not a position). `[1,2,3,4].remove(2)` → `[1,3,4]`
+- ⚠️ **`.remove(value)` vs `.pop(index)`** — `.remove()` takes a **value**, `.pop()` takes a **position**. Easy to confuse; they take completely different arguments
+- ⚠️ **In-place methods return `None`.** `nums.append(5)` returns nothing at all. Python convention: *a method that mutates the object returns `None`* — a deliberate warning that the work already happened to the original
+- ⚠️ **THE TRAP:** `nums = nums.append(5)` is a **bug** — it overwrites `nums` with `None` and destroys the list. **No error is raised**; it fails much later when something tries to use `nums` as a list
+- **The rule:** strings → `word = word.upper()` (must assign). Lists → `nums.append(5)` (never assign). Immutable = catch the new value; mutable = don't
+- **The REPL hides `None`** — it echoes every value *except* `None`. A silent REPL does NOT mean there was no value. Use `print(x)` or `type(x)` to see it
+
 ### f-strings
 - Prefix a string with `f` to make it an f-string: `f"Hello, {name}"`
 - `{variable}` — inserts the variable's value directly into the string
