@@ -152,3 +152,18 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - Two kinds of `__init__` setup: data that varies per object (parameter → `self.name = name`) vs data that's always the same starting state (created fresh inside → `self.songs = []`)
 - `self` is just the first parameter's NAME (could be anything); convention is always `self`. It is the **instance**, never the class
 - CapWords convention for class names: `BankAccount`, not `bankaccount`
+
+### Loops — `for`, `range()`, and looping by index — NEW S35
+- **`for x in thing:`** — runs the indented block **once per item**. The loop variable (`x`) is **reassigned at the top of every pass**; it is not one fixed value
+- The block must be **indented**; the loop header ends in a **colon**. In the REPL, press Enter on a blank line to run the block
+- Each `print()` inside the loop is its own call, so each pass puts out its **own line**
+- `for n in nums:` — `n` holds **the item itself** (`10`, then `20`, then `30`)
+- `for letter in word:` — strings are loopable too; `letter` holds one **character** per pass
+- **`range(n)`** — counts from **0** up to but **not including** `n`. `list(range(3))` → `[0, 1, 2]`
+- **`range(start, end)`** — `list(range(1, 4))` → `[1, 2, 3]`. ⚠️ NOT `[1, 4]` — it's a **span**, not a pair
+- ⚠️ **`range()` shares slicing's rule: the end is EXCLUDED.** `range(1, 4)` and `"reboot"[1:4]` stop at the same place. One rule, two places — NEW S35
+- **Looping by index:** `for i in range(len(nums)):` — `i` holds a **position** (0, 1, 2), and `nums[i]` holds the **item** at that position. Trace it pass by pass:
+  - pass 1: `i = 0`, `nums[i] = 10`
+  - pass 2: `i = 1`, `nums[i] = 20`
+  - pass 3: `i = 2`, `nums[i] = 30`
+- **Item vs position — the Step 6 distinction:** `for n in nums` gives you the **item** directly; `for i in range(len(nums))` gives you the **position**, and you index to get the item. Use the index version when you need to *know where you are* in the list, not just what's there
