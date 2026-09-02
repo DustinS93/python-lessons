@@ -76,7 +76,10 @@
 - Commit after every finished puzzle or build step
 - Meaningful commit message describing what was built
 - Push before moving to the next puzzle or build step
-- Delete all commented-out code before committing
+- Delete all commented-out code before committing — **EXCEPT** kept-on-purpose earlier versions in `puzzles/` (decided S36). These files are a learning record, not production code; an earlier attempt shows the reasoning, like working shown in maths. Two conditions:
+  - Use `#` comments (Cmd + / in VS Code), **never** `"""` — a triple-quoted block is a live string object, and at the top of a file it silently becomes the module docstring
+  - Label it (`# First version: function + return`) so future-Dustin can tell a deliberate record from abandoned broken code
+  - Still delete unlabelled/accidental dead code, and this exception does NOT extend to `projects/` build files
 
 ## Rules
 - Never write the code for me
