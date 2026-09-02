@@ -1,29 +1,30 @@
-## Session 34 — 2026-08-30
+## Session 36 — 2026-09-01
 
 ### What We Covered
-- **Opener drill — dict access (cold):** wrote `f"{item} costs ${prices[item]}"` unprompted. **Fluency gap RESOLVED.** But called a key a "value" and said "the 2 indicie" — list thinking on a dict
-- Step 4 — **string methods**: `object.method()` vs plain functions, parens required; `.upper()`, `.lower()`, `.strip()` (both ends only), `.replace(find, new)`. **Strings IMMUTABLE** — return a NEW string, nothing saved unless assigned. Found **chaining** himself
-- **Deep detour he drove:** garbage collection (`garbage = unreachable`), `id()`, `is` vs `==`, **interning** (predicted `False`, got `True`)
-- Step 5 — **list methods**: `.append()`, `.remove(value)` vs `.pop(index)`, `.pop()` returns the item. **Lists MUTABLE** — change in place, return `None`; the trap `nums = nums.append(5)` destroys the list with no error, ran it and broke his own
-- `None` invisible in the REPL; **shadowing built-ins** (`list` → `tasks`); **snapshot vs live value** (stale `task_count` → `len()` inside the f-string)
+- **Opener (S34 recall):** string vs list methods cold — all predictions right, named `None` + **garbage collection** himself, generalized to **mutable vs immutable** unprompted
+- **Challenged a badly-worded rule I gave him** and asked me to re-check it — first time he's pushed back instead of absorbing
+- Step 7 — **conditionals**: comparisons are **expressions evaluating to a bool**; `=` vs `==`; `5 = 5` → *cannot assign to literal*; **literal vs name vs expression**
+- **`in`**: string = unbroken **substring** (contiguous, in order); list = equal to **one whole item**. 5/5 on traps
+- ⚠️ **Chain runs at most ONE branch** (first `True` wins, later tests never evaluated); separate `if`s ≠ a chain; **order = most restrictive first**
+- Detoured into `def` himself: **defining ≠ running**; **`return` vs `print`** — predicted a `print` version would yield `None` in the f-string, tying it to `.append()`
+- **His own question drove the best part:** "how do I use the chain without a function?" → assign inside each branch, same name, name survives the chain
 
 ### Puzzles Completed
-- `shout.py`, `todo.py`
+- `grade.py`
 
 ### Vocabulary Introduced
-- immutable, mutable, return value, in place, `id()`, `is` vs `==`, garbage collection, interning, `None`/`NoneType`, shadowing, method vs function, chaining
+- literal, name (variable name), expression, membership test, boundary/edge case, chain, branch
 
 ### What He Struggled With
-- Predicted `result = nums.append(5)` holds `5`; then thought `.append()` itself was "a bug" — needed method vs assignment split apart
-- Term slips: `len()` returns a "str" (int); "key" called a "value"; dicts have "indicies". Miscounted `[1,2,3,4].remove(2)` → `[1,3]`
-- Skipped the `word.upper` no-parens line four times — theorized past the drill
+- "A variable cannot be an int" — confused holding an int with a literal being a name; called `len(word)` a literal; called returning "storing it in a function"
+- Right answer on short-circuit, wrong reason ("score is reassigned"); REPL: two `if` blocks with no blank line → SyntaxError (also bit him S30); left a `"""`-wrapped commented-out block in the file
 
 ### What Felt Solid
-- Chained methods unprompted; explained the chain-order/case-sensitivity bug cold
-- Sharp unprompted questions (can you retrieve garbage; is a re-created literal the same object); diagnosed the stale-`task_count` bug himself
-- Clean final explain-back on immutable vs mutable; ran the full git loop solo twice
+- **Placement CLEAN and unprompted** — five-branch chain, correct order, final line correctly outside the chain; predicted both wrong-placement outcomes
+- Reached for a function unprompted, correctly reusing his own `grade_checker.py` shape (June)
+- Every drill prediction correct (4/4, 5/5, 3/3, boundaries 2/2); both explain-backs crisp and unassisted
 
 ### Where to Start Next Session
-- ROADMAP **Step 6 — loops** (`for x in list`, `range(n)`, index) → `count_up.py`
-- **Placement weak spot gets its first real appearance** — do NOT guide block structure
-- Reinforce dict-vs-list model at Step 8 — the "indicies" slip showed it's soft
+- ROADMAP **Step 8 — dicts, deeper** → `tally.py`. ⚠️ **Reinforce dict-vs-list HARD** — the S34 "keys are values / dicts have indicies" slip is unresolved; watch his *words*
+- Step 9 partly pre-taught (he found `def`, defining-vs-calling, `return` vs `print` himself) — reshape it deeper: parameters vs arguments, naming, multiple returns
+- **Placement weak spot ELIMINATED** — stop designing puzzles to surface it

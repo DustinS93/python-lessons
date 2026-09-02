@@ -1088,3 +1088,60 @@
 - ROADMAP **Step 4 — string methods** (`.upper()`, `.lower()`, `.strip()`, `.replace()`, the `object.method()` pattern) → puzzle `shout.py`
 - Then Step 5 (list methods `.append()`) closes the same `object.method()` shape
 - Keep the daily puzzle rhythm — momentum is the goal
+
+## Session 34 — 2026-08-30
+
+### What We Covered
+- **Opener drill — dict access (cold):** wrote `f"{item} costs ${prices[item]}"` unprompted. **Fluency gap RESOLVED.** But called a key a "value" and said "the 2 indicie" — list thinking on a dict
+- Step 4 — **string methods**: `object.method()` vs plain functions, parens required; `.upper()`, `.lower()`, `.strip()` (both ends only), `.replace(find, new)`. **Strings IMMUTABLE** — return a NEW string, nothing saved unless assigned. Found **chaining** himself
+- **Deep detour he drove:** garbage collection (`garbage = unreachable`), `id()`, `is` vs `==`, **interning** (predicted `False`, got `True`)
+- Step 5 — **list methods**: `.append()`, `.remove(value)` vs `.pop(index)`, `.pop()` returns the item. **Lists MUTABLE** — change in place, return `None`; the trap `nums = nums.append(5)` destroys the list with no error, ran it and broke his own
+- `None` invisible in the REPL; **shadowing built-ins** (`list` → `tasks`); **snapshot vs live value** (stale `task_count` → `len()` inside the f-string)
+
+### Puzzles Completed
+- `shout.py`, `todo.py`
+
+### Vocabulary Introduced
+- immutable, mutable, return value, in place, `id()`, `is` vs `==`, garbage collection, interning, `None`/`NoneType`, shadowing, method vs function, chaining
+
+### What He Struggled With
+- Predicted `result = nums.append(5)` holds `5`; then thought `.append()` itself was "a bug" — needed method vs assignment split apart
+- Term slips: `len()` returns a "str" (int); "key" called a "value"; dicts have "indicies". Miscounted `[1,2,3,4].remove(2)` → `[1,3]`
+- Skipped the `word.upper` no-parens line four times — theorized past the drill
+
+### What Felt Solid
+- Chained methods unprompted; explained the chain-order/case-sensitivity bug cold
+- Sharp unprompted questions (can you retrieve garbage; is a re-created literal the same object); diagnosed the stale-`task_count` bug himself
+- Clean final explain-back on immutable vs mutable; ran the full git loop solo twice
+
+### Where to Start Next Session
+- ROADMAP **Step 6 — loops** (`for x in list`, `range(n)`, index) → `count_up.py`
+- **Placement weak spot gets its first real appearance** — do NOT guide block structure
+- Reinforce dict-vs-list model at Step 8 — the "indicies" slip showed it's soft
+
+## Session 35 — 2026-08-31
+*(Reconstructed S36 from artifacts — this session ended without the update-progress ritual. Details are inferred from `puzzles/count_up.py`, the DRILLS.md "NEW S35" section, and Dustin's own recollection.)*
+
+### What We Covered
+- ROADMAP Step 6 — **loops**: `for x in list` (loop variable reassigned each pass), `for letter in word` (strings are loopable)
+- `range(n)` counts from **0**, end **excluded**; `range(start, end)` is a **span**, not a pair (`range(1,4)` → `[1,2,3]`)
+- Connected `range()`'s end-exclusion to **slicing's** end-exclusion — one rule, two places
+- **Looping by index**: `for i in range(len(nums))` — `i` = position, `nums[i]` = item; traced pass by pass
+- Item vs position — when you need to know *where* you are, not just what's there
+- Display shift: `i + 1` in the f-string, never in the index
+
+### Puzzles Completed
+- `count_up.py`
+
+### Vocabulary Introduced
+- loop variable, `range()`, span, looping by index, item vs position
+
+### What He Struggled With
+- (not recorded — session ended without notes)
+
+### What Felt Solid
+- Block structure placed **unprompted** (self-reported S36) — `for` header, colon, indented body
+- Chose the index form correctly for a task needing position numbers
+
+### Where to Start Next Session
+- ROADMAP Step 7 — conditionals, deeper → `grade.py`
