@@ -49,3 +49,5 @@ Never repeat a concept already covered here.
 | Building strings — `+` concatenation (same-type only, `str()` to add a number), vs f-strings (auto-convert, cleaner) | `greeting.py` |
 | String methods — `object.method()` shape, `.strip()`/`.upper()`/`.replace()`, **immutability** (original never changes), method chaining + why chain order matters | `shout.py` |
 | List methods — `.append()`, `.remove(value)` vs `.pop(index)`, lists are **mutable** (change in place), in-place methods return `None`, `len()` live vs snapshot, avoid shadowing built-ins | `todo.py` |
+| Loops — `for` over a list, `range(n)` / `range(start, end)` (end excluded, same as slicing), looping by index with `range(len(x))`, `i` = position vs `x[i]` = item, shifting the display with `i + 1` (never the index) | `count_up.py` |
+| Conditionals — `if`/`elif`/`else` chain, comparison operators, ordering tests most-restrictive-first, chain runs at most ONE branch, boundary testing (`>=` includes the number), placing a line inside a branch vs outside the chain, `return` vs `print` from a function | `grade.py` |

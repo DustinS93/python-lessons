@@ -72,13 +72,13 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 6. Loops — repeating with a counter and over a list
 *Teaches: `for x in list`, `range(n)` starts at 0, looping with an index*
-- [ ] REPL/drill — `for i in range(3)`, `for item in nums`; predict output before running
-- [ ] Puzzle — `count_up.py`: print each item in a list with its position number
+- [x] REPL/drill — `for i in range(3)`, `for item in nums`; predict output before running
+- [x] Puzzle — `count_up.py`: print each item in a list with its position number
 
 ### 7. Conditionals — deeper
 *Teaches: `if`/`elif`/`else`, comparisons, `in` for membership*
-- [ ] REPL/drill — `5 > 3`, `"a" in "cat"`, an `if`/`elif`/`else` chain
-- [ ] Puzzle — `grade.py`: given a score, print a letter grade using `if`/`elif`/`else`
+- [x] REPL/drill — `5 > 3`, `"a" in "cat"`, an `if`/`elif`/`else` chain
+- [x] Puzzle — `grade.py`: given a score, print a letter grade using `if`/`elif`/`else`
 
 ### 8. Dicts — deeper
 *Teaches: add/update a key, check membership, loop over keys/values*

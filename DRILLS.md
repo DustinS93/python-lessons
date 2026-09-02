@@ -167,3 +167,19 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
   - pass 2: `i = 1`, `nums[i] = 20`
   - pass 3: `i = 2`, `nums[i] = 30`
 - **Item vs position — the Step 6 distinction:** `for n in nums` gives you the **item** directly; `for i in range(len(nums))` gives you the **position**, and you index to get the item. Use the index version when you need to *know where you are* in the list, not just what's there
+
+### Conditionals — `if` / `elif` / `else`, comparisons, `in` — NEW S36
+- **A comparison is an expression that evaluates to a boolean.** `5 > 3` → `True`; `type(5 > 3)` → `<class 'bool'>`. It's a *value*, not a question
+- Operators: `>`, `>=`, `<`, `<=`, `==` (equal), `!=` (not equal)
+- ⚠️ **`=` vs `==`** — `=` **assigns** (needs a **name** on the left), `==` **compares** (an expression, gives a bool)
+- `5 = 5` → `SyntaxError: cannot assign to literal`. A **literal** is a value written directly in code (`90`, `"cat"`, `[1,2]`) — it can never be a name. Names can't start with a digit either (`5score = 1` fails)
+- The right side of `=` is always an **expression** — `len(word)` is an expression (must run to produce a value), not a literal
+- **`in` — membership test, returns a bool.** Two different behaviours:
+  - **on a string** → is this an unbroken **substring**, contiguous and in order? `"ca" in "cat"` → `True`; `"ac" in "cat"` → `False` (both letters present, wrong order); `"ta" in "cat"` → `False`
+  - **on a list** → is this **equal to one whole item**? `"eggs" in ["eggs","milk"]` → `True`; `"egg" in [...]` → `False` (`"egg" != "eggs"`)
+- ⚠️ **A chain runs AT MOST ONE branch.** Python tests top to bottom, takes the **first `True`**, runs that block, and **skips the rest of the chain** — it never even evaluates the later tests
+- **Separate `if` statements are NOT a chain** — each is tested independently, so several can fire. `if/elif` = pick one; `if/if` = check each
+- ⚠️ **ORDER MATTERS — put the most restrictive test first.** With `score = 95`, a chain starting `if score >= 60:` prints `"D"`, because that test matches first and ends the chain. For descending thresholds, highest first
+- `else` is the catch-all: runs only when every test above it was `False`. No condition, no parens
+- **REPL block rule (bit him again S36):** inside an indented block (`...` prompt) you must press **Enter on a blank line** to close it before typing a new top-level statement. Two `if` blocks typed back-to-back with no blank line → `SyntaxError`. This is a REPL rule only — the same code in a `.py` file is fine
+- ⚠️ Python's `SyntaxError` hints (*"Did you mean 'not'?"*) are **guesses and can be wrong**. Trust the line number and the `^^^^^` marker, treat the suggestion as a maybe
