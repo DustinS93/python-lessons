@@ -82,8 +82,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 8. Dicts — deeper
 *Teaches: add/update a key, check membership, loop over keys/values*
-- [ ] REPL/drill — add a key, update a value, `for k in d`, `d.items()`
-- [ ] Puzzle — `tally.py`: count how many times each letter appears in a word (accumulator dict)
+- [x] REPL/drill — add a key, update a value, `for k in d`, `d.items()`
+- [x] Puzzle — `tally.py`: count how many times each letter appears in a word (accumulator dict)
 
 ### 9. Functions — write your own
 *Teaches: parameters vs. arguments, `return` vs `print` (sharpen the S33 intuition), calling your own function*

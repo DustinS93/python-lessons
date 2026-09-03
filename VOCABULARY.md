@@ -63,3 +63,7 @@ consult mid-session when confirming a method or term.
 | literal | A value written directly in the source code — `90`, `"cat"`, `[1, 2]`, `True`. Not a label standing in for a value, but the value itself. `5 = 5` fails (*cannot assign to literal*) because `=` needs a **name** on the left |
 | name (variable name) | The label on the left of `=` that points at a value. Names hold ints, but a literal can never *be* a name |
 | expression | Any piece of code that evaluates to a value — `2 + 2` → `4`, `5 > 3` → `True`, `len(word)` → `6`. The right side of `=` is always an expression |
+| tuple | An ordered sequence written with parentheses — `('a', 99)`. **Immutable**, like a string: `pair[0] = "z"` raises `TypeError`. A dict's key-value pairs come back as tuples |
+| tuple unpacking | Splitting a tuple across several names in one step — `for k, v in counts.items():` puts the key in `k` and the value in `v`. Works when the number of names matches the number of parts |
+| view (`dict_keys`/`dict_values`/`dict_items`) | A live window onto a dict, not a copy. Change the dict and the view shows the change immediately — the opposite of a snapshot |
+| `KeyError` vs `IndexError` | `KeyError` = a dict key that doesn't exist. `IndexError` = a list/string position that doesn't exist. The error name tells you which kind of thing you were actually asking for |

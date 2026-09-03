@@ -183,3 +183,22 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - `else` is the catch-all: runs only when every test above it was `False`. No condition, no parens
 - **REPL block rule (bit him again S36):** inside an indented block (`...` prompt) you must press **Enter on a blank line** to close it before typing a new top-level statement. Two `if` blocks typed back-to-back with no blank line → `SyntaxError`. This is a REPL rule only — the same code in a `.py` file is fine
 - ⚠️ Python's `SyntaxError` hints (*"Did you mean 'not'?"*) are **guesses and can be wrong**. Trust the line number and the `^^^^^` marker, treat the suggestion as a maybe
+
+### Dicts, deeper — keys vs positions, views, tuples — NEW S37
+- ⚠️ **A dict has NO positions.** `counts[0]` does not mean "first item" — it looks for the **key** `0`. Missing → **`KeyError`** (not `IndexError`; `IndexError` is the list/string one)
+- Proof: `{0:"zero", 1:"one"}` and `{1:"one", 0:"zero"}` both give `"zero"` for `d[0]`. **Key order is irrelevant to lookup** — the key IS the address
+- Modern Python *remembers insertion order* for looping, but that's only the order it hands things back. Lookup is never positional
+- **A dict's length is its number of key-value pairs** — `{"eggs":4,"milk":3}` has **2 items**
+- Keys can be any immutable type, including ints — `pair[0] = "z"` on a **dict** creates the key `0`, giving `{'a':99, 0:'z'}`
+- **Same syntax, two effects:** `counts["x"] = 5` **adds** if `"x"` doesn't exist, **updates** if it does. What decides is whether the key is already there. Updating does NOT move the key — it keeps its original insertion position
+- ⚠️ **`in` on a dict searches KEYS ONLY** — values are invisible to it. `99 in counts` → `False` even when `99` is a value sitting right there
+- ⚠️ **`for k in counts:` gives you KEYS**, not values. Get the value with `counts[k]` inside the loop: `for k in counts: print(k, counts[k])`
+- `.keys()` → `dict_keys([...])`, `.values()` → `dict_values([...])`, `.items()` → `dict_items([('a', 99), ('b', 2)])`
+- **These are VIEWS, not lists** — live windows on the dict. `v = counts.values()`, then `counts["c"] = 7`, and `v` already shows the `7`. You never touched `v` (contrast: a snapshot, like the stale `task_count` in S34)
+- **tuple** — an ordered sequence written with **parentheses**: `('a', 99)`. **IMMUTABLE** — `pair[0] = "z"` → `TypeError: 'tuple' object does not support item assignment`. Same family as strings
+- **Read the punctuation to know the type:** `{"a": 99}` = dict (curly + `:`), `('a', 99)` = tuple (parens), `['a', 99]` = list (square). In `dict_items([('a',99)])` the outer `[]` is the collection, each inner `()` is one pair
+- **tuple unpacking** — `for k, v in counts.items():` splits each pair across two names in one step: `k` gets the key, `v` gets the value. Works because each item is a 2-part tuple and you supplied 2 names
+- Mutability map so far: **mutable** = list, dict. **immutable** = string, tuple
+- `print(a, b)` — the **comma is an argument separator**, and print joins with a space. The comma itself is never printed
+- ⚠️ **Accumulator dict — why the `if`/`else` is required:** `counts[letter] = counts[letter] + 1` **reads before it writes** (right side evaluates first). On an empty dict that read is a missing key → **`KeyError`** on the very first letter. The `if key in d:` / `else: d[key] = 1` pair exists to guarantee you only read a key you already created — NEW S37
+- ⚠️ Deleting the `else` instead is a **silent** bug: every letter fails the `if`, nothing is ever added, and you get empty output with **no error at all** — NEW S37
