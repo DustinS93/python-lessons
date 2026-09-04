@@ -202,3 +202,22 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - `print(a, b)` — the **comma is an argument separator**, and print joins with a space. The comma itself is never printed
 - ⚠️ **Accumulator dict — why the `if`/`else` is required:** `counts[letter] = counts[letter] + 1` **reads before it writes** (right side evaluates first). On an empty dict that read is a missing key → **`KeyError`** on the very first letter. The `if key in d:` / `else: d[key] = 1` pair exists to guarantee you only read a key you already created — NEW S37
 - ⚠️ Deleting the `else` instead is a **silent** bug: every letter fails the `if`, nothing is ever added, and you get empty output with **no error at all** — NEW S37
+
+### Functions — parameters, arguments, return vs print — NEW S38
+- **parameter** = the name in the `def` line's parens (a placeholder, exists at *definition* time). **argument** = the actual value handed over when you *call* it. Same slot, two different moments
+- A function is an **object**. `shout` alone → `<function shout at 0x104e17320>`; `shout("hi")` invokes it. ⚠️ Exactly the `word.upper` vs `word.upper()` distinction — **the parens are what call it**
+- Defining a function runs nothing and displays nothing. The body only executes on a call
+- **Local names:** every call creates a fresh workspace holding the parameters + anything assigned in the body. That workspace is **destroyed when the function returns** — `def double(n)`, then `n` at top level → **`NameError`**
+- **Lookup order: local first, then the global names in the file.** A parameter named `word` **shadows** a global `word` for the duration of the call — it doesn't collide and doesn't overwrite it
+- ⚠️ **THE SILENT BUG (S38, his own):** `def reverse_word(words):` whose body read the *global* `word` instead of the parameter. It ran perfectly and ignored its own input. **A global with a near-identical name swallows the typo — without it you'd get an instant `NameError`.** A function that reads globals instead of its parameters looks like it works until you call it with a different argument
+- ⚠️ **EVERY function returns something.** No `return` statement → Python hands back **`None`** automatically. There is no "returns nothing"
+- **print ≠ return.** `print()` paints characters on the terminal (a *side effect*); `return` hands a value back to the caller. **Two separate pipes**
+  - `result = shout_p("hello")` → `HELLO` still appears (the body ran) **and** `result` is `None`. Assignment does not suppress printing
+  - `result` then echoes nothing, because **the REPL hides `None`** — looks like silence, isn't
+  - `shout("cat") + shout("dog")` → `'CATDOG'`. `shout_p("cat") + shout_p("dog")` → prints `CAT`, prints `DOG`, **then `TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'`**
+- **The rule: a call evaluates to its return value, never to what it printed.** Print is a dead end; return is a handoff
+- ⚠️ Same trap as `nums = nums.append(5)` — a call that returns `None`, assigned to a name, **no error raised**, blows up much later
+- **`return` exits the WHOLE function immediately** — not just the loop. A `return` inside a loop fires on pass 1 and the rest never runs. To build an answer across every pass: accumulator **before** the loop, update **inside**, `return` **after** it
+- **Nested call** (≠ nested function): `reverse_word(reverse_word(word2))` — inner parens evaluate first, and that return value becomes the outer call's argument. Same shape as `int(input())`. **Only possible because it returns** — impossible with `print`
+- **String accumulator:** start at `""` (not `[]`), then `rev_word = rev_word + letter` each pass. Strings are immutable, so there is no appending — each pass **builds a new string and re-points the name**. (`"".append()` → `AttributeError`)
+- **Naming is documentation:** a plural parameter (`words`) holding one word lies to the reader; `reverse` names the *action*, not the *data*. Avoid single `l` — indistinguishable from `1`

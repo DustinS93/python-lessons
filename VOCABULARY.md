@@ -67,3 +67,10 @@ consult mid-session when confirming a method or term.
 | tuple unpacking | Splitting a tuple across several names in one step — `for k, v in counts.items():` puts the key in `k` and the value in `v`. Works when the number of names matches the number of parts |
 | view (`dict_keys`/`dict_values`/`dict_items`) | A live window onto a dict, not a copy. Change the dict and the view shows the change immediately — the opposite of a snapshot |
 | `KeyError` vs `IndexError` | `KeyError` = a dict key that doesn't exist. `IndexError` = a list/string position that doesn't exist. The error name tells you which kind of thing you were actually asking for |
+| parameter | The name in a function's `def` parens — a placeholder that exists at definition time and lives only inside the function |
+| argument | The actual value passed in when the function is **called** — `shout("hello")`, the `"hello"` is the argument |
+| local (scope) | Names that exist only inside one call — parameters and anything assigned in the body. Destroyed when the function returns |
+| shadowing | A local name hiding a global one of the same name for the duration of a call. The global isn't overwritten, just not consulted |
+| side effect | Something a function does to the outside world rather than hands back — `print()` painting the terminal. Separate from the return value |
+| nested call | One call's return value used as another call's argument — `reverse_word(reverse_word(w))`, `int(input())`. Inner parens evaluate first |
+| implicit return | What a function with no `return` statement hands back: `None`, automatically. Every function returns something |

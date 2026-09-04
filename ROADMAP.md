@@ -87,8 +87,8 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### 9. Functions — write your own
 *Teaches: parameters vs. arguments, `return` vs `print` (sharpen the S33 intuition), calling your own function*
-- [ ] REPL/drill — define a function, `return` a value, store it in a variable, `print` it
-- [ ] Puzzle — `helpers.py`: write a function that takes a word and returns it reversed
+- [x] REPL/drill — define a function, `return` a value, store it in a variable, `print` it
+- [x] Puzzle — `helper.py`: write a function that takes a word and returns it reversed
 
 ### CAPSTONE — tie it together
 *Prereqs: steps 1–9. One small puzzle that uses indexing, a loop, a dict, and a function.*
