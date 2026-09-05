@@ -32,5 +32,6 @@
 - Flagged honestly that `[::-1]` was recall, not derivation — then derived the variations
 
 ### Where to Start Next Session
-- Opener: `puzzles/tally.py` is **saved broken** (missing its `else`) — have him find why it prints nothing. Free rep on the S37 silent bug
+- `puzzles/tally.py` was saved broken (missing its `else`) — **he found and fixed it at the end of S39**, output now correct. Don't re-use as an opener
 - Basics Reboot is **complete**. Decide the next track — resume Scripting (Step 4) or a new roadmap. Talk it through in prose, no menus
+- Opener: pick a concept from 2+ sessions ago — **`return` in a loop is at streak 1 of 2**, so design the first real build to surface it again
