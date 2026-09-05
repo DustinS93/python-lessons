@@ -33,5 +33,6 @@
 
 ### Where to Start Next Session
 - `puzzles/tally.py` was saved broken (missing its `else`) — **he found and fixed it at the end of S39**, output now correct. Don't re-use as an opener
-- Basics Reboot is **complete**. Decide the next track — resume Scripting (Step 4) or a new roadmap. Talk it through in prose, no menus
-- Opener: pick a concept from 2+ sessions ago — **`return` in a loop is at streak 1 of 2**, so design the first real build to surface it again
+- **Next track DECIDED (end of S39): Expense Tracker — script to shippable app.** New `ROADMAP.md` written; Basics Reboot archived to `roadmaps/ROADMAP_basics_reboot.md`
+- Start at **Phase 1, Step 1** — drill return-vs-print reuse, then Build v1.1: extract `category_totals(expenses)` (it's `letter_tally` with a different accumulator)
+- Opener first: a concept from 2+ sessions ago. **`return` in a loop is at streak 1 of 2** — v1.1 is a natural second appearance, so do NOT hint the accumulator placement
