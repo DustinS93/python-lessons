@@ -74,3 +74,5 @@ consult mid-session when confirming a method or term.
 | side effect | Something a function does to the outside world rather than hands back — `print()` painting the terminal. Separate from the return value |
 | nested call | One call's return value used as another call's argument — `reverse_word(reverse_word(w))`, `int(input())`. Inner parens evaluate first |
 | implicit return | What a function with no `return` statement hands back: `None`, automatically. Every function returns something |
+| step (slice slot) | The third slot in `word[start:end:step]` — how far to jump between picks, not where to stop. Default `1`. Negative walks the positions backwards, which is why `[::-1]` reverses |
+| single responsibility | A function should do **one job**, and its name should say which. The tell that it's doing too many: you need the word "and" to describe it |

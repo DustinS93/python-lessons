@@ -18,6 +18,21 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - **Slicing** `[start:end]` grabs a **range** — the `end` is **excluded** ("up to, but not including"). `"python"[0:3]` → `'pyt'` (positions 0,1,2 — NOT 3)
 - Trick: `end - start` = how many you get. `[0:3]` → 3 chars
 - Blank start = from the beginning (`[:2]` → `'py'`); blank end = to the end (`[2:]` → `'thon'`); both blank = the whole thing (`[:]` → `'python'`)
+- ⚠️ **Slicing is FORGIVING, indexing is NOT.** An out-of-range end is fine — `"reboot"[0:99]` just stops at the end of the string. `"reboot"[99]` raises **`IndexError`** — NEW S39
+
+#### The third slot — `[start:end:step]` — NEW S39
+- Slicing has **three** slots, not two: `word[start : end : step]`. `step` = **how big a jump to take between each pick** — not where to stop, but how far to move each time
+- Every slice you've ever written already used a step of **`1`** (the default) — "take every position, one after another"
+- `"reboot"[0:6:2]` → `'rbo'` — positions 0, 2, 4. Step 2 = "take one, skip one"
+- `"reboot"[::2]` → `'rbo'` — blanks still mean beginning/end; the step applies across the whole thing
+- **A negative step walks the positions BACKWARDS** — and the blank slots flip meaning:
+  - step `1` → blank start = the **beginning**, blank end = the **end** (walk forwards)
+  - step `-1` → blank start = the **end**, blank end = the **beginning** (walk backwards)
+- **`word[::-1]` → `'toober'`** — the reversal idiom. It is NOT a "reverse switch"; it's "walk the positions backwards one at a time," and reversal is just what that produces
+- ⚠️ **A slice is not a loop and it does not print.** It's a single **expression** that evaluates to one brand-new string in one go. Contrast `reverse_word()` (S38): a loop, one letter per pass, accumulating. Same result, completely different machinery. The REPL *echoing* the returned value is what makes it look like printing
+- ⚠️ **`end` is excluded no matter which way you walk.** `"reboot"[5:0:-1]` → `'toobe'` — starts **at** 5 (inclusive, so `t` is there), stops **before** 0, so the `r` is missing. Direction changed, rule didn't
+- **Impossible walks give an empty string, not an error:** `"reboot"[0:6:-1]` → `''` — you can't walk backwards from 0 to 6
+- Original always unchanged — a slice **returns a new string** (strings are immutable)
 
 ### File I/O
 - `open(filename, mode)` — opens a file. Modes: `"r"` (read), `"w"` (write, overwrites), `"a"` (append)
@@ -221,3 +236,15 @@ ingrained, move it to `REFERENCE.md` as a one-line summary.
 - **Nested call** (≠ nested function): `reverse_word(reverse_word(word2))` — inner parens evaluate first, and that return value becomes the outer call's argument. Same shape as `int(input())`. **Only possible because it returns** — impossible with `print`
 - **String accumulator:** start at `""` (not `[]`), then `rev_word = rev_word + letter` each pass. Strings are immutable, so there is no appending — each pass **builds a new string and re-points the name**. (`"".append()` → `AttributeError`)
 - **Naming is documentation:** a plural parameter (`words`) holding one word lies to the reader; `reverse` names the *action*, not the *data*. Avoid single `l` — indistinguishable from `1`
+- Name a variable for its **role**, not its literal contents: `escapade = "escapade"` becomes a lie the moment the value changes; `short_word` stays true — NEW S39
+
+#### Functions that stand on their own — single responsibility — NEW S39
+- ⚠️ **A function's working material belongs INSIDE the function.** `tally = {}` above the `def` is not "the accumulator before the loop" — it's a **global the function reaches out and grabs**
+- Because dicts and lists are **mutable**, the function changes that global **in place**: no assignment, no error, no warning
+- ⚠️ **The first call always looks correct.** The damage shows on call 2, which inherits everything call 1 left behind (`letter_tally("hello")` returning `e: 3` and letters that aren't in "hello"). Not *outdated* data — **left-over** data
+- **The rule: a function should be able to answer using only what it was handed.** If it reaches outside for data, its answer depends on things the caller can't see
+- ⚠️ **Borrowing from an old file:** copying a flat script's shape into a function moves the goalposts. In `tally.py` there was no `def`, so top level was the only level — correct there, a bug here. Ask: *does this piece still belong where it lived before?*
+- **single responsibility** — a function does **one job**, and its name says which one. **The tell: you need the word "and" to describe it** ("builds a tally *and* prints a report")
+- Symptom of a two-job function: **`result =` has nowhere to go** — the value was already spent on the screen. Print is a dead end; return is a handoff
+- **A function can call another function.** `print_report(word)` calls `letter_tally(word)` itself and stores the return value — that's how the report works for any word without either function doing two jobs
+- ⚠️ `print(print_report(word))` prints the report **and then `None`** — `print_report` has no `return`. Don't wrap a function that already prints

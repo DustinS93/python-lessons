@@ -4,6 +4,8 @@ counts = {}
 for letter in word:
     if letter in counts:
         counts[letter] = counts[letter] +1 
+    else:
+        counts[letter] = 1
 
 for k, v in counts.items():
     print(f"{k}: {v}")

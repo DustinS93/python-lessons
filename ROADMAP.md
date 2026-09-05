@@ -92,8 +92,11 @@ Gaps 🔧 (front-loaded below, worst first):
 
 ### CAPSTONE — tie it together
 *Prereqs: steps 1–9. One small puzzle that uses indexing, a loop, a dict, and a function.*
-- [ ] `word_stats.py`: given a word, print its length, first & last letter, uppercase
+- [x] `word_stats.py`: given a word, print its length, first & last letter, uppercase
       version, and a letter-frequency tally — built from a function you wrote
+
+**✅ BASICS REBOOT COMPLETE (S39).** All 9 steps + capstone done. Next track undecided —
+see "After the Reboot" below.
 
 ---
 
